@@ -1,0 +1,153 @@
+<!--  <header class="reader-app-header table" id="reader-app-header">
+	<div class="table-row">
+		<div class="table-cell hidden js-back-button" id="backButton"><i class="icon-arrow3_left"></i></div>
+		<div class="table-cell" id="headerText">
+			<img class="logo-img large" src="../ck12-components/common/images/ck12.svg" alt="CK-12">
+			<span class="tablet-title" >CK-12 BrainFlex</span>
+			<span class="header-title" class="hide"></span>
+		</div>
+	</div>
+</header> -->
+<div id="profileBuilderModal">
+	<div class="large-12 small-12 columns Image-container text-center">
+	    <div class="image_upload_holder">
+	    	<div class="profile-img-wrap">
+	    		<!--<img id="profileImage" src="http://placekitten.com/110/100" width="145" height="135"/>-->
+	    		<img id="profileImage" data-default-image="true" data-image-url="" src="img/profile_photo_default.png"/>
+	    		<img id="ajaxLoadingWait" class="no-display chal" style="margin:70px" src="img/loader.gif"/>
+	    	</div>
+		<div id="image_form_container" class="">
+		   	<div class="text-center">
+				<a><span class="uploadimage_btn_display js_upload_image_btn"></span></a>
+		    	</div>
+		</div>
+		<div id="uploadimage_form_container">
+		    	<form id="frm_imageupload" name="frm_imageupload" action="https://gamma.ck12.org/save/profile/image">
+				<input id="resourcePath" type="file" class="uploadimage_input" name="resourcePath" />
+				<input type = "text" id = "resourceType" class="no-display" name = "resourceType" value="image"/>
+		    	</form>
+		</div>
+	    </div>
+	</div>
+
+	<div class="large-12 columns Profile-container small-12">
+	    <div id = 'userInformationContainer'>
+	    	 <div id ="nameHeader" class="row-info">
+				<span class="key-details">My name is</span> 
+				<div class="value-details">
+					<input id="userName" name="fullname" placeholder="" type="text" class="f-name validated-input input-custom width-inc margin-change" maxlength="63" autocorrect="off" autocapitalize="on" spellcheck="false" required disabled/>
+				</div>
+		 	</div>
+
+			 <div id="role" class="row-info">
+				<span class="key-details">I'm a</span> 
+				<div class="value-details" style="">
+				   <form>
+				      <input id = "roleOption-1" type="radio" value="teacher" class="radio-value" name="member">
+				      <label for="teacher">Teacher</label>
+				      <input id = "roleOption-2" type="radio" class="radio-value" value="student" name="member">
+				      <label for="student">Student</label>
+				   </form>
+				</div>
+		     </div>
+
+		     <div id ="location-header" class="row-info">
+				<span class="key-details">Located in</span> 
+				<div class="value-details">
+				<div id="location-selector" class= "js_location_select_link width-inc margin-change location-grade-info"></div>
+					<input id="" name="location" placeholder="" type="text" class="js_location_select_link f-name validated-input input-custom width-inc margin-change" maxlength="63" autocorrect="off" autocapitalize="on" spellcheck="false" required/>
+				</div>
+		 	</div>
+		 	<div id ="gradeSelector" class="row-info">
+				<span class="key-details" id ="te-su">I'm in</span> 
+				<div class="value-details">
+				<div id="grade-selector" class= "width-inc margin-change location-grade-info js_grade_select_link"></div>
+					<input id="" name="location" placeholder="" type="text" class="f-name validated-input input-custom width-inc margin-change js_grade_select_link" maxlength="63" autocorrect="off" autocapitalize="on" spellcheck="false" required/>
+				</div>
+		 	</div>
+		 	<div class="text-center continue-button imp-class">
+		    	<input class="continue-btn tangerine button large disabled" type="button" id="continue_btn" value="Register" ></input>
+	    </div>
+		 <!-- <div id="location-header" class="row-info">
+			 located in
+		 </div>
+		 <div id="location">
+			<span id="location-selector"class="js_location_select_link bg-pink-semitransparent" href="#">somewhere, some state.</span>
+			
+		
+		 </div>
+
+		 <div id="gradeSelector" class="hide">
+			<span class="message">I'm in</span>
+		
+			<div id="grade-selector"class="grade_container">
+			    <span class="bg-pink-semitransparent js_grade_select_link" id='grade-selector-link'>this grade.</span>
+			    
+			</div>
+		 </div>
+	    </div>
+	    <div class="text-center continue-button">
+		    	<input class="continue-btn tangerine button large disabled" type="button" id="continue_btn" value="Continue" ></input>
+	    </div> -->
+	    
+	</div>
+	<div class="clear"></div>
+</div>
+<div id=profileBuilderModal-inputDetails class="hide" >
+	<div id=profileContainer-inputDetails>
+		<div id="roleOptions" class="no-display">
+			<div id="roleOption-1" class="roleOption">I am a teacher.</div>
+			<div id="roleOption-2" class="roleOption">I am a student.</div>
+		</div>
+		<div id="locationSelectionFormContainer" class="formDropdownContainer hide">
+			<div class="location-row-1" >
+					<div id='location-subRow-1'>	Add Location: </div>
+					<span class="optional-2">(optional)</span>
+					<i class="close-icon-black close-popup"></i>
+			</div>	
+			<div id="locationSelectionForm" class = "formDropdown">
+				<div id="usLocationContainer" class="hide">
+				    	<input type="text" id="usLocation" placeholder="enter zip code"></input>
+				    	<span class="international-location-link" >I live outside the U.S.</span>
+				</div>
+				<div id="internationalLocationContainer" class="hide">
+				    	<span class="us-location-link" >I live in the U.S.</span>
+				    	<input type="text" id="internationalLocation" placeholder="enter city, country"></input>
+				</div>
+			</div>
+		</div>
+		<div id="gradeSelectionFormContainer" class="formDropdownContainer close hide">
+		
+			<div id="gradeSelectionForm" class = "formDropdown">	
+				<div class="grades-row-1" >
+					<span id='grades-subRow-1'>	Select grade: </span>
+					<span class="optional-2">(optional)</span>
+					<i class="close-icon-black close-popup"></i>
+				</div>
+				<div class="grades-row-2 row" >	
+					<div class="grades medium-12 small-12 large-12 columns" id="1">Kindergarten</div>
+				</div>
+				<div class="grades-row-3 row" >
+					<div class="grades inlineGrades medium-2 small-2 large-2 columns" id="2">1</div>
+					<div class="grades inlineGrades medium-2 small-2 large-2 columns" id="3">2</div>
+					<div class="grades inlineGrades medium-2 small-2 large-2 columns" id="4">3</div>
+					<div class="grades inlineGrades medium-2 small-2 large-2 columns" id="5">4</div>
+					<div class="grades inlineGrades medium-2 small-2 large-2 columns" id="6">5</div>
+					<div class="grades inlineGrades medium-2 small-2 large-2 columns" id="7">6</div>
+				</div>
+				<div class="grades-row-4 row" >
+					<div class="grades inlineGrades medium-2 small-2 large-2 columns" id="8">7</div>
+					<div class="grades inlineGrades medium-2 small-2 large-2 columns" id="9">8</div>
+					<div class="grades inlineGrades medium-2 small-2 large-2 columns" id="10">9</div>
+					<div class="grades inlineGrades medium-2 small-2 large-2 columns" id="11">10</div>
+					<div class="grades inlineGrades medium-2 small-2 large-2 columns" id="12">11</div>
+					<div class="grades inlineGrades medium-2 small-2 large-2 columns" id="13">12</div>
+				</div>
+			</div>
+	    	</div>
+		<div class="skip-continue-buttons hide">
+		 <!-- 	<input type="button" id="button-skip"value="Skip" class="skip turquoise button small disabled grey">   -->  
+		    	<!-- <input type="button" id="button-continue"value="Next" class="next tangerine button small diasbled "> -->
+		</div>
+	</div>	
+</div>

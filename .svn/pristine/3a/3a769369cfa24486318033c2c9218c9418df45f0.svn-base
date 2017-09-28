@@ -1,0 +1,1736 @@
+define('Launcher',['ajax','SideNavigation'],function(ajax,SideNavigation){
+        //require(['//dvninqhj78q4x.cloudfront.net/dexterjs/dexterjs.min.js']); // loading dexterJS
+	
+	if(document.domain.search('ck12.org') != '-1'){
+		document.domain = 'ck12.org';
+	}
+	
+    var referrer , launcherURL, launcherOnlyURL , landing_referrer , homeSourcePath , filterType ;
+     launcherURL = launcherOnlyURL = window.location.href ;
+    if(launcherURL.indexOf('referrer=') > -1){
+    	if(launcherURL.indexOf('referrer=simulation') > -1){
+    		landing_referrer = launcherURL.slice(launcherURL.indexOf('simulationName=')+15  , launcherURL.length) ;
+    	}else if(launcherURL.indexOf('referrer=teacher') > -1){
+    		landing_referrer = "teacher_landing" ;
+    	}else if(launcherURL.indexOf('referrer=student') > -1){
+    		landing_referrer = "student_landing" ;
+    	}
+
+    	 //launcherOnlyURL = launcherURL.slice(0  , launcherURL.indexOf('?referrer=')) ;
+    	 launcherOnlyURL = window.location.origin+window.location.pathname;
+     }
+    //homeSourcePath = launcherOnlyURL.slice(0,launcherOnlyURL.indexOf('/index.html'));
+    homeSourcePath = window.location.origin+window.location.pathname.split("index.html")[0];
+	//Device compatibility screen
+	var deviceCompatibilityAlertScreen = document.createElement('div');
+    deviceCompatibilityAlertScreen.id = "deviceCompatibilityAlert";
+    deviceCompatibilityAlertScreen.classList.add('device-alert');
+    deviceCompatibilityAlertScreen.classList.add('hide');
+    deviceCompatibilityAlertScreen.innerHTML = '<div class="device-message"></div><div class="device-error-message">Our simulations are compatible with tablets, laptops and desktops.</div>';
+    document.getElementsByTagName('body')[0].appendChild(deviceCompatibilityAlertScreen);
+    var minDeviceWidth = 700;
+    if(((window.outerWidth>window.outerHeight)&&(window.outerWidth<minDeviceWidth))||((window.outerWidth<window.outerHeight)&&(window.outerHeight<minDeviceWidth)) || navigator.userAgent.match(/(iPhone|iPodN)/g)){
+    	deviceCompatibilityAlertScreen.classList.remove('hide');
+    	if(window.outerWidth>window.outerHeight){
+    		document.getElementsByClassName('device-message')[0].style.marginTop = "8%";
+    	}
+    	deviceCompatibilityAlertScreen.ontouchmove = function(e){
+			e.preventDefault();
+		};
+    	return;
+    }
+   
+    
+    var userInfo ,  checkForUserCredentials ;
+	var bodyParent = document.getElementsByTagName('body')[0],coverHtml,scrollX=0, simData, eidsData, stdData, thumbnailCollection, searchClick, scrollContainer, sideNav, sideNav2, conceptsArray=[], standardsArray=[], nameOfStandards=[], nameOfConcepts=[];
+	
+	ajax.loadURL("https://www.ck12.org/auth/get/info/my", {
+        "withCredentials": true,
+        "callback": checkForUserCredentials
+    });
+	
+	function checkForUserCredentials(response) {
+        var res ;
+	    userInfo = response, res = JSON.parse(response);
+	    
+	    if (res.responseHeader.status !== 0) {
+	       // window.location = "https://www.ck12.org/auth/signin?returnTo="+encodeURIComponent(window.location.href);
+	    }
+	    else{  }
+        	 /****** DexterJs config Update ******/   
+             /*dexterjs.set("config", {
+                 clientID: 24839961 ,
+                 memberID : res.response.id ,
+                 trackPageTime: false ,
+                 apis: {
+                     recordEvent: ("http://www.ck12.org/dexter/record/event"),
+                     recordEventBulk: ("http://www.ck12.org/dexter/record/event/bulk"),
+                     recordEventBulkZip: ("http://www.ck12.org/dexter/record/event/bulk/zip")
+                 }
+             });
+            
+    		dexterjs.logEvent("FBS_SIMULATION_BROWSE", {
+                referrer : landing_referrer ,
+            });
+        	/****** DexterJs config Update ******/
+	   
+	}
+	
+	var init_cover , init_simData ;
+	ajax.loadURL('html/cover.html',{
+		"callback" : init_cover
+	});
+	  function _loadUserProfile() {
+
+
+	        if (!/^[\],:{}\s]*$/.test(localStorage.reader_app_config.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+	        	this.info = {};
+	        	this.info.userImage = false;
+	            return false;
+	        }
+	        var info = JSON.parse(localStorage.reader_app_config);
+	        this.info = info;
+	        
+	          
+	         /*   *//****** DexterJs config Update ******//*
+	            dexterjs.set("config", {
+	                memberID   : this.info.id ,
+	            });
+	            *//****** DexterJs config Update ******/
+	            
+	        if (!info.email) {
+	        	this.info.userImage = false;
+	            return false;
+	        }
+	        
+	        if (!info.userImage) {
+	            info.userImage = 'http://interactives.ck12.org/simulations/common/allspark/1.0.5/assets/images/avatar_male.png';// : 'http://interactives.ck12.org/simulations/common/allspark/1.0.5/assets/images/avatar_female.png';
+	        }
+	        if (typeof String.prototype.startsWith != 'function') {
+	      	  String.prototype.startsWith = function (str){
+	      	    return this.indexOf(str) === 0;
+	      	  };
+	      	}
+	          var urlData = info.userImage;
+	          var flxUrl = '/flx/show/image';
+	          if(urlData.startsWith(flxUrl)){
+	          	info.userImage = urlData.replace("/flx/show/image", URL.FLX_HOST_URL+"show/image");
+	          }
+//	          this.info = info;
+	        this.info.userImage = info.userImage;
+	        //toolbarOptions.userAvatar = this.info.userImage;
+	        document.getElementsByClassName("user-avatar-image")[0].src = this.info.userImage;
+	        document.getElementsByClassName("name")[0].innerHTML = this.info.userName;
+	        document.getElementsByClassName("email")[0].innerHTML = this.info.email;
+	        document.querySelector("#UserProfileView img").src = this.info.userImage;
+	        //that.toolBarView = new ToolBarView(toolbarOptions);
+	        this.userProfile = true;
+	/*        this.UserProfileView = new UserProfileView(info);
+	        this.addView({
+	            'UserProfileView': this.UserProfileView
+	        });
+	        this.showView('UserProfileView');
+	        this.viewObjs['ToolBarView'].updateUser(toolbarOptions);*/
+
+
+	    }
+	 function openSignOut(e){
+		 e.preventDefault();
+			e.stopPropagation();
+		 document.getElementById("UserProfileView").classList.remove('hide')
+		 
+	 }
+	 function goToLogin(e){
+		
+		 e.preventDefault();
+		 e.stopPropagation();
+		 readerAppHelper.logout(function(data){
+			 if(checkDeviceConnectivity()){
+				 readerAppHelper.clearUserInfo();
+				 window.location.href = "../auth/login.html"
+			 }else{
+				 showErrorMessage();
+			 }
+			
+         });
+	 }
+	function init_cover(responseText){
+		var onlineMode = checkDeviceConnectivity();
+		coverHtml = responseText;
+		bodyParent.innerHTML = coverHtml;
+		_loadUserProfile();
+		
+		document.getElementsByClassName('close-modal')[0].addEventListener('click',closeIframe,false);
+		document.getElementsByClassName('clear-box')[0].addEventListener('click',clearFilter,false);
+		document.getElementsByClassName('clear-item')[0].classList.add('hide-back');
+		document.getElementsByClassName("user-avatar")[0].addEventListener("click",openSignOut,false)
+		document.getElementsByClassName("signout")[0].addEventListener("click",goToLogin,false);
+		document.getElementsByClassName("signout")[0].addEventListener("touch",goToLogin,false)
+		
+		ErrorMsgWindow  = document.getElementById("MessageModalView");
+		ErrorMsgClose = document.getElementById('msgModalClose');
+		ErrorMsgWindow.addEventListener('touchmove',function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		},false);
+		ErrorMsgWindow.addEventListener('scroll',function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		},false);
+		ErrorMsgClose.addEventListener('click',closeErrorMsg,false);
+		/************** video code ************/
+		
+		var InstructionVideo , 
+		InstructionTutorial , 
+		InstructionClose ,
+		fullScreenInstruction ,
+		iframeParent ,
+		fullScreen = false , 
+		instructionVideoFrame ,
+		videoUrl = "https://www.youtube.com/embed/cmdBI54ew3M";
+		
+		InstructionVideo  = document.getElementsByClassName('InstructionVideo-screen')[0] ;
+		InstructionTutorial = document.getElementsByClassName('instructor-tutorial')[0] ;
+		InstructionClose = document.getElementsByClassName('instruction-close')[0] ;
+		fullScreenInstruction = document.getElementsByClassName('full-screen-icon')[0] ;
+		iframeParent = document.getElementsByClassName('iframe-parent')[0] ;
+		instructionVideoFrame = document.getElementsByClassName('instruction-video-frame')[0] ;
+		InstructionTutorial.addEventListener('click',initInstructionVideo,false);
+		InstructionVideo.addEventListener('touchmove',function(e){
+
+			e.preventDefault();
+			e.stopPropagation();
+		},false);
+		InstructionVideo.addEventListener('scroll',function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		},false);
+		
+		InstructionClose.addEventListener('click',closeInstructionVideo,false);
+		fullScreenInstruction.addEventListener('click',togglefullScreen,false)
+		;
+		function initInstructionVideo(e){
+			instructionVideoFrame.setAttribute('src' , videoUrl);
+			InstructionTutorial.classList.add('hide-back');
+			InstructionVideo.classList.remove('hide');
+		}
+		
+		function closeInstructionVideo(e){
+			InstructionTutorial.classList.remove('hide-back');
+			InstructionVideo.classList.add('hide');
+			instructionVideoFrame.setAttribute('src' , '');
+		}
+		
+		function togglefullScreen(e){
+			fullScreen = !fullScreen;
+			if(fullScreen){
+				iframeParent.classList.add('full-screen-view');
+				e.currentTarget.innerHTML = "Exit full screen";
+			}
+			else{
+				iframeParent.classList.remove('full-screen-view');
+				e.currentTarget.innerHTML = "Full screen";
+			}
+		}
+		/************** video code ************/
+		
+		
+		ajax.loadURL('json/simulationsData.json',{
+	            "callback" : function(responseText){
+	                  simData = JSON.parse(responseText);
+	                  init_simData();
+	                  //ajax.loadURL('json/standardsData.json',{
+	                  if(!onlineMode){
+	                         var standardOffline = localStorage.getItem("saved-standards");
+	                         stdData = JSON.parse(standardOffline);
+	                         console.log(stdData);
+	                    }else{
+	                           ajax.loadURL('http://www.ck12.org/api/flx/get/branch/standards?set=NGSS&branch=SCI.PHY',{
+	                                       "callback" : setStandardObject
+	                                });
+	                    }
+	                  
+	                  
+	            }
+		});
+		function setStandardObject(responseText){
+		    localStorage.setItem("saved-standards",responseText);
+		    stdData = JSON.parse(responseText);
+		    init_standardsData(stdData);
+		};
+		function init_standardsData(stdData){
+			createSimCards();
+			arrangeStandards();
+			document.getElementsByClassName('no-match-found')[0].classList.add('hide');
+		};
+
+
+	};
+	
+	/************** error Msg code ************/
+	
+	
+	function showErrorMessage(e){
+		ErrorMsgWindow.classList.remove('hide');
+	};
+	function closeErrorMsg(e){
+		ErrorMsgWindow.classList.add('hide');
+	};
+	
+	/************** error Msg code ************/	
+	function init_simData(){
+
+		thumbnailCollection = document.getElementsByClassName('thumbnail-view-holder')[0];
+		
+		searchClick = document.getElementsByClassName('header-input')[0];
+		searchClick.addEventListener('click',doNothing,false);
+		searchClick.addEventListener('touchstart',doNothing,false);
+		searchClick.addEventListener('keyup',searchItem,false);
+		
+		scrollContainer = document.getElementsByTagName('header')[0];
+		
+		window.addEventListener('scroll',scrollSims,false);
+		document.getElementsByClassName("filter-tab")[0].addEventListener("click",filter,false)
+		conceptNavParent = document.getElementsByClassName('concept-filter')[0];
+		conceptNavParent.classList.add('concept-filter-list');
+		standardsNavParent = document.getElementsByClassName('standard-filter')[0];
+		standardsNavParent.classList.add('standards-filter-list');
+		
+		ajax.loadURL('json/eids.json',{
+			"callback" : init_conceptData
+			
+		});
+		function filter(e){
+			/*for(var i = 0;i<document.getElementsByClassName("sort-item").length;i++){
+				document.getElementsByClassName("sort-item")[i].classList.remove("hide");
+			}*/
+			e.stopPropagation();
+			document.getElementsByClassName("filter-main-wrapper")[0].classList.remove("go-left");
+		}
+		function init_conceptData(responseText){
+			eidsData = JSON.parse(responseText);
+			
+			createSimCards();
+			arrangeConcepts();
+			//arrangeStandards();
+			
+			for(var groupCount = 0; groupCount < newStandardsArray.length; groupCount++){
+				newStandardsArray[groupCount]["data"].sort();
+			}
+			
+			document.getElementsByClassName("filter-main-wrapper")[0].addEventListener('click',doNothing,false);
+			document.getElementsByClassName("filter-container")[0].style.height = window.innerHeight-140 +"px";
+			
+			document.getElementsByClassName("filter-menu-wrapper")[0].addEventListener('click',toggleExpand,false);
+			document.getElementsByClassName("filter-menu-wrapper")[1].addEventListener('click',toggleExpand,false);
+			
+			var options = {
+					parent: conceptNavParent,
+					data: newConceptsArray,
+					simData: simData,
+					search: function(names){
+						showSearchedSimsWithConcepts(names);
+					},
+					setSearched: function(isConceptSelected){
+						setConceptSelection(isConceptSelected);
+					}
+			};
+			sideNav = new SideNavigation(options);
+			var sideNavButton = document.getElementsByClassName('sort-box-concept')[0];
+			sideNavButton.addEventListener('click',sideNav.openSideNavScreen.bind(sideNav),false);
+			sideNavButton.addEventListener('touchstart',doNothing,false);
+			
+			document.addEventListener('click',sideNav.closeSideNavScreen.bind(sideNav),false);
+			document.addEventListener('touchstart',sideNav.closeSideNavScreen.bind(sideNav),false);
+			
+			document.getElementsByClassName('back-arrow')[0].addEventListener('click',collapseSearch,false);
+			
+			checkIncomingUrl();
+			
+			if(window.innerWidth<900){
+				var navPs = document.getElementsByClassName('sort-item');
+				var navCs = document.getElementsByClassName('side-nav-screen');
+				document.getElementsByClassName('clear-item')[0].style.paddingLeft = "10px";
+				for(var i=0;i<navPs.length;i++){
+					navPs[i].style.width = '270px';
+					navCs[i].style.width = '270px';
+				}
+			}
+			
+		}
+	}
+	
+	function checkDeviceConnectivity(){
+		var state = navigator.onLine;
+		return state;
+	};
+	
+	function checkIncomingUrl(){
+		var queryString=[],conceptsPassed=[];
+		
+        if (window.location.search.split('?').length > 1) {
+            var params = window.location.search.split('?')[1].split('&');
+            for (var i = 0; i < params.length; i++) {
+                var key = params[i].split('=')[0];
+                var value = params[i].split('=')[1];
+                queryString[key] = value;
+            }
+            if (queryString["backUrl"] != null) {
+            	backUrl = queryString["backUrl"];
+            	document.getElementsByClassName('back-button')[0].classList.remove('hide-back');
+            	document.getElementsByClassName('back-button')[0].addEventListener('click',goToBackUrl,false);
+            }
+            if (queryString["c"] != null) {
+            	var concepts = queryString["c"].split(",");
+                for (var i = 0; i < concepts.length; i++) {
+                	var fullConcept = concepts[i].split("%20");
+                	concepts[i] = fullConcept[0];
+                	for (var j = 1; j < fullConcept.length; j++) {
+                		concepts[i] += " "+fullConcept[j];
+                    }
+                	conceptsPassed.push(concepts[i].toLowerCase());
+                }
+            }
+            if (conceptsPassed.length != 0) {
+            	hideAll();
+            	showSearchedSimsWithConcepts(conceptsPassed);
+            	sideNav.selectCheckBox(conceptsPassed);
+            }
+        }
+	}
+
+	function goToBackUrl(){
+		window.location.href = backUrl;
+	}
+	
+	function doNothing(e){
+		e.stopPropagation();
+	}
+	
+	function toggleExpand(e){
+		e.stopPropagation();
+		e.currentTarget.nextElementSibling.classList.toggle('hide');
+		e.currentTarget.childNodes[1].classList.toggle('wrapper-plus-icon');
+	}
+
+	function createSimCards(){
+		thumbnailCollection.innerHTML = "";
+		for(var simCount = 0; simCount<simData["simulations"].length; simCount++){
+			createIthCard(simCount);
+		}
+	}
+	
+	function clearFilter(e){
+		e.stopPropagation();
+		sideNav.unselectAllCheckBox();
+		sideNav2.unselectAllCheckBox();
+		showAll();
+		document.getElementsByClassName('clear-item')[0].classList.add('hide-back');
+		
+		if(searchClick.value){
+			document.getElementsByClassName('no-match-found')[0].classList.add('hide');
+			searchClick.value='';
+		}
+		simSelected=false;
+		nameOfConcepts=[],nameOfStandards=[];
+	}
+	
+	function createIthCard(simCount){
+		var card = document.createElement("div");
+		card.classList.add('thumbnail-view');
+		card.classList.add('thumbnail-view'+simCount);
+		thumbnailCollection.appendChild(card);
+		
+		var cardImage = document.createElement("div");
+		cardImage.classList.add('tile-image');
+		card.appendChild(cardImage);
+		cardImage.style.backgroundImage = "url("+simData["simulations"][simCount].thumbnailUrl+")";
+		//cardImage.style.backgroundImage = "url(http://simtest.ck12.org/simulations/repository/"++")";
+		
+		if(simData["simulations"][simCount].simulationUrl.match(/www.ck12.org/i)){
+			cardImage.style.backgroundImage = "url("+simData["simulations"][simCount].thumbnailUrl+")";
+		}
+		if(simData["simulations"][simCount].simulationUrl == ""){
+			cardImage.classList.add('comming-soon');
+		}
+		
+		cardImage.setAttribute("id",simData["simulations"][simCount].name);
+		
+		var cardImageName = document.createElement("div");
+		cardImageName.classList.add('tile-image-name');
+		cardImage.appendChild(cardImageName);
+		
+		var simName = document.createElement("span");
+		simName.classList.add('sim-title');
+		simName.innerHTML = simData["simulations"][simCount].name;
+		cardImageName.appendChild(simName);
+		
+		var cardDownload = document.createElement("div");
+		cardDownload.classList.add('tile-download');
+		cardImage.appendChild(cardDownload);
+		cardDownload.addEventListener('click',downloadSim,false);
+
+		var simDesc = document.createElement("div");
+		simDesc.classList.add('sim-desc');
+		card.appendChild(simDesc);
+
+		var simCovers = document.createElement("div");
+		simCovers.classList.add('sim-covers-desc');
+		simDesc.appendChild(simCovers);
+		
+		var simConceptsCover = document.createElement("div");
+		simConceptsCover.classList.add('sim-covers');
+		simCovers.appendChild(simConceptsCover);
+
+		var simConcepts = document.createElement("div");
+		simConcepts.classList.add('sim-covers-concepts');
+		simConceptsCover.appendChild(simConcepts);
+		simConcepts.innerHTML = "<span class='sim-info sim-covers-focused'>CONCEPTS</span>";
+		simConcepts.addEventListener('click',showCovers,false);
+		
+		var simStandardsCover = document.createElement("div");
+		simStandardsCover.classList.add('sim-covers');
+		simCovers.appendChild(simStandardsCover);
+		
+		var simStandards = document.createElement("div");
+		simStandards.classList.add('sim-covers-standards');
+		simStandardsCover.appendChild(simStandards);
+		simStandards.innerHTML = "<span class='sim-info'>STANDARDS</span>";
+		simStandards.addEventListener('click',showCovers,false);
+		
+		var simConceptsTags = document.createElement("div");
+		simConceptsTags.classList.add('sim-covers-tags');
+		simDesc.appendChild(simConceptsTags);
+
+		var simStandardsTags = document.createElement("div");
+		simStandardsTags.classList.add('sim-covers-tags');
+		simStandardsTags.classList.add('sim-covers-tags-s');
+		simDesc.appendChild(simStandardsTags);
+
+		var simStdDescView = document.createElement("div");
+		simStdDescView.classList.add('sim-std-desc-view');
+		simStdDescView.classList.add('hide');
+		simDesc.appendChild(simStdDescView);
+		
+		for(var simConceptCount = 0; simConceptCount<simData["simulations"][simCount].concepts.length; simConceptCount++){
+			var simConceptName = document.createElement("a");
+			simConceptsTags.appendChild(simConceptName);
+			var conceptId = simData["simulations"][simCount].concepts[simConceptCount];
+			
+			if(simConceptCount<(simData["simulations"][simCount].concepts.length-1)){
+				setConceptName(conceptId);
+				simConceptName.innerHTML = " "+simConceptsName;
+				
+				var simConceptSeperator = document.createElement("span");
+				simConceptsTags.appendChild(simConceptSeperator);
+				simConceptSeperator.innerHTML = ",";
+			}
+			else{
+				setConceptName(conceptId);
+				simConceptName.innerHTML = " "+simConceptsName;
+			}
+			//simConceptName.setAttribute("href","http://www.ck12.org/Physics/"+simConceptsHandle);
+			simConceptName.refValue = simConceptsHandle;
+			simConceptName.addEventListener('click',function(){
+				if(checkDeviceConnectivity()){
+					openIframe(this);
+				}else{
+					showErrorMessage();
+				}
+			},false);
+			
+			if(stdData && stdData.response.concepts[conceptId]){
+				var standardId = stdData.response.concepts[conceptId].standards;
+				setStandardName(standardId);
+			}
+		}
+		
+		if(standardIds.length>0){
+			for(var simStandardCount = 0; simStandardCount<standardIds.length; simStandardCount++){
+				var simStandardName = document.createElement("a");
+				simStandardsTags.appendChild(simStandardName);
+				
+				if(simStandardCount<(standardIds.length-1)){
+					simStandardName.innerHTML = " "+simStandardsName[simStandardCount];
+					
+					var simStandardSeperator = document.createElement("span");
+					simStandardsTags.appendChild(simStandardSeperator);
+					simStandardSeperator.innerHTML = ",";
+				}
+				else{
+					simStandardName.innerHTML = " "+simStandardsName[simStandardCount];
+				}
+				simStandardName.refValue = simStandardsDesc[simStandardCount];
+				simStandardName.addEventListener('click',showStdDesc,false);
+			}
+		}
+		else{
+			simStandardsCover.classList.add('hide-back');
+		}
+		standardIds = [],standardDesc=[],firstSimStandard=true;
+		
+		cardImage.addEventListener('click',openSim,false);
+
+		document.getElementsByClassName('sim-covers-concepts')[simCount].addEventListener('click',showConcepts,false);
+		document.getElementsByClassName('sim-covers-standards')[simCount].addEventListener('click',showStandards,false);
+		simStandardsTags.classList.add('hide-back');
+	}
+	
+	function showConcepts(e){
+		e.currentTarget.parentElement.parentElement.parentElement.childNodes[2].classList.add('hide-back');
+		e.currentTarget.parentElement.parentElement.parentElement.childNodes[1].classList.remove('hide-back');
+	}
+	
+	function showStandards(e){
+		e.currentTarget.parentElement.parentElement.parentElement.childNodes[1].classList.add('hide-back');
+		e.currentTarget.parentElement.parentElement.parentElement.childNodes[2].classList.remove('hide-back');
+	}
+
+	var lastSimStdShowed,lastSimStd;
+	function showStdDesc(e){
+		e.stopPropagation();
+		if(lastSimStdShowed){
+			lastSimStdShowed.classList.add('hide');
+			lastSimStd.style.fontWeight = 'normal';
+		}
+		
+		lastSimStdShowed = e.currentTarget.parentElement.parentElement.childNodes[3];
+		lastSimStdShowed.classList.remove('hide');
+		lastSimStdShowed.innerHTML = e.currentTarget.refValue;
+		
+		lastSimStd = e.currentTarget;
+		lastSimStd.style.fontWeight = 'bold';
+	}
+	
+	function showCovers(e){
+		var  isTabType ;
+		for(var i=0;i<2;i++){
+			e.currentTarget.parentElement.parentElement.childNodes[i].childNodes[0].childNodes[0].classList.remove('sim-covers-focused');
+		}
+		e.currentTarget.childNodes[0].classList.add('sim-covers-focused');
+		
+		if(e.target.innerHTML.indexOf('STANDARDS') > -1){
+			isTabType = "standards" ;
+		}else if(e.target.innerHTML.indexOf('CONCEPTS') > -1){
+			isTabType = "concept" ;
+    	}
+		
+		/*dexterjs.logEvent("FBS_SIMULATION_TILE_TAB", {
+			
+			"tabType" : isTabType
+          
+        });*/
+		
+	}
+	
+	function openIframe(e){
+		var modalHeight = Math.max((document.getElementsByClassName('main-container')[0].clientHeight + 88),(window.innerHeight-118));
+		document.getElementsByClassName('modal-window')[0].classList.remove('hide');
+		document.getElementsByClassName('modal-window')[0].style.height = modalHeight+"px"; 
+		document.getElementsByClassName('iframe-container')[0].style.top = window.scrollY + 229 + "px";
+		var refUrl = "http://www.ck12.org/embed/#module=concept&handle="+e.refValue+"&branch=physics&filters=&nochrome=true/referrer=simulation_tile";
+		
+		document.getElementsByClassName('i-frame')[0].setAttribute("src",refUrl);
+	}
+
+	function closeIframe(){
+		document.getElementsByClassName('modal-window')[0].classList.add('hide');
+		document.getElementsByClassName('i-frame')[0].setAttribute("src","");
+	}
+	
+	function goBackToLauncher(){
+		var iFrame = document.getElementsByClassName('i-frame')[0];
+		iFrame.setAttribute("src","");
+		iFrame.classList.add('hide');
+		document.getElementsByClassName('thumbnail-view-holder')[0].classList.remove('hide');
+		document.getElementsByClassName('side-navigation-button')[0].classList.remove('hide');
+		document.getElementsByClassName('go-back')[0].classList.add('hide');
+		document.getElementsByClassName('search-box')[0].classList.remove('hide');
+	}
+	
+	var simConceptsName,simConceptsHandle, firstConcept=true;
+	function setConceptName(conceptId){
+		var presentConcept=false;
+		simConceptsName = "";
+		for(var eidsConceptCount = 0; eidsConceptCount<eidsData["concepts"].length; eidsConceptCount++){
+			if(conceptId == eidsData["concepts"][eidsConceptCount].encodedID){
+				simConceptsName = eidsData["concepts"][eidsConceptCount].name;
+				simConceptsHandle = eidsData["concepts"][eidsConceptCount].handle;
+			}
+		}
+
+		for(var arrayLength = 0; arrayLength<conceptsArray.length; arrayLength++){
+			if(conceptsArray[arrayLength]==simConceptsName){
+				presentConcept = true;
+			}
+		}
+		if(firstConcept || !presentConcept){
+			conceptsArray.push(simConceptsName);
+			firstConcept = false;
+		}
+	}
+	
+	var group1=[],group2=[],group3=[],group4=[],group5=[],group6=[],
+		newConceptsArray=[{name:"Motion and Force",data:group1},{name:"Momentum, Work, Power, and Energy",data:group2},{name:"Waves",data:group3},{name:"Electricity and Magnetism",data:group4},{name:"Atom",data:group5},{name:"Introduction to Physics",data:group6}];
+	
+	function arrangeConcepts(){
+		for(var eidsConceptCount = 0; eidsConceptCount<eidsData["concepts"].length; eidsConceptCount++){
+			for(var conceptCount = 0; conceptCount < conceptsArray.length; conceptCount++){
+				if(eidsData["concepts"][eidsConceptCount].name == conceptsArray[conceptCount]){
+					for(var groupCount = 0; groupCount < newConceptsArray.length; groupCount++){
+						if(eidsData["concepts"][eidsConceptCount].category == newConceptsArray[groupCount]["name"]){
+							newConceptsArray[groupCount]["data"].push(conceptsArray[conceptCount]);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	var simStandardsName,simStandardsHandle,firstStandard=true,firstSimStandard=true,standardIds=[],standardDesc=[],simStandardsDesc;
+	function setStandardName(standardId){
+		var presentStandard=false,presentSimStandard=false;
+		simStandardsName = standardId;
+		for(var arrayCount = 0; arrayCount < simStandardsName.length; arrayCount++){
+			for(var arrayLength = 0; arrayLength<standardsArray.length; arrayLength++){
+				if(standardsArray[arrayLength]["label"]==stdData.response.standards[simStandardsName[arrayCount]].label){
+					presentStandard = true;
+				}
+			}
+			if(firstStandard || !presentStandard){
+				standardsArray.push({label:stdData.response.standards[simStandardsName[arrayCount]].label,description:stdData.response.standards[simStandardsName[arrayCount]].description,ancestors:stdData.response.standards[simStandardsName[arrayCount]].ancestors});
+				firstStandard = false;
+			}
+			
+			for(var arrayLength = 0; arrayLength<standardIds.length; arrayLength++){
+				if(standardIds[arrayLength]==stdData.response.standards[simStandardsName[arrayCount]].label){
+					presentSimStandard = true;
+				}
+			}
+			if(firstSimStandard || !presentSimStandard){
+				firstSimStandard = false;
+				standardIds.push(stdData.response.standards[simStandardsName[arrayCount]].label);
+				standardDesc.push(stdData.response.standards[simStandardsName[arrayCount]].description);
+			}
+			presentSimStandard=false;
+		}
+		simStandardsName = standardIds;
+		simStandardsDesc = standardDesc;
+	}
+
+	var groupS1=[],groupS2=[],groupS3=[],groupS4=[],newStandardsArray=[{name:"MS-ESS",data:groupS1},{name:"MS-PS",data:groupS2},{name:"HS-ESS",data:groupS3},{name:"HS-PS",data:groupS4}];
+	
+	function arrangeStandards(){
+		for(var standardCount = 0; standardCount < standardsArray.length; standardCount++){
+			for(var groupCount = 0; groupCount < newStandardsArray.length; groupCount++){
+				if(standardsArray[standardCount]["label"].match(newStandardsArray[groupCount]["name"])){
+					newStandardsArray[groupCount]["data"].push(standardsArray[standardCount]);
+				}
+				if(!newStandardsArray[groupCount]["description"] && newStandardsArray[groupCount]["data"].length){
+					newStandardsArray[groupCount]["description"] =  newStandardsArray[groupCount]["data"][0]["ancestors"][1]["description"];
+				}
+			}
+		}
+		
+		var options2 = {
+				parent: standardsNavParent,
+				data: newStandardsArray,
+				simData: simData,
+				search: function(names){
+					showSearchedSimsWithStandards(names);
+				},
+				setSearched: function(isStandardSelected){
+					setStandardSelection(isStandardSelected);
+				}
+		};
+		sideNav2 = new SideNavigation(options2);
+		var sideNavButton2 = document.getElementsByClassName('sort-box-standard')[0];
+		sideNavButton2.addEventListener('click',sideNav2.openSideNavScreen.bind(sideNav2),false);
+		sideNavButton2.addEventListener('touchstart',doNothing,false);
+		
+		document.addEventListener('click',sideNav2.closeSideNavScreen.bind(sideNav2),false);
+		document.addEventListener('touchstart',sideNav2.closeSideNavScreen.bind(sideNav2),false);
+		
+		//document.getElementsByClassName('search-icon')[0].addEventListener('click',expandSearch,false);
+		document.addEventListener('click',collapseSearch,false);
+		document.addEventListener('touchstart',collapseSearch,false);
+	}
+
+	function openSim(e){e.preventDefault();
+	if(!window.localStorage.getItem('allspark')) downloadAllspark();
+	for(var simCount = 0; simCount<simData["simulations"].length; simCount++){
+		if(e.currentTarget.id == simData["simulations"][simCount].name){
+			if(simData["simulations"][simCount].simulationUrl == ""){
+				
+			}
+			else{
+				if(simData["simulations"][simCount].simulationUrl.match(/www.ck12.org/i)){
+					var refUrl = simData["simulations"][simCount].simulationUrl;
+					window.open(refUrl, '_blank', 'location=no,zoom=no,enableViewportScale=no');
+				}
+				else {
+					var fileURL = cordova.file.externalDataDirectory, simURL = simData["simulations"][simCount].simulationUrl,
+					simName = simURL.split('/')[0];
+					//var refUrl = "http://interactives.ck12.org/simulations/physics/" + simURL, uri = encodeURI(refUrl) + '/js/CoverScene.js';
+					var refUrl = "http://simdev.ck12.org/simulations/physics/" + simName + '.zip', uri = encodeURI(refUrl),
+					fileURLzip = fileURL + simName + '.zip', fileURLfolder = fileURL, fileURLsim = fileURL + simName + '/app/index.html';
+					
+					if(window.localStorage.getItem(simName)){
+						//window.open(fileURLsim, '_blank', 'location=no,zoom=no,enableViewportScale=no');
+						var fileUrl = fileURLsim+"?referrer=ck12Launcher&backUrl=" +launcherOnlyURL;
+						var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+						if(iOS==true){
+							window.location.href = fileUrl;
+						}else{
+							window.open(fileUrl, '_blank', 'location=no,zoom=no,enableViewportScale=no');
+						}
+						window.location.href = fileURLsim+"?referrer=ck12Launcher&backUrl=" +launcherOnlyURL;
+					}
+					else{
+						var fileUrl = "http://simdev.ck12.org/simulations/physics/" + simURL+"?referrer=ck12Launcher&backUrl=" +launcherOnlyURL;
+						var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+						if(checkDeviceConnectivity()){	
+							if(iOS==true){
+								window.location.href = fileUrl;
+							}else{
+								window.open(fileUrl, '_blank', 'location=no,zoom=no,enableViewportScale=no');	
+							};
+						};
+								//window.location.href = "http://simtest.ck12.org/simulations/repository/"+simData["simulations"][simCount].simulationUrl+"?referrer=ck12Launcher&backUrl="+window.location.href+"&artifactID=1234";
+								if(simData["simulations"][simCount].simulationUrl.match(/www.ck12.org/i)){
+									window.location.href = simData["simulations"][simCount].simulationUrl;
+								}
+								break;
+				}
+			}
+			break;
+		}
+	}
+	}
+}
+	
+	function downloadAllspark(){
+		var fileURL = cordova.file.externalDataDirectory, refUrl = "http://simdev.ck12.org/simulations/common/allspark/1.0.8.zip", uri = encodeURI(refUrl),
+		fileURLzip = fileURL + '1.0.8.zip', fileURLfolder = fileURL;
+		
+		var fileTransfer = new FileTransfer();
+		fileTransfer.download(
+			uri,
+			fileURLzip,
+			function(entry) {
+				console.log("download complete: " + entry.toURL());
+				
+				zip.unzip(fileURLzip, fileURLfolder, function(res){
+					zip.unzip(fileURL+'/1.0.8/css.zip', fileURLfolder+'/allspark', function(res){
+						console.log("download complete");
+					});
+					zip.unzip(fileURL+'/1.0.8/js.zip', fileURLfolder+'/allspark', function(res){
+						console.log("download complete");
+					});
+					zip.unzip(fileURL+'/1.0.8/lib.zip', fileURLfolder+'/allspark', function(res){
+						zip.unzip(fileURLfolder+'/allspark/lib/fonts.zip', fileURLfolder+'/allspark/lib', function(res){
+							console.log("download complete");
+						});
+						zip.unzip(fileURLfolder+'/allspark/lib/jquery.zip', fileURLfolder+'/allspark/lib', function(res){
+							console.log("download complete");
+						});
+						zip.unzip(fileURLfolder+'/allspark/lib/require.zip', fileURLfolder+'/allspark/lib', function(res){
+							console.log("download complete");
+						});
+						zip.unzip(fileURLfolder+'/allspark/lib/tinymce.zip', fileURLfolder+'/allspark/lib', function(res){
+							console.log("download complete");
+						});
+						window.localStorage.setItem('allspark','true');
+					});
+					zip.unzip(fileURL+'/1.0.8/assets.zip', fileURLfolder+'/allspark', function(res){
+						console.log("download complete");
+					});
+				});
+				
+			},
+			function(error) {
+				console.log("download error source " + error.source);
+				console.log("download error target " + error.target);
+				console.log("upload error code" + error.code);
+			},
+			false,
+			{
+				headers: {
+					"Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+				}
+			}
+		);
+	}
+	function downloadSim(e){
+		  e.stopPropagation();
+		  document.getElementById("loadingOverlay").classList.remove("hide");
+		if(!window.localStorage.getItem('allspark')) downloadAllspark();
+
+		
+		for(var simCount = 0; simCount<simData["simulations"].length; simCount++){
+			var fileURL = cordova.file.externalDataDirectory, simURL = simData["simulations"][simCount].simulationUrl,
+			simName = simURL.split('/')[0];
+			//var refUrl = "http://interactives.ck12.org/simulations/physics/" + simURL, uri = encodeURI(refUrl) + '/js/CoverScene.js';
+			var refUrl = "http://simdev.ck12.org/simulations/physics/" + simName + '.zip', uri = encodeURI(refUrl),
+			fileURLzip = fileURL + simName + '.zip', fileURLfolder = fileURL, fileURLsim = fileURL + simName + '/app/index.html';	
+			
+			if(e.target.parentElement.id == simData["simulations"][simCount].name){
+				
+				/*else{*/
+					if(window.localStorage.getItem(simName)){
+						console.log("already there")
+				/*		var refUrl = simData["simulations"][simCount].simulationUrl;
+						window.open(refUrl, '_blank', 'location=no,zoom=no,enableViewportScale=no');*/
+					}
+					else {
+					
+							function downloadFile(){
+								var fileTransfer = new FileTransfer();
+								fileTransfer.download(uri,fileURLzip,function(entry) {
+										console.log("download complete: " + entry.toURL());
+										
+										zip.unzip(fileURLzip, fileURLfolder, function(res){
+											zip.unzip(fileURL+simName+'/app.zip', fileURLfolder+simName, function(res){
+												zip.unzip(fileURL+simName+'/app/css.zip', fileURLfolder+simName+'/app', function(res){
+													console.log("download complete");
+												});
+												zip.unzip(fileURL+simName+'/app/js.zip', fileURLfolder+simName+'/app', function(res){
+													console.log("download complete");
+												});
+												zip.unzip(fileURL+simName+'/app/json.zip', fileURLfolder+simName+'/app', function(res){
+													console.log("download complete");
+												});
+												zip.unzip(fileURL+simName+'/app/assets.zip', fileURLfolder+simName+'/app', function(res){
+													window.localStorage.setItem(simName,'true');
+													document.getElementById("loadingOverlay").classList.add("hide");
+													e.target.classList.add("downloaded");
+													//window.open(fileURLsim, '_blank', 'location=no,zoom=no,enableViewportScale=no');
+													//window.location.href = fileURLsim;
+												});
+											});
+											zip.unzip(fileURL+simName+'/res.zip', fileURLfolder+simName, function(res){
+												console.log("download complete");
+											});
+										});
+										
+									},
+									function(error) {
+										console.log("download error source " + error.source);
+										console.log("download error target " + error.target);
+										console.log("upload error code" + error.code);
+										var refUrl = "http://simdev.ck12.org/simulations/physics/" + simURL;
+										var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+										document.getElementById("loadingOverlay").classList.add("hide");
+										/*	if(iOS==true){
+												window.location.href = refUrl;
+											}else{
+												window.open(refUrl, '_blank', 'location=no,zoom=no,enableViewportScale=no');	
+											};*/
+										
+									},
+									false,
+									{
+										headers: {
+											"Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+										}
+									}
+								);
+							}
+							downloadFile();
+							
+						
+					}
+				/*}*/
+				break;
+			}
+		}
+		
+	}
+	
+	var item , searchTerm  ;
+	function searchItem(e){
+	    prevItem = "",nameOfConcepts=[],nameOfStandards=[];
+    	hideAll();
+    	/*sideNav.unselectAllCheckBox();
+		sideNav2.unselectAllCheckBox();*/
+    	searchInSimulations();
+    	searchInConcepts();
+    	searchInKeywords();
+    	
+		
+    	item = searchClick.value.toLowerCase();
+		if(prevItem === item){}else{
+	    	if( e.keyCode < 91 && e.keyCode > 47 ){
+	    		setTimeout(function(){
+	        		if(prevItem === item){}else{
+	        			 /*dexterjs.logEvent("FBS_SIMULATION_SEARCH", {
+	     	        			searchTerm : item
+	     	                });*/
+	        		}
+	        		 prevItem = item ;
+	        	},1000);
+	    	}
+		}
+		
+		if(searchClick.value==''){
+			document.getElementsByClassName('clear-item')[0].classList.add('hide-back');
+		}
+		else if(window.innerWidth>900){
+			document.getElementsByClassName('clear-item')[0].classList.remove('hide-back');
+		}
+	}
+	
+	var lastScrollValue = 0;
+	function scrollSims(e){
+		var sortSection = document.getElementsByClassName('filter-button')[0];
+		
+		/*if(window.scrollY > lastScrollValue && window.scrollY > 71){
+			document.getElementsByClassName('filter-button')[0].classList.add('hide');
+			document.getElementsByClassName('filter-button')[1].classList.add('hide');
+		}
+		else{
+			document.getElementsByClassName('filter-button')[0].remove('hide');
+			document.getElementsByClassName('filter-button')[1].remove('hide');
+		}*/
+		
+		lastScrollValue = window.scrollY;
+	}
+	
+	var notFound=true;
+	
+	function searchInSimulations(){
+		notFound=true;
+		var item = searchClick.value.toLowerCase();
+		var itemReg = new RegExp(item,"i");
+		for(var simCount = 0; simCount<simData["simulations"].length; simCount++){
+			var string = simData["simulations"][simCount].name.toLowerCase();
+			var result = string.match(itemReg);
+			if(result && result.input == simData["simulations"][simCount].name.toLowerCase()){
+				showSearched(simCount);
+				notFound=false;
+			}
+		}
+	}
+	
+	function searchInConcepts(){
+		document.getElementsByClassName('no-match-found')[0].classList.add('hide');
+		var item = searchClick.value.toLowerCase();
+		var itemReg = new RegExp(item,"i");
+		for(var eidsConceptCount = 0; eidsConceptCount<eidsData["concepts"].length; eidsConceptCount++){
+			var string = eidsData["concepts"][eidsConceptCount].name.toLowerCase();
+			var result = string.match(itemReg);
+			if(result && result.input == eidsData["concepts"][eidsConceptCount].name.toLowerCase()){
+				for(var simCount = 0; simCount<simData["simulations"].length; simCount++){
+					for(var simConceptCount = 0; simConceptCount<simData["simulations"][simCount].concepts.length; simConceptCount++){
+						if(eidsData["concepts"][eidsConceptCount].encodedID == simData["simulations"][simCount].concepts[simConceptCount]){
+							showSearched(simCount);
+							notFound=false;
+						}
+					}
+				}
+			}
+		}
+//		if(notFound){
+//			document.getElementsByClassName('no-match-found')[0].classList.remove('hide');
+//		}
+	}
+	
+	function searchInKeywords(){
+		notFound=true;
+		var item = searchClick.value.toLowerCase();
+		var itemReg = new RegExp(item,"i");
+		
+		for(var simCount = 0; simCount<simData["simulations"].length; simCount++){
+			for(var simKeywordCount = 0; simKeywordCount<simData["simulations"][simCount].keywords.length; simKeywordCount++){
+				var string = simData["simulations"][simCount].keywords[simKeywordCount].toLowerCase();
+				var result = string.match(itemReg);
+				if(result && result.input == simData["simulations"][simCount].keywords[simKeywordCount].toLowerCase()){
+					showSearched(simCount);
+					notFound=false;
+				}
+			}
+		}
+		if(notFound){
+			document.getElementsByClassName('no-match-found')[0].classList.remove('hide');
+		}
+	}
+	
+	var simSelected=false,isConceptSelected=false,isStandardSelected=false;
+	
+	function setConceptSelection(isSelected){
+		isConceptSelected = isSelected;
+		simSelected = isConceptSelected || isStandardSelected;
+		if(!simSelected){
+			showAll();
+			nameOfConcepts=[];
+			document.getElementsByClassName('clear-item')[0].classList.add('hide-back');
+		}
+		else if(window.innerWidth>900){
+			document.getElementsByClassName('clear-item')[0].classList.remove('hide-back');
+		}
+		//document.getElementsByClassName('no-match-found')[0].classList.add('hide');
+	}
+
+	function setStandardSelection(isSelected){
+		isStandardSelected = isSelected;
+		simSelected = isConceptSelected || isStandardSelected;
+		if(!simSelected){
+			showAll();
+			nameOfStandards=[];
+			document.getElementsByClassName('clear-item')[0].classList.add('hide-back');
+		}
+		else if(window.innerWidth>900){
+			document.getElementsByClassName('clear-item')[0].classList.remove('hide-back');
+		}
+		//document.getElementsByClassName('no-match-found')[0].classList.add('hide');
+	}
+	
+	function showSearchedSimsWithConcepts(names){
+		nameOfConcepts=names;
+    	if(nameOfConcepts.length==0 && nameOfStandards.length==0){
+    		showAll();
+    	}
+    	else{
+    		hideAll();
+    		searchSimsWithConcepts(nameOfConcepts);
+    	}
+    	searchClick.value = "";
+    	searchSimsWithStandards(nameOfStandards);
+	}
+
+	function showSearchedSimsWithStandards(names){
+		nameOfStandards=names;
+    	if(nameOfStandards.length==0 && nameOfConcepts.length==0){
+    		showAll();
+    	}
+    	else{
+    		hideAll();
+    		searchSimsWithStandards(nameOfStandards);
+    	}
+    	searchClick.value = "";
+    	searchSimsWithConcepts(nameOfConcepts);
+	}
+
+	function searchSimsWithConcepts(names){
+		for(var i=0; i<names.length; i++){
+    		for(var eidsConceptCount = 0; eidsConceptCount<eidsData["concepts"].length; eidsConceptCount++){
+    			var conceptName = eidsData["concepts"][eidsConceptCount].name.toLowerCase();
+    			if(conceptName == names[i]){
+    				for(var simCount = 0; simCount<simData["simulations"].length; simCount++){
+    					for(var simConceptCount = 0; simConceptCount<simData["simulations"][simCount].concepts.length; simConceptCount++){
+    						if(eidsData["concepts"][eidsConceptCount].encodedID == simData["simulations"][simCount].concepts[simConceptCount]){
+    							showSearched(simCount);
+    						}
+    					}
+    				}
+    			}
+    		}
+    	}
+	}
+	
+	function searchSimsWithStandards(names){
+		var conceptNames = [], stdId;
+		for(var standardCount=0; standardCount<names.length; standardCount++){
+			for(var key in stdData.response.standards) {
+				var standardId = stdData.response.standards[key].label.toLowerCase();
+	    		if(standardId == names[standardCount].toLowerCase()){
+	    			stdId = stdData.response.standards[key].sid.toLowerCase();
+				}
+			}
+			
+			for(var key in stdData.response.concepts) {
+				var standardId = stdData.response.concepts[key].standards;
+				
+				for(var i=0; i<standardId.length; i++){
+		    		if(standardId[i].toLowerCase() == stdId){
+		    			var conceptName = stdData.response.concepts[key].concept.name.toLowerCase();
+		    			conceptNames.push(conceptName);
+					}
+				}
+			}
+    	}
+		searchSimsWithConcepts(conceptNames);
+	}
+	
+	/*function searchSimsWithStandards(names){
+		var conceptNames = [];
+		for(var standardCount=0; standardCount<names.length; standardCount++){
+			for(var key in stdData.response.concepts) {
+				var standardId = stdData.response.concepts[key].standards;
+				
+				for(var i=0; i<standardId.length; i++){
+		    		if(standardId[i].toLowerCase() == names[standardCount].toLowerCase()){
+		    			var conceptName = stdData.response.concepts[key].concept.name.toLowerCase();
+		    			conceptNames.push(conceptName);
+					}
+				}
+			}
+    	}
+		searchSimsWithConcepts(conceptNames);
+	}*/
+	
+	function hideAll(){
+		for(var simCount = 0; simCount<simData["simulations"].length; simCount++){
+			var card = document.getElementsByClassName('thumbnail-view')[simCount];
+			card.classList.add('hide-back');
+		}
+	}
+	
+	function showAll(){
+		for(var simCount = 0; simCount<simData["simulations"].length; simCount++){
+			var card = document.getElementsByClassName('thumbnail-view')[simCount];
+			card.classList.remove('hide-back');
+		}
+	}
+	
+	function showSearched(simCount){
+		var card = document.getElementsByClassName('thumbnail-view')[simCount];
+		card.classList.remove('hide-back');
+	}
+	
+	function expandSearch(e){
+		e.stopPropagation();
+		//searchClick.classList.add('search-expand');
+		document.getElementsByClassName('search-field')[0].classList.add('open-search');
+		document.getElementsByClassName('search-icon')[0].classList.add('hide');
+		//searchClick.click();
+		setTimeout(function(){
+			searchClick.focus();
+		},500);
+	}
+	
+	function collapseSearch(e){
+		e.stopPropagation();
+		
+		if(lastSimStdShowed){
+			lastSimStdShowed.classList.add('hide');
+			lastSimStd.style.fontWeight = 'normal';
+
+		}
+		document.getElementsByClassName("filter-main-wrapper")[0].classList.add("go-left");
+		
+//		if(document.getElementById("UserProfileView").classList.contains("hide")){
+			 document.getElementById("UserProfileView").classList.add('hide')
+//		 }
+	}
+	
+	/*document.ontouchmove = function(e){
+		e.preventDefault();
+	}*/
+	
+});;define('SideNavigation',['ajax'],function(ajax){
+	
+	/**
+	 * @method createSideNav
+	 * @param {string} side for creation (left or right)
+	 * @param {number} number if items in nav
+	 */
+	
+	var  conceptsEidArray , standardsIdArray = [] , standardsIdObject ;
+	
+	  ajax.loadURL('json/eids.json',{
+			"callback" : createConceptList
+			
+		});
+	  ajax.loadURL('json/standardsData.json',{
+			"callback" : generateStandardsList
+		});
+		
+	function createConceptList(responseText){
+	    	
+	    	conceptResponse =  JSON.parse(responseText) ;
+	    	conceptsEidArray = conceptResponse.concepts ;
+	    }
+	
+	function generateStandardsList(responseText){
+    	
+    	standardsResponse =  JSON.parse(responseText) ;
+    	standardsIdObject = standardsResponse.response.standards ;
+    	for (var key in standardsIdObject ){
+    		standardsIdArray.push(key) ; 
+    	}
+        }
+	    
+	
+	function SideNavigation(options) {
+		this.sideNavScreen;
+		this.isNav=false;
+		this.isChecked = false;
+		this.parent = options.parent;
+		this.data = options.data;
+		this.simData = options.simData;
+		this.sortedData = [];
+		this.search = options.search;
+		this.setSearched = options.setSearched;
+		this.newNames=[];
+		this.oldNames=[];
+		this.groupBox=[];
+		
+		this.dataEidArray = this.data;
+	    this.dataGroup = false ;
+		
+    	this.sideNavScreen = document.createElement("div");
+    	this.sideNavScreen.classList.add('side-nav-screen');
+//    	this.sideNavScreen.classList.add('go-left');
+		this.parent.appendChild(this.sideNavScreen);
+		
+		this.sideNavScreen.addEventListener('click',this.doNothing,false);
+		this.sideNavScreen.addEventListener('touchstart',this.doNothing,false);
+		
+		this.sortDataElements();
+		this.createDataElements();
+		
+    };
+    
+    SideNavigation.prototype.sortDataElements = function() {
+    	this.sortedData = this.data;
+	    //this.sortedData.sort();
+    }
+    
+    SideNavigation.prototype.createDataElements = function() {
+		var sideNavHeading = document.createElement("div");
+		sideNavHeading.classList.add('side-nav-heading');
+		this.sideNavScreen.appendChild(sideNavHeading);
+		
+		this.navBottom = document.getElementsByClassName("nav-bottom")[0];
+		
+		/*document.getElementsByClassName("filter-main-wrapper")[0].appendChild(this.navBottom);*/
+		/*this.navBottom.innerHTML = "Clear Filter";*/
+		this.navBottom.addEventListener('click',this.deselectAll.bind(this),false);
+		/*this.navBottom.classList.add('deselect');*/
+		/*.addEventListener('click',this.deselectAll,false);*/
+		var sideNavContent = document.createElement("div");
+		sideNavContent.classList.add('side-nav-content');
+		this.sideNavScreen.appendChild(sideNavContent);
+		//sideNavContent.style.height = (window.innerHeight-220)+'px';
+		
+		for(var groupCount = 0; groupCount<this.data.length; groupCount++){
+			if(this.data[groupCount]["data"].length){
+				this.groupBox.push(this.groupBox+groupCount);
+				this.groupBox[groupCount] = document.createElement("div");
+				this.groupBox[groupCount].classList.add('group-box');
+				this.groupBox[groupCount].classList.add('group-box'+groupCount);
+				sideNavContent.appendChild(this.groupBox[groupCount]);
+				
+				var groupCheckBox = document.createElement("div");
+				groupCheckBox.classList.add('ckeck-box');
+				this.groupBox[groupCount].appendChild(groupCheckBox);
+				groupCheckBox.isChecked = false;
+				
+				var groupName = document.createElement("div");
+				groupName.classList.add('group-name');
+				this.groupBox[groupCount].appendChild(groupName);
+				groupName.innerHTML = this.data[groupCount]["description"] || this.data[groupCount]["name"];
+				
+				groupName.addEventListener('click',this.groupNameFn.bind(this),false);
+				groupCheckBox.addEventListener('click',this.groupCheckBoxFn.bind(this),false);
+				
+				var groupContent = document.createElement("div");
+				groupContent.classList.add('group-content');
+				groupContent.classList.add('group-content'+groupCount);
+				this.groupBox[groupCount].appendChild(groupContent);
+				
+				var groupElements = "";
+				for(var conceptCount = 0; conceptCount<this.data[groupCount]["data"].length; conceptCount++){
+					if(this.data[groupCount]["data"][conceptCount]["label"]){
+						groupElements = groupElements + '<div class="concept-box concept-box'+groupCount+'-'+conceptCount+'"><div class="ckeck-box"></div><div class="concept-name" data="'+this.data[groupCount]["data"][conceptCount]["label"]+'">'+this.data[groupCount]["data"][conceptCount]["label"]+'</div></div>'
+					}else{
+						groupElements = groupElements + '<div class="concept-box concept-box'+groupCount+'-'+conceptCount+'"><div class="ckeck-box"></div><div class="concept-name" data="'+this.data[groupCount]["data"][conceptCount]+'">'+this.data[groupCount]["data"][conceptCount]+'</div></div>'
+					}
+				}
+				groupContent.innerHTML = groupElements;
+				var elements  = groupContent.getElementsByClassName('concept-box');
+				for(var i=0;i<elements.length;i++){
+					elements[i].addEventListener('click',this.conceptBoxFn.bind(this),false);
+					elements[i].isChecked = false;
+				}
+				groupName.click();
+			}
+		}
+		//this.parent.previousElementSibling.click();
+    };
+    
+    SideNavigation.prototype.groupNameFn = function(e) {
+    	e.stopPropagation();
+    	if(e.currentTarget.isView){
+    		e.currentTarget.isView = false;
+    		e.currentTarget.nextSibling.classList.remove('group-collapse');
+    		e.currentTarget.nextSibling.classList.remove('group-hide');
+    	}
+    	else{
+    		e.currentTarget.isView = true;
+    		e.currentTarget.nextSibling.classList.add('group-collapse');
+    		e.currentTarget.nextSibling.classList.add('group-hide');
+    	}
+    	
+    }
+    
+    SideNavigation.prototype.groupCheckBoxFn = function(e) {
+    	var filter_Eid , filterID ;
+    	e.stopPropagation();
+    	if(e.currentTarget.nextSibling.isView){
+    		e.currentTarget.nextSibling.click();
+    	}
+    	
+    	/*for(var i = 0 ; i < this.dataEidArray.length ; i++){
+            	if(this.dataEidArray[i].name == e.currentTarget.parentElement.childNodes[1].innerText){
+            		 filter_Eid = this.dataEidArray[i].encodedID ;
+            	}
+            
+        }*/
+    	var listName = getNthParentOf(e.target,4);
+    	if(listName.className == "sort-item concept-filter-list"){
+    		
+    		for(var i = 0 ; i < conceptsEidArray.length ; i++){
+            	if(conceptsEidArray[i].name == e.currentTarget.parentElement.childNodes[1].innerText){
+            		 filter_Eid = conceptsEidArray[i].encodedID ;
+            	}
+            	}
+    		
+    		filterID = "context_eid" ;
+    		
+    	}else if(listName.className == "sort-item standards-filter-list"){
+    		for (var i = 0 ; i < standardsIdArray.length ; i++ ) {
+
+    			if(standardsIdObject[standardsIdArray[i]].label == e.target.nextElementSibling.innerHTML ){
+    				filter_Eid = standardsIdObject[standardsIdArray[i]].sid ;
+    			}
+
+    			}
+    		filterID = "sid" ;
+    	}
+    	
+    	if(e.currentTarget.isChecked){
+    		this.dataGroup = false ;
+    		e.currentTarget.isChecked = false;
+    		e.currentTarget.classList.remove('checked');
+    		
+    		for(var conceptCount = 0; conceptCount<e.currentTarget.nextSibling.nextSibling.childNodes.length; conceptCount++){
+    			var conceptBox = e.currentTarget.nextSibling.nextSibling.childNodes[conceptCount];
+				conceptBox.childNodes[0].classList.add('checked');
+				conceptBox.isChecked = true;
+				conceptBox.childNodes[0].isChecked = true;
+        		conceptBox.click();
+    		}
+    	}
+    	else{
+    		this.dataGroup = true; 
+    		e.currentTarget.isChecked = true;
+    		e.currentTarget.classList.add('checked');
+    		
+    		for(var conceptCount = 0; conceptCount<e.currentTarget.nextSibling.nextSibling.childNodes.length; conceptCount++){
+    			var conceptBox = e.currentTarget.nextSibling.nextSibling.childNodes[conceptCount];
+    			conceptBox.childNodes[0].classList.remove('checked');
+    			conceptBox.isChecked = false;
+    			conceptBox.childNodes[0].isChecked = false;
+        		conceptBox.click();
+    		}
+    		
+    		if(filterID == "context_eid"){
+    			/*dexterjs.logEvent("FBS_SIMULATION_FILTER", {
+                    context_eid : filter_Eid
+                });*/
+    		}
+    		
+    		//_dexterEventCheckBox(filter_Eid);
+    		//_dexterEventCheckBox.apply(this,[filter_Eid]);
+    	}
+    	
+    }
+    
+    SideNavigation.prototype.openSideNavScreen = function(e) {
+    	e.stopPropagation();
+    	var isFilter ;
+    	var obj1 = e.currentTarget;	//.parentNode.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1];
+    	var obj2 = e.currentTarget;	//.parentNode.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1];
+    	
+    	if(obj1!=e.currentTarget && obj1.isNav){
+    		document.getElementsByClassName('show-menu')[0].click();
+    		obj1.isNav = false;
+    	}
+    	else if(obj2!=e.currentTarget && obj2.isNav){
+    		document.getElementsByClassName('show-menu')[1].click();
+    		obj2.isNav = false;
+    	}
+    	
+//    	document.getElementsByClassName('sort-item')[0].style.backgroundColor = "#eee";
+//		document.getElementsByClassName('sort-item')[1].style.backgroundColor = "#eee";
+//		document.getElementsByClassName('sort-item')[0].style.boxShadow = "";
+//		document.getElementsByClassName('sort-item')[1].style.boxShadow = "";
+    	
+		/*if(e.currentTarget.isNav){
+    		this.sideNavScreen.classList.add('go-left');
+    		e.currentTarget.isNav = false;
+    		e.currentTarget.childNodes[3].classList.remove('rotate-show');
+    	}
+    	else{
+    		this.sideNavScreen.classList.remove('go-left');
+    		e.currentTarget.isNav = true;
+    		e.currentTarget.childNodes[3].classList.add('rotate-show');
+
+    		e.currentTarget.parentNode.parentNode.style.backgroundColor = "white";
+    		e.currentTarget.parentNode.parentNode.style.boxShadow = "2px 0px 2px rgba(0, 0, 0, 0.2)";
+    		
+    		if(e.target.innerHTML.indexOf('Standards') > -1){
+    			isFilter = "standards" ;
+    		}else if(e.target.innerHTML.indexOf('Concepts') > -1){
+    			isFilter = "concept" ;
+        	}
+    		
+    		/*dexterjs.logEvent("FBS_SIMULATION_BROWSE_FILTER", {
+    			
+    			filterType : isFilter
+              
+            });
+    	}*/
+    };
+    
+    SideNavigation.prototype.closeSideNavScreen = function(e) {
+    	e.stopPropagation();
+    	
+    	var obj1 = document.getElementsByClassName('show-menu')[0].parentNode;
+    	var obj2 = document.getElementsByClassName('show-menu')[1].parentNode;
+    	
+    	if(obj1.isNav){
+    		obj1.click();
+    		obj1.isNav = false;
+    		obj1.childNodes[3].classList.remove('rotate-show');
+    	}
+    	else if(obj2.isNav){
+    		obj2.click();
+    		obj2.isNav = false;
+    		obj2.childNodes[3].classList.remove('rotate-show');
+    	}
+    };
+    
+    SideNavigation.prototype.doNothing = function (e){
+		e.stopPropagation();
+	};
+
+    SideNavigation.prototype.deselectAll = function(e) {
+    	e.stopPropagation();
+    	this.unselectAllCheckBox();
+    	//this.showAll();
+    	//document.getElementsByClassName('clear-item')[0].classList.add('hide-back');
+    	this.setSearched(false);
+    	this.search(this.newNames);
+    };
+
+    SideNavigation.prototype.showAll = function(e) {
+		for(var simCount = 0; simCount<this.simData["simulations"].length; simCount++){
+			var card = document.getElementsByClassName('thumbnail-view')[simCount];
+			card.classList.remove('hide-back');
+		}
+	}
+    
+    SideNavigation.prototype.unselectAllCheckBox = function(e) {
+    	for(var groupCount = 0; groupCount<this.data.length; groupCount++){
+    		this.groupBox[groupCount].childNodes[0].classList.remove('checked');
+    		this.groupBox[groupCount].childNodes[0].isChecked = false;
+    		
+			for(var conceptCount = 0; conceptCount<this.data[groupCount]["data"].length; conceptCount++){
+				var conceptBox = this.groupBox[groupCount].childNodes[2].childNodes[conceptCount];
+	    		conceptBox.childNodes[0].classList.remove('checked');
+	    		conceptBox.isChecked = false;
+	    		conceptBox.childNodes[0].isChecked = false;
+			}
+		}
+    	this.setSearched(false);
+    	this.newNames = [];
+   	document.getElementsByClassName("nav-bottom")[0].classList.remove('deselect');
+    };
+    
+    SideNavigation.prototype.selectCheckBox = function(boxes) {
+    	for(var count = 0; count<boxes.length; count++){
+    		for(var groupCount = 0; groupCount<this.data.length; groupCount++){
+    			if(this.data[groupCount].length>1){
+    				for(var conceptCount = 1; conceptCount<this.data[groupCount].length; conceptCount++){
+		    			var conceptBox = this.groupBox[groupCount].childNodes[2].childNodes[conceptCount-1];
+    					if(boxes[count] == conceptBox.childNodes[1].innerHTML.toLowerCase()){
+		        			conceptBox.childNodes[0].classList.add('checked');
+		            		conceptBox.isChecked = true;
+		            		conceptBox.childNodes[0].isChecked = true;
+		            		this.newNames.push(boxes[count]);
+		        		}
+    				}
+    			}
+        	}
+    	}
+
+    	if(this.newNames.length>0){
+   		document.getElementsByClassName("nav-bottom")[0].classList.add('deselect');
+    		if(window.innerWidth>900){
+    			document.getElementsByClassName('clear-item')[0].classList.remove('hide-back');
+    		}
+    		this.setSearched(true);
+    	}
+    	else{
+   		document.getElementsByClassName("nav-bottom")[0].classList.remove('deselect');
+    		document.getElementsByClassName('clear-item')[0].classList.add('hide-back');
+    		this.setSearched(false);
+    	}
+    	
+    };
+    
+    SideNavigation.prototype.conceptBoxFn = function(e) {
+    	e.stopPropagation();
+    	var filter_Eid , filterID ;
+       /* for(var i = 0 ; i < this.dataEidArray.length ; i++){
+        	for(var j = 0 ; j < this.dataEidArray[i].length ; j++){
+            	if(this.dataEidArray[i][j] == e.currentTarget.innerText){
+            		 filter_Eid = this.dataEidArray[i][j] ;
+            	}
+            }
+        }*/
+    	
+    	var listName = getNthParentOf(e.target,6);
+    	
+    	if(listName.className == "sort-item concept-filter-list"){
+    		
+    		for(var i = 0 ; i < conceptsEidArray.length ; i++){
+            	if(conceptsEidArray[i].name == e.currentTarget.parentElement.childNodes[1].innerText){
+            		 filter_Eid = conceptsEidArray[i].encodedID ;
+            	}
+            	}
+    		filterID = "context_eid" ;
+    	}else if(listName.className == "sort-item standards-filter-list"){
+    		
+    		for (var i = 0 ; i < standardsIdArray.length ; i++ ) {
+
+    			if(standardsIdObject[standardsIdArray[i]].label == e.target.nextElementSibling.innerHTML ){
+    				filter_Eid = standardsIdObject[standardsIdArray[i]].sid ;
+    			}
+
+    			}
+    		filterID = "sid" ;
+    	}
+    	
+    	if(e.currentTarget.isChecked){
+    		e.currentTarget.childNodes[0].classList.remove('checked');
+    		e.currentTarget.isChecked = false;
+    		e.currentTarget.childNodes[0].isChecked = false;
+    		
+    		e.currentTarget.parentNode.parentNode.firstChild.classList.remove('checked');
+    		e.currentTarget.parentNode.parentNode.firstChild.isChecked = false;
+    	}
+    	else{
+    		e.currentTarget.childNodes[0].classList.add('checked');
+    		e.currentTarget.isChecked = true;
+    		e.currentTarget.childNodes[0].isChecked = true;
+    		
+    		/*if(!this.dataGroup){
+    			if(filterID == "context_eid"){
+        			dexterjs.logEvent("FBS_SIMULATION_FILTER", {
+                        context_eid : filter_Eid
+                    });
+        		}else if(filterID == "sid"){
+        			dexterjs.logEvent("FBS_SIMULATION_FILTER_STANDARD", {
+                        sid : filter_Eid,
+                        filterType:"standard"
+                    });
+        		}
+    			//_dexterEventCheckBox(filter_Eid);
+    			//_dexterEventCheckBox.apply(this,[filter_Eid]);
+    		}*/
+    		
+    		if(e.currentTarget.parentNode.parentNode.childNodes[0].isChecked == false){
+    			for(var conceptCount = 0; conceptCount<e.currentTarget.parentNode.childNodes.length; conceptCount++){
+        			var conceptBox = e.currentTarget.parentNode.childNodes[conceptCount];
+        			if(conceptBox.isChecked == false){
+        				break;
+        			}
+        			else if(conceptCount==(e.currentTarget.parentNode.childNodes.length-1)){
+        				e.currentTarget.parentNode.parentNode.childNodes[0].click();
+        			}
+        		}
+    		}
+    	}
+
+    	var name = e.currentTarget.childNodes[1].getAttribute("data")?e.currentTarget.childNodes[1].getAttribute("data").toLowerCase(): e.currentTarget.childNodes[1].innerHTML.toLowerCase();
+    	this.oldNames = this.newNames;
+    	this.newNames = [];
+    	
+    	for(var i = 0; i<this.oldNames.length; i++){
+    		if(this.oldNames[i]==name){
+    			//this.names = this.names.splice(i, 1);
+    		}
+    		else{
+    			this.newNames.push(this.oldNames[i]);
+    		}
+    	}
+    	
+    	if(this.newNames.length==0 && e.currentTarget.isChecked || e.currentTarget.isChecked){
+    		this.newNames.push(name);
+    	}
+    	
+    	if(this.newNames.length>0){
+   		document.getElementsByClassName("nav-bottom")[0].classList.add('deselect');
+    		if(window.innerWidth>900){
+    			document.getElementsByClassName('clear-item')[0].classList.remove('hide-back');
+    		}
+    		this.setSearched(true);
+    	}
+    	else{
+  		document.getElementsByClassName("nav-bottom")[0].classList.remove('deselect');
+    		document.getElementsByClassName('clear-item')[0].classList.add('hide-back');
+    		this.setSearched(false);
+    	}
+    	
+    	this.search(this.newNames);
+    };
+    
+    function getNthParentOf(elem,i) {
+        while(i>0) {
+            elem = elem.parentElement ;
+            i--;
+        }
+        return elem;
+    }
+	
+	/*  function _dexterEventCheckBox(){
+  	  	dexterjs.logEvent("FBS_SIMULATION_FILTER", {
+            context_eid : filter_Eid
+        });
+    }*/
+    
+    return SideNavigation;
+	
+});;define('ajax',[],function(){
+	
+	/**
+	 * @namespace ajax
+	 */
+	var ajax = {};
+	
+	/**
+	 * ajax GET method
+	 * @method loadURL
+	 * @memberof ajax
+	 * @param {string} URI to the location
+	 * @param {function | object} callback function callback to the ajax request, if Object is passed callback would be included inside the object
+	 */
+    ajax.loadURL = function(url,options) {
+    	var callback = options,
+        xhr = new XMLHttpRequest();
+    	
+    	if(options instanceof Object && !(options instanceof Function)){
+           callback = options.callback;
+            for(var x in options){
+            	if(options.hasOwnProperty(x)){
+            		xhr[x] = options[x];	
+            	}
+            }
+    	}
+    	
+        xhr.onreadystatechange = function() {
+            if(this.readyState === 4) {
+                if(callback) callback(this.responseText);
+            }
+        };
+        xhr.open('GET', url);
+        xhr.send();
+    };
+    
+    return ajax;
+	
+});

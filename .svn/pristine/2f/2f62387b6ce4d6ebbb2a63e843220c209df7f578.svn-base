@@ -1,0 +1,14 @@
+dependencies: \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CordovaLib/Classes/CDVURLProtocol.m \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CordovaLib/Classes/CDVURLProtocol.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CordovaLib/Classes/CDVAvailability.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CordovaLib/Classes/CDVAvailabilityDeprecated.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CordovaLib/Classes/CDVCommandQueue.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CordovaLib/Classes/CDVWhitelist.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CordovaLib/Classes/CDVViewController.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CordovaLib/Classes/CDVInvokedUrlCommand.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CordovaLib/Classes/CDVCommandDelegate.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CordovaLib/Classes/CDVScreenOrientationDelegate.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CordovaLib/Classes/CDVPlugin.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CordovaLib/Classes/CDVPluginResult.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CordovaLib/Classes/NSMutableArray+QueueAdditions.h

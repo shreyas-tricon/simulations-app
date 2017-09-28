@@ -1,0 +1,583 @@
+requirejs([], function(){
+		window.reader = {};
+	/*	reader.configManager = new configManager();*/
+		readerAppHelper.logScreenViewEventForApp('Welcome');
+	});
+
+(function(){
+
+var app = window.readerAppHelper,
+	bkImgInterval;
+
+function init(){
+    bindEvents();
+    // Commented code for app versioning
+    //$('body #app_version').html('v' + window.assessment_configs.VERSION);
+}
+
+// Need to revisit this function. Make it more generalize.
+/*function showBkImgAnimation(){
+	var counter=5;
+	bkImgInterval=setInterval(function(){
+
+	$('.background-app').removeClass("background-app-1 background-app-2 background-app-3 background-app-4 background-app-5");
+	$('.background-app').addClass("background-app-"+counter);
+	if(counter===5){
+		counter=0;
+	}
+	counter= counter+1;
+	}, 5000);
+}*/
+
+function bindEvents(){
+    $('.signin-link').off('click').on('click', function(){
+        $('.home-screen').addClass('hide');
+      //  $('.signin-form').removeClass('hide');
+        $('.signin-form-parent').removeClass('hide');
+    });
+    $('.signin-google').on('click', function(){
+        app.googleLogin();
+    });
+    /* $('.signin-googleplay').off('click').on('click', function(){
+              $("#message-googleplay").html("signing in ...");
+              $('.signin-googleplay').off('click');
+               app.googlePlayLogin();
+    }); */
+    app.bindGPlayClickEvent();
+    $("#cancelButton").bind('click', function() {
+        window.location.href = 'index.html';
+    });
+    $("#login-form").submit(function(event){
+        event.preventDefault();
+        localStorage.removeItem("user");
+        $("#message").removeClass("hide").html("signing in ...");
+        var $form = $( this ),
+        usr = $form.find( "input[name='usrname']" ).val(),
+        pass = $form.find("input[name='password']").val();
+
+        if(usr == "" || pass == ""){
+            $('#message').removeClass("hide").html("Please enter username and password.");
+        }
+        if(usr !== "" && pass !== ""){
+            app.userLogin(usr,pass,function(data){
+                if(data.responseHeader.status == 0 && data.response.sessionID){
+                    // app.setStatus('Welcome '+(data.response.name || data.response.login));
+                	$(".landing-page").addClass('hide');
+                    $(".app-container").removeClass('hide');
+                	if(data.response.roles[0].name === "member"){
+                		if(typeof(Storage) != undefined) {
+                    		readerAppHelper.setUserInfo(data.response);
+					    }
+                		window.location.href = "../www/index.html";
+                    }
+                    else if(data.response.roles[0].name === "teacher"||data.response.roles[0].name === "student" || data.response.roles[0].name==="content-contractor-admin"){
+                    	if(typeof(Storage) != undefined) {
+                    		readerAppHelper.setUserInfo(data.response);
+					    }
+                    	window.location.href = "../www/index.html";
+                    }
+                    /*Commented code for logging events*/
+                    /*readerAppHelper.logSignInEvent({ //ads event called on login.
+                        "authType" : 'ck-12',
+                        "memberID" : data.response.id
+                    }, function(){
+                        window.location.href = "../js/index.html";
+                    });*/
+                }
+                else if(data.response.message){
+                    $('#message').removeClass("hide").html(data.response.message);
+                }
+            });
+        }
+    });
+    $("#signInButton").off("click").on("click",function(e){
+    	e.stopPropagation();
+    	/*Write for other browsers also*/
+    	$(".background-animation").addClass("hide");
+    	$(".background-app ").addClass("hide");
+    	$(".active-login-view").removeClass("active-login-view").next().addClass("active-login-view");
+    	clearInterval(bkImgInterval);
+    	$(".signin-form-parent ").removeClass("hide").removeClass("slideAnimation-signin-form-parent-100").addClass("slideAnimation-signin-form-parent-0").delay(10).queue(function(){
+    	   // $(this).removeClass("slideAnimation-signin-form-parent-100").addClass("slideAnimation-signin-form-parent-0").dequeue();
+    	    $(".app-landing-page  ").delay(550).queue(function(){
+    			
+         	   // $(this).addClass("hide").dequeue();
+         	});
+    	});
+    	readerAppHelper.logScreenViewEventForApp('SignIn');
+    //	$("app-landing-page ").addClass("hide");
+    	//if (readerAppHelper) readerAppHelper.logGAEventForApp("SignIn");
+    });
+    $("#signUpButton").off("click").on("click",function(e){
+    	e.stopPropagation();
+  /*  	 app.signUp({
+             "givenName" : "vipin"
+    	 });*/
+    	$(".background-animation").addClass("hide");
+    	$(".background-app ").addClass("hide");
+		$(".active-login-view").removeClass("active-login-view").next().addClass("active-login-view");
+    	$(".signin-screen-parent ").removeClass("hide").addClass("slideAnimation-signin-screen-parent-0").removeClass("slideAnimation-signin-screen-parent-100").delay(10).queue(function(){
+    		$(".signin-form-parent ").removeClass("slideAnimation-signin-form-parent-0").addClass("slideAnimation-signin-form-parent--50").delay(550).queue(function(){
+    		
+         	    //$(this).removeClass("slideAnimation-signin-form-parent--50").addClass("hide").dequeue();
+         	});
+    	    //$(this).removeClass("slideAnimation-signin-screen-parent-50").addClass("slideAnimation-signin-screen-parent-0").dequeue();
+    	});
+    	readerAppHelper.logScreenViewEventForApp('SignUp');
+        //if (readerAppHelper) readerAppHelper.logGAEventForApp("SignUp");
+    });
+    $(".signup-bottom").off("click").on("click",function(){
+    	$(".active-login-view").removeClass("active-login-view").prev().addClass("active-login-view");
+    	$(".signin-form-parent ").addClass("slideAnimation-signin-form-parent-50").removeClass("slideAnimation-signin-form-parent-100").removeClass("hide").delay(50).queue(function(){
+    		$(".signin-screen-parent ").removeClass("slideAnimation-signin-screen-parent-0").addClass("slideAnimation-signin-screen-parent--50").delay(550).queue(function(){
+    			$(this).removeClass("slideAnimation-signin-screen-parent--50").addClass("hide").dequeue();
+         	});
+    	    $(this).removeClass("slideAnimation-signin-form-parent-50").addClass("slideAnimation-signin-form-parent-0").dequeue();
+    	});
+    	readerAppHelper.logScreenViewEventForApp('SignIn');
+        //if (readerAppHelper) readerAppHelper.logGAEventForApp("SignUp");
+    });
+    $(".app-landing-page").off("click").on("click",function(){
+    	if((document.getElementsByClassName("signin-form-parent")[0].classList.contains("slideAnimation-signin-form-parent-100"))){
+    		$(".background-animation").removeClass("hide");
+	    	$(".background-app ").removeClass("hide");
+    		closeSignUp();
+    		
+   		 	readerAppHelper.logScreenViewEventForApp('SignIn');
+    	}else{
+    		$(".background-animation").removeClass("hide");
+	    	$(".background-app ").removeClass("hide");
+    		closeSignIn();
+    		readerAppHelper.logScreenViewEventForApp('Welcome');
+    	}
+		
+    });
+	 $(".close-signup").off("click").on("click",function(){
+		 closeSignUp();
+		 readerAppHelper.logScreenViewEventForApp('SignIn');
+	 });
+    $('.validate-input').off('change.signin').on('change.signin', function () {
+        if (this.value && $('.validate-input').not(this).val()) {
+            $('.signin-submit').prop('disabled', false);
+            $('.signin-submit').removeClass("disabled grey");
+        } else {
+            $('.signin-submit').prop('disabled', true);
+            $('.signin-submit').addClass("disabled grey");
+        }
+    }).off('keyup.signin input.signin').on('keyup.signin input.signin', function (e) {
+        if (this.value && $('.validate-input').not(this).val()) {
+            $('.signin-submit').prop('disabled', false);
+            $('.signin-submit').removeClass("disabled grey");
+        } else {
+            $('.signin-submit').prop('disabled', true);
+            $('.signin-submit').addClass("disabled grey");
+        }
+        if (13 === (e.keyCode || e.which)) {
+            $('.signin-submit').trigger('click');
+        }
+    });
+    document.addEventListener("keydown",logPressedKeys,false);
+    
+	function logPressedKeys(e) {
+	    console.log(e.keyCode);
+	    if (e.keyCode==13) {
+	      e.preventDefault();
+	      //console.log('Enter spotted: prevent!');
+	      temp=document.activeElement;
+	      //console.log(temp);
+	      temp.blur();
+	      return false;
+	    }
+	    return true;
+	}
+    $(".signup-submit").off("click").on("click",function(e){
+        e.preventDefault();
+        var f = $("#signUpForm"),
+        name = f.find("[name=fullname]").val(),
+        email = f.find("[name=email]").val(),
+        password = f.find("[name=password]").val(),
+        //birthday =  f.find("[name=dob]").val(),
+        inputs =  $("#signUpForm input[required]"),
+        emailRegex = /(^[-!#$%&'*+\/=?^_`{}|~0-9A-Z]+(\.[-!#$%&'*+\/=?^_`{}|~0-9A-Z]+)*|^"([\001-\010\013\014\016-\037!#-\[\]-\177]|\\[\001-011\013\014\016-\177])*")@(?:[A-Z0-9]+(?:-*[A-Z0-9]+)*\.)+[A-Z]{2,6}$/i,
+        context = null,
+        //deferredDob = $.Deferred(),
+        deferredMail = $.Deferred();
+
+        if(!$(this).hasClass("disabled") && !(f.find(".error").length)>0){
+            for(var i=0;i<inputs.length;i++){
+                if($(inputs[i]).hasClass("dob")){
+                    continue;
+                }
+                if(inputs[i].value.trim() == ""){
+                    $(inputs[i]).addClass("error")
+                    $(inputs[i]).prev(".error-msg").removeClass("hide");
+                }
+                else{
+                    $(inputs[i]).prev(".error-msg").addClass("hide");
+                    $(inputs[i]).removeClass("error");
+                }
+            }
+            if(!(f.find(".error").length)>0){
+                if (name.indexOf ('"') != -1 || name.indexOf('<') != -1 || name.indexOf('@') != -1){
+                    $(f.find("[name=fullname]")).addClass("error")
+                    $(f.find("[name=fullname]")).prevAll(".error-msg").removeClass("hide").html("Double quotes, smaller than (<) or @ are not allowed.");
+                }else{
+                    $(f.find("[name=fullname]")).prevAll(".error-msg").html("Enter your full name.");
+                }
+
+                if((emailRegex).test(jQuery.trim(email))){
+                    $(f.find("[name=email]")).removeClass("error");
+                }
+                else{
+                    $(f.find("[name=email]")).addClass("error")
+                    $(f.find("[name=email]")).prevAll(".error-msg").removeClass("hide").html("Enter a valid email address");
+                }
+
+                password = password.replace(/\s+/g, '');
+                if(password.length < 6){
+                    $(f.find("[name=password]")).addClass("error")
+                    $(f.find("[name=password]")).prevAll(".error-msg").removeClass("hide");
+                }else{
+                    $(f.find("[name=password]")).removeClass("error");
+                    $(f.find("[name=password]")).prevAll(".error-msg").addClass("hide");
+                }
+                   /* practiceAppHelper.validateDOB({
+                        "birthday" : birthday,
+                        "success" : function(){
+                            context = $(f.find("[name=dob]"));
+                            context.removeClass("error");
+                            context.nextAll(".error-msg").addClass("hide");
+                            if(calculateAge() < 13){
+                                context.addClass("error")
+                                context.nextAll(".under-13").removeClass("hide").html("Hey there! Your teacher or parent will need to setup the account for you.<br/>Please <a class='reg-link' href='"+ AUTH_SERVER_URL + "/auth/signup/student'>sign up</a> on our website.<div class='close-popUp'>x</div>");
+                                bindPopUp();
+                                deferredDob.resolve({
+                                    "result" : "error"
+                                });
+                            }
+                            else{
+                                context.removeClass("error")
+                                context.nextAll(".under-13").addClass("hide").html("");
+                                deferredDob.resolve({
+                                    "result" : "success"
+                                });
+                            }
+                        },
+                        "error" : function(){
+                            context = $(f.find("[name=dob]"));
+                            context.addClass("error")
+                            context.nextAll(".error-msg").removeClass("hide").html("Please enter a valid date.");
+                            deferredDob.resolve({
+                                "result" : "error"
+                            });
+                        }
+                   });*/
+
+                readerAppHelper.validateEmail({
+                    "email" : email,
+                    "success" : function(){
+                        context = $(f.find("[name=email]"));
+                        context.removeClass("error");
+                        deferredMail.resolve({
+                            "result" : "success"
+                        });
+                    },
+                    "error" : function(){
+                        context = $(f.find("[name=email]"));
+                        context.addClass("error");
+                        context.prevAll(".error-msg").removeClass("hide").html("This email address is already taken.");
+                        deferredMail.resolve({
+                            "result" : "error"
+                        });
+                    }
+                });
+
+                $.when(/*deferredDob,*/ deferredMail).done(function(/*dob,*/ mail){
+                    if(!$("#signUpForm input").hasClass("error") /*&& dob.result === "success"*/ && mail.result === "success"){
+                        name = name.split(" ");
+                        $("#message-signup").html("signing up ...");
+                        app.signUp({
+                            "givenName" : name[0],
+                            "surname": name[1],
+                            "email" : email,
+                            "token" : password,
+                            //"birthday" : practiceAppHelper.formatDate(birthday),
+                            "role" : "member",
+                            "authType" : "ck-12"
+                        });
+                    }
+                });
+            }else{
+                return false;
+            }
+
+        }else{
+            return false;
+        }
+
+    });
+    $(".submit-email").off("click").on("click",function(e){
+        var email = $("#forgot-pwd-form").find("[name=f-pswd]").val();
+        if(email !== "" && (/(^[-!#$%&'*+\/=?^_`{}|~0-9A-Z]+(\.[-!#$%&'*+\/=?^_`{}|~0-9A-Z]+)*|^"([\001-\010\013\014\016-\037!#-\[\]-\177]|\\[\001-011\013\014\016-\177])*")@(?:[A-Z0-9]+(?:-*[A-Z0-9]+)*\.)+[A-Z]{2,6}$/i).test(jQuery.trim(email))){
+        app.forgotPassword({
+            "email": email,
+            "landing page" : true,
+            "send email" :true
+        });
+        $("#forgot-pwd-form").find("[name=f-pswd]").prev('.error-msg').addClass("hide");
+        }
+        else{
+            $("#forgot-pwd-form").find("[name=f-pswd]").prev('.error-msg').removeClass("hide");
+        }
+    });
+    $('.validated-input').off('change.signup').on('change.signup', function () {
+        if (this.value && $('.validated-input').not(this).val()) {
+            $('.signup-submit').prop('disabled', false);
+            $('.signup-submit').removeClass("disabled grey");
+        } else {
+            $('.signup-submit').prop('disabled', true);
+            $('.signup-submit').addClass("disabled grey");
+        }
+    }).off('keyup.signup input.signup').on('keyup.signup input.signup', function (e) {
+        if (this.value && $('.validated-input').not(this).val()) {
+            $('.signup-submit').prop('disabled', false);
+            $('.signup-submit').removeClass("disabled grey");
+        } else {
+            $('.signup-submit').prop('disabled', true);
+            $('.signup-submit').addClass("disabled grey");
+        }
+        if (13 === (e.keyCode || e.which)) {
+            $('.signup-submit').trigger('click');
+        }
+    });
+    /*$(".dob").off("focus").on("focus", function() {
+        $(".date-format").addClass("hide");
+    });*/
+    $("#signUpForm input").off("blur").on("blur", function(e){
+        var f = $("#signUpForm"),
+        emailRegex = /(^[-!#$%&'*+\/=?^_`{}|~0-9A-Z]+(\.[-!#$%&'*+\/=?^_`{}|~0-9A-Z]+)*|^"([\001-\010\013\014\016-\037!#-\[\]-\177]|\\[\001-011\013\014\016-\177])*")@(?:[A-Z0-9]+(?:-*[A-Z0-9]+)*\.)+[A-Z]{2,6}$/i,
+        context = "",
+        password = "";
+
+        if(this.id === "pswd-change"){
+            password = this.value.replace(/\s+/g, '');
+            if(password.length < 6){
+                $(this).addClass("error");
+                $(this).prevAll(".error-msg").removeClass("hide");
+                return false;
+            }
+        }
+
+        if($(this).val() == ""){
+            $(this).addClass("error");
+            $(this).prevAll(".error-msg").removeClass("hide");
+            /*if($(this).hasClass("dob")) {
+                $("#createUser").removeClass("disabled grey").addClass("turquoise");
+                $("#createUser").removeAttr("disabled");
+                $(".date-format").removeClass("hide");
+            }else */if($(this).hasClass("email")){
+                $(this).prev(".error-msg").html("Enter a valid email address");
+            }
+        }
+        else{
+            $(this).prevAll(".error-msg").addClass("hide");
+            $(this).removeClass("error");
+           /* if($(this).hasClass("dob")){
+                context = $(f.find("[name=dob]"));
+                if ($.trim($(this).val()) !== "") {
+                    $(".date-format").addClass("hide");
+                } else {
+                    $(".date-format").removeClass("hide");
+                }
+                practiceAppHelper.validateDOB({
+                    "birthday" : $.trim($(this).val()),
+                        "success" : function(){
+                            context.removeClass("error");
+                            context.nextAll(".error-msg").addClass("hide");
+                            if(calculateAge() < 13){
+                                context.addClass("error")
+                                context.nextAll(".under-13").removeClass("hide").html("Hey there! Your teacher or parent will need to setup the account for you.<br/>Please <a class='reg-link' href='"+ AUTH_SERVER_URL + "/auth/signup/student'>sign up</a> on our website.<div class='close-popUp'>x</div>");
+                                $("#createUser").removeClass("turquoise").addClass("disabled grey");
+                                $("#createUser").attr("disabled", true);
+                                bindPopUp();
+                            }else{
+                                context.nextAll(".under-13").addClass("hide").html("");
+                                $("#createUser").removeClass("disabled grey").addClass("turquoise");
+                                $("#createUser").removeAttr("disabled");
+                            }
+                        },
+                    "error" : function(){
+                        context.addClass("error");
+                        context.nextAll(".error-msg").removeClass("hide").html("Please enter a valid date.");
+                    }
+                });
+            }
+           else */if($(this).hasClass('email')){
+               context = $(f.find("[name=email]"));
+               if((emailRegex).test(jQuery.trim($(this).val()))){
+            	   readerAppHelper.validateEmail({
+                       "email" : $.trim($(this).val()),
+                           "success" : function(){
+                               context.removeClass("error");
+                           },
+                       "error" : function(){
+                           context.addClass("error");
+                           context.prevAll(".error-msg").removeClass("hide").html("This email address is already taken.");
+                       }
+                   });
+               }
+               else{
+                   context.addClass("error");
+                   context.prevAll(".error-msg").removeClass("hide").html("Enter a valid email address");
+               }
+           }
+        }
+
+    });
+    $(".exit-pswd-page").off('click').on('click',function(e){
+        window.location.href = "login.html";
+    });
+    $(".forgot-pswd").off('click').on('click',function(e){
+        e.preventDefault();
+        var url =  window.API_SERVER_URL + $(this).attr('href');
+        window.open(url, '_system', 'location=yes');
+
+    });
+    $(".terms").off("click").on("click",function(e){
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.open(url, '_system', 'location=yes');
+    });
+    $(".log-in").off("click").on("click",function(e){
+     //   $(".signin-screen").addClass("hide");
+        $(".signin-screen-parent").addClass("hide");
+       // $(".signin-form ").removeClass("hide");
+        $(".signin-form-parent ").removeClass("hide");
+        //$(".signup-terms-content").removeClass("hide");
+    });
+    $("#password_display_toggle").on('change', function(){
+        if($(this).is(':checked')){
+            $("#pswd-change").attr('type','text');
+        } else {
+            $("#pswd-change").attr('type','password');
+        }
+    });
+
+}
+
+function closeSignIn(){
+	$(".app-landing-page").removeClass('hide');
+	$(".active-login-view").removeClass("active-login-view").prev().addClass("active-login-view");
+	$(".signin-screen-parent").addClass('hide');
+    $(".signin-form-parent").removeClass("slideAnimation-signin-form-parent-0").addClass("slideAnimation-signin-form-parent-100").delay(500).queue(function(){
+    	$(this).addClass('hide').dequeue();
+    });
+    $(".error-msg").addClass("hide");
+    $(".error").removeClass("error");
+//    showBkImgAnimation();
+}
+
+function closeSignUp(){
+	$(".active-login-view").removeClass("active-login-view").prev().addClass("active-login-view");
+	//$(".signin-form-parent").removeClass("slideAnimation-signin-form-parent-100").removeClass("slideAnimation-signin-form-parent-50").addClass("slideAnimation-signin-form-parent-0").removeClass('hide');
+	$(".signin-screen-parent").removeClass("slideAnimation-signin-screen-parent-0").addClass("slideAnimation-signin-screen-parent-100").delay(500).queue(function(){
+		$(this).addClass('hide').dequeue();
+	});
+    $(".error-msg").addClass("hide");
+    $(".error").removeClass("error");
+}
+
+function handleBack() {
+    var leaveAppOpen = true;
+    /*if (!$(".app-landing-page").hasClass("hide")) {
+        leaveAppOpen = false;
+    }*/
+    if($(".active-login-view").index() === 0){
+    	leaveAppOpen = false;
+    	readerAppHelper.logAppADSEvent('APP_ACTION',{
+        	action_name:'BackButton/Tapped',
+        	input_value:'',
+        	screen_name:'Welcome',
+        	action_type:'backButton'
+        });
+    }
+    else{
+    	if($(".active-login-view").index() === 1){
+    		readerAppHelper.logAppADSEvent('APP_ACTION',{
+            	action_name:'BackButton/Tapped',
+            	input_value:'',
+            	screen_name:'SignIn',
+            	action_type:'backButton'
+            });
+    		closeSignIn();
+		}
+    	else if($(".active-login-view").index() === 2){
+    		readerAppHelper.logAppADSEvent('APP_ACTION',{
+            	action_name:'BackButton/Tapped',
+            	input_value:'',
+            	screen_name:'SignUp',
+            	action_type:'backButton'
+            });
+    		closeSignUp();
+    	}
+    }
+    $("#landing-screen").css("height","100%");
+    //$(".app-landing-page").removeClass("hide");
+    /*$(".signin-form").addClass("hide");
+    $(".signin-screen").addClass("hide");
+    $(".signup-terms-content").addClass("hide");
+    $(".signin-header").addClass("hide");*/
+    $(".error-msg").addClass("hide");
+    $(".error").removeClass("error");
+    //doPlatformAdjustments();
+    return leaveAppOpen; // whether or not to kill the app
+}
+
+document.addEventListener("deviceready", function(){
+    //StatusBar.styleDefault();
+    //StatusBar.backgroundColorByName('darkGray');
+    //StatusBar.backgroundColorByHexString('#cdedef');
+//	showBkImgAnimation();
+    if(window.cookies) window.cookies.clear(function(){/*cookies cleared!*/});
+
+    try{
+        if (window.SmartCache){
+            window.smartcache_instance = window.smartcache_instance || new window.SmartCache();
+            window.smartcache_instance.clear_namespace('user',{
+                "cachesuccess":function(){console.log("Cleared user cache!");},
+                    "cachefailure":function(){console.log("Failed to clear user cache!");}
+            });
+        }
+    }catch(e){console.log("Failed to clear user cache!");}
+
+    window.readerAppHelper["backButtonHandler"] = handleBack;
+}, false);
+if (window.location.search.substr(1).indexOf('signout=true') !== -1) {
+    //if (window.readerAppHelper) window.readerAppHelper.logGAEventForApp("SignOut");
+    if(window.cookies) window.cookies.clear(function(){/*cookies cleared!*/});
+    app.logout(function() { $("#message").removeClass("hide").html("You are now signed out."); });
+}
+/*function bindPopUp(){
+    $(".close-popUp").off("click").on("click",function(e){
+        $(".under-13").addClass("hide");
+    });
+    $(".reg-link").off("click").on("click",function(e){
+        e.preventDefault();
+        var url = $(this).attr('href');
+        if (window.practiceAppHelper) window.practiceAppHelper.logGAEventForApp("ExternalUrl/" + url);
+        window.open(url, '_system', 'location=yes');
+    });
+}*/
+
+/*function calculateAge() {
+    var date1, date2, milli, milliPerYear, yearsApart, val;
+    val = $('.birthday-wrap input').val();
+    date1 = new Date(practiceAppHelper.formatDate(val));
+    date2 = new Date();
+    milli = date2 - date1;
+    milliPerYear = 1000*60*60*24*365.26;
+    yearsApart = milli/milliPerYear;
+    return yearsApart;
+} */
+init();
+})();

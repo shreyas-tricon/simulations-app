@@ -1,0 +1,11 @@
+# location of keystore
+storeFile=/opt/lampp/website/2.0/branches/sim-app-android/simulations.keystore
+
+# Key alias
+keyAlias=simulations
+
+# Store password
+storePassword=sim123
+
+# Key password
+keyPassword=sim123

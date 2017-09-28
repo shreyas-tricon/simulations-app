@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget android-versionCode="100001" id="org.ck12.simulations" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Simulations</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <icon src="www/img/icon-500@2.png" />
+    <platform name="android">
+        <icon density="ldpi" src="www/img/icon-ldpi.png" />
+        <icon density="mdpi" src="www/img/icon-mdpi.png" />
+        <icon density="hdpi" src="www/img/icon-hdpi.png" />
+        <icon density="xhdpi" src="www/img/icon-xhdpi.png" />
+        <icon density="xxhdpi" src="www/img/icon-xxhdpi.png" />
+        <icon density="xxxhdpi" src="www/img/icon-xxxhdpi.png" />
+    </platform>
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <preference name="Orientation" value="sensorLandscape" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <preference name="permissions" value="android.permission.READ_EXTERNAL_STORAGE" />
+    <preference name="permissions" value="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="AppendUserAgent" value="org.ck12.app.simulations" />
+    <engine name="android" spec="^6.2.3" />
+    <plugin name="cordova-plugin-browsertab" spec="~0.2.0" />
+    <plugin name="cordova-plugin-camera" spec="~2.3.1" />
+    <plugin name="cordova-plugin-compat" spec="~1.1.0" />
+    <plugin name="cordova-plugin-cookieemperor" spec="^1.0.0" />
+    <plugin name="cordova-plugin-customurlscheme" spec="~4.2.0">
+        <variable name="URL_SCHEME" value="ck12sims" />
+        <variable name="ANDROID_SCHEME" value=" " />
+        <variable name="ANDROID_HOST" value=" " />
+        <variable name="ANDROID_PATHPREFIX" value="/" />
+    </plugin>
+    <plugin name="cordova-plugin-googleplayservices" spec="~19.0.3" />
+    <plugin name="cordova-plugin-inappbrowser" spec="D:\ck12-Plugins\cordova-plugin-inappbrowser" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <plugin name="cordova.plugins.diagnostic" spec="D:\ck12-Plugins\cordova.plugins.diagnostic" />
+    <plugin name="org.apache.cordova.statusbar" spec="~0.1.10" />
+    <plugin name="org.ck12.identity" spec="D:\ck12-Plugins\org.ck12.identity" />
+</widget>

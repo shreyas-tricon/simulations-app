@@ -1,0 +1,92 @@
+/* vim: set noexpandtab: */
+var API_SERVER_NAME = "gamma.ck12.org";
+var API_SERVER_HOST = "gamma.ck12.org";
+var API_SERVER_URL = "";
+var ADS_SERVER_API = "/dexter/record/event";
+var FBS_CLIENT_ID = "24839961";
+var AUTH_SERVER_URL = "";
+var ENABLE_CONSOLE_LOG = 1;
+var webroot_url = "/";
+
+// Use this as a global configs dictionary. 
+window.reader_configs = { 
+    "PROCESS_OFFLINE": false,
+    "ENABLE_ATHENA": false,
+    "CLIENTSIDE_EVALUATION": true,
+    "SECRET_KEY":"01ab38d5e05c92aa098921d9d4626107133c7e2ab0e4849558921ebcc242bcb0",
+    "APP_MODE":true,
+    "ADAPTIVE" : true, //this should be true for adaptive flow. adaptive flow needs to be work on desktop also
+    "COVERSHEET_HOME" : "/coversheet/",
+    "VERSION": "1.0.0", // APP VERSION
+    "APP_GA_TRACKER": {
+      "ios_tracker": "UA-33406409-3",
+      "android_tracker": "UA-33406409-3"
+    },
+    "brainflex": {
+      "goal_per_concept": 1
+    },
+    "ERROR_CODES" : {
+        "MAXIMUM_ATTEMPT_REACHED" : 13026,
+        "MAXIMUM_TRIAL_ATTEMPT_REACHED" : 13029,
+        "TEST_NOT_AVAILABLE" : 14006,
+        "VARIABLE_RULE_ERROR" : 16006,
+        "USER_NOT_LOGIN" : 11009,
+        "PRACTICE_PAUSED" : 14054,
+        "QUESTION_EXHAUSTED" : 14009,
+        "NO_TEST_RESTART" : 14024
+    },
+    "isAdaptive" : function(){
+        return this.ADAPTIVE;
+    },
+    
+    "isApp" : function(){
+        return this.APP_MODE;
+    },
+
+    "iOS8FixIssue" : function() {
+        // temp fix for iOS8 beta, add it after the reference to cordova.js
+        if (navigator.userAgent === undefined) {
+            navigator.__defineGetter__('userAgent', function() {
+                return "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit";
+            });
+        }
+    },
+    
+    "setAdaptive" : function(value){
+    	this.ADAPTIVE = value;
+    	//if(value){
+    	//	window.assessment_configs["CLIENTSIDE_EVALUATION"] = false;
+    	//}else{
+    	//	window.assessment_configs["CLIENTSIDE_EVALUATION"] = true;
+    	//}
+    }
+};
+
+if(window.reader_configs.isApp()){
+    API_SERVER_URL = "https://" + API_SERVER_HOST;
+    AUTH_SERVER_URL = "https://" + API_SERVER_HOST;
+    ADS_SERVER_API = "http://" + API_SERVER_HOST + "/dexter/record/event";
+    webroot_url = "http://" + window.API_SERVER_HOST + "/";
+    window.reader_configs["COVERSHEET_HOME"] = "../../coversheet/index.html"; //this is the coversheet path relative to assessment ui folder in app 
+    window.reader_configs["PROCESS_OFFLINE"] = true;
+    window.reader_configs["CLIENTSIDE_EVALUATION"] = true;
+    window.reader_configs['DB_schema'] = {
+    		'db_name' : '@@SQLITE_DBNAME@@',
+    		'tables' : ['smart_cache']
+    }
+    
+    window.isApp = function(){
+    	return true;
+    }
+}
+
+if(window.reader_configs.isAdaptive()){
+   // window.assessment_configs["CLIENTSIDE_EVALUATION"] = false;
+}
+var APP_VERSION=0;
+window.APP_VERSION=APP_VERSION;
+var APP_DOWNLOAD_URL= {
+    'android': "https://play.google.com/store/apps/details?id=org.ck12.app.practice",
+    'ios':"https://itunes.apple.com/us/app/ck-12/id909343639?ls=1&mt=8"
+};
+

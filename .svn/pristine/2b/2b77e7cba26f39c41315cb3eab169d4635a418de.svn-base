@@ -1,0 +1,14 @@
+dependencies: \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CK12-Simulations/Plugins/org.apache.cordova.statusbar/CDVStatusBar.m \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CK12-Simulations/Plugins/org.apache.cordova.statusbar/CDVStatusBar.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVPlugin.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVPluginResult.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVAvailability.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVAvailabilityDeprecated.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/NSMutableArray+QueueAdditions.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVCommandDelegate.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVInvokedUrlCommand.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVViewController.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVCommandQueue.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVWhitelist.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVScreenOrientationDelegate.h

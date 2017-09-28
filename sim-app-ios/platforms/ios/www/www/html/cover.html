@@ -1,0 +1,154 @@
+<header>
+	<nav>
+		<div class="logo-wrapper">
+			<a href="#"><div class="logo-launch-page"></div></a><h1 class="exploration-series">Exploration Series</h1>
+			<h1 class="logo-line sep-line" style="font-size: 26px;padding: 0px 5px 0px 15px"></h1>
+			<h1 class="logo-line">Physics Simulations</h1>
+		</div>
+		<div class="header-search">
+			<input type="text" class="header-input" placeholder="Search Simulations or Concepts" size="30" name="search-field" disabled="disabled">
+			<!-- <div class="search-tabs">
+				<span class="active">Physics Simulations</span> <span class="tab-seperator">|</span> <span>Discussion Forum</span></div>-->
+		</div>
+		<div class="tool-menu user-avatar">
+		<img class="user-avatar-image" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg">
+
+
+		<div id="UserProfileView" class="user-profile-screen hide" style="display: block">
+   <div class="user-profile-container">
+      <img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" title="Vipin Sharma">
+      <div class="name">Vipin Sharma</div>
+      <div class="email">vipinbabu.100@gmail.com</div>
+      <div class="seperator"></div>
+      <div class="options">
+         <div class="settings hide icons">Settings</div>
+         <div id="signOut" class="signout icons">Sign Out</div>
+      </div>
+      <div class="seperator version"></div>
+  	  <div id="versionDiv"></div>
+   </div>
+</div>
+</div>
+	</nav>
+</header>
+<div id="loadingOverlay" class="loading-overlay hide">
+<div class="text">Downloading Simulation...</div>
+<div id="loaderScreen" class="loader loader-down-lo"><div class="loader-container"><div class="loader-icon"></div></div></div>
+
+</div>
+<div style="padding-top: 71px">
+	<div class="filter-section">
+		<!-- <div class="left filter-button filter-tab ">Filter<div class="filter-icon"></div></div> -->
+		<div class="left filter-button filter-tab"><div class="filter-icon"></div>Filters</div>
+		<div class="right filter-button video-tab instructor-tutorial">Instruction Video</div>
+        <!-- Code for delete -->
+		<div class="toggle-button-container opacityZero">
+			<div class="toggle-button offline-tab" id="offlineTab">
+				<button></button>
+			</div>
+			<div class="ButtonLable">Show offline simulations</div>
+		</div>
+		<!-- <div class="middle filter-button video-tab opacityNone offline-tab inactive">Offline</div> -->
+		<!--html for offline button
+		 <div class="right filter-button video-tab  instructor-tutorial">Offline</div>
+		  -->
+
+		<div class="filter-main-wrapper go-left">
+			<div class="filter-main-style" style="margin-bottom: 21px">
+				<div class="filter-icon"></div>
+				<div style="display:inline-block">Filters</div>
+				<!-- <div style="display:inline-block;"><div class="filter-icon"></div>Filter</div> -->
+				<div class="back-arrow"></div>
+			</div>
+			<div class="filter-container" style="overflow:auto">
+				<div class="concept-filter-tab sort-box-concept">
+					<div class="filter-main-style filter-menu-wrapper show-menu">Filter by Concepts<div class="wrapper-icon"></div></div>
+					<div class="concept-filter">
+
+					</div>
+				</div>
+				<div class="concept-filter-tab sort-box-standard">
+					<div class="filter-main-style filter-menu-wrapper show-menu">Filter by Standards<div class="wrapper-icon"></div></div>
+					<div class="standard-filter">
+
+					</div>
+				</div>
+
+			</div>
+			<!-- <div class="right filter-button video-tab  instructor-tutorial">Instruction Video</div> -->
+			<div class="clear hide">
+				<div class="clear-item">
+					<div class="clear-box">
+						<div class="clear-text">Clear Filter</div>
+						<div class="clear-button"></div>
+					</div>
+				</div>
+			</div>
+			<div class="nav-bottom">Clear Filter</div>
+		</div>
+	</div>
+</div>
+<section id="main-container" class="main-container">
+	<div class="thumbnail-view-holder">
+
+	</div>
+	<!--<div class="modal-window hide">
+		<div class="iframe-container">
+			<div class="close-modal"></div>
+			<div class="i-frame-cont">
+				<iframe class="i-frame" src="" frameborder="0" referrer="ck12simulations_app"></iframe>
+			</div>
+		</div>
+	</div>-->
+
+	
+	<div class="no-match-found hide">
+		<div class="no-match-image"></div>
+		<div class="no-match-text">No Match Found</div>
+	</div>
+	<!-- <iframe class="i-frame hide" src="" frameborder="0"></iframe> -->
+</section>
+<div id="InstructionVideo" class="InstructionVideo-screen hide">
+   <div class="instruction-container" id="instructionContainer">
+      <div class="instruction-video-text header"><span class="instruction-title">SIM Instruction Tutorial</span></div>
+      <div class="seprate-line hide" id="seprate"></div>
+      <div class="instruction-close"></div>
+      <div class="iframe-parent">
+         <!--<div class="full-screen-icon">Full screen</div>-->
+        <!-- <div class="instruction-close zoom_in_out_work" id ="zoom-button"></div>-->
+         <iframe class="instruction-video-frame" frameborder="0" src=""></iframe>
+         <div class="instruction-video-frame-1"></div>
+      </div>
+   </div>
+</div>
+<!-- ..........Error Msg............. -->
+<div id="MessageView" class="message-container hide">
+    <div class="message-content">
+        <div id="errorView" class="">
+            <div class="error-container">
+                <div class="rat"></div>
+                <div class="error-text-container">
+                    <div class="error-header">Activities aren't available right now!</div>
+                    <div class="error-description">Either you don't have a network <br>connection or our server is acting up.</div>
+                </div>
+                <div class="error-buttoncontainer"><a href="#" id="msgModalClose" class="error-button">Dismiss</a></div>
+                     </div>
+              </div>
+       </div>
+</div>
+
+<div class="modal-window hide">
+    <div class="iframe-container">
+        <div class="close-modal"></div>
+        <div class="i-frame-cont">
+            <iframe class="i-frame" src="" frameborder="0" referrer="ck12simulations_app"></iframe>
+        </div>
+    </div>
+</div>
+<!-- ..........IFRAME FOR SIM........................................ -->
+
+<div class="iframe-parent-sim hide">
+     <div class="iframe-header"></div>
+
+    <iframe class="instruction-video-frame-sim" frameborder="0" src=""></iframe>
+</div>

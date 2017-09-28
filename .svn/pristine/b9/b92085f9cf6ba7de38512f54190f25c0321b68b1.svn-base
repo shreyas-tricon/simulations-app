@@ -1,0 +1,62 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "cordova-plugin-zip": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "org.apache.cordova.statusbar": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "org.ck12.identity": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "cordova-plugin-browsertab": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "cordova-plugin-customurlscheme": {
+            "URL_SCHEME": "ck12sims",
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "com.bez4pieci.cookies": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "cordova-plugin-cookieemperor": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        }
+    },
+    "dependent_plugins": {
+        "com.google.playservices": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "org.chromium.common": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "org.ck12.simulations"
+        }
+    }
+}

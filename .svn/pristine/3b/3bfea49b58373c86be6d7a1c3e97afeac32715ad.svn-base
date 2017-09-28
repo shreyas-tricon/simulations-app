@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\workspace\simulations-ck12\simulations\common\ck12-simulation-app\sim-app-android\platforms\android\CordovaLib\src\main\shaders"/></dataSet><dataSet config="debug"><source path="D:\workspace\simulations-ck12\simulations\common\ck12-simulation-app\sim-app-android\platforms\android\CordovaLib\src\debug\shaders"/></dataSet></merger>

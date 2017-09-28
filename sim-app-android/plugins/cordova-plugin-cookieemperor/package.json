@@ -1,0 +1,39 @@
+{
+  "name": "cordova-plugin-cookieemperor",
+  "version": "1.0.0",
+  "description": "Cordova webkit browser cookie manipulation, XWalk solution",
+  "cordova": {
+    "id": "cordova-plugin-cookieemperor",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RTK/cordova-cookie-emperor.git"
+  },
+  "keywords": [
+    "cordova",
+    "cookies",
+    "cookie",
+    "manipulate",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": {
+    "name": "Rouven Kruse"
+  },
+  "license": "MIT",
+  "readme": "Cookie Emperor\n==============\n\nSince cordova apps should not live without the Crosswalk Project anymore and the InAppBrowser-plugin does not use the XWalk webview sharing cookies is not that easy. Setting up cookies via\ndocument.cookie does not provide the expected result and thus the CookieMaster was born. Since CookieMaster is no longer maintained and cannot be build with android sdk < 23 (without gradle hacks)\nI came to the conclusion to fork this project and keep it maintained to a certain level.\n\nFeel free to contribute, pull-requests will be reviewed.\n\n## Supported Platforms\n* Android\n* iOS\n\n## Installing\n\nInstall with Cordova CLI\n\n    $ cordova plugin add https://github.com/rtk/cordova-cookie-emperor.git\n\n## Usage\nA global object cookieEmperor will be bound to the window object.\n\n### Get cookie value\n```javascript\nwindow.cookieEmperor.getCookie('http://<some host>:<some port>', '<cookie name>', function(data) {\n  console.log(data.cookieValue);\n}, function(error) {\n  if (error) {\n    console.log('error: ' + error);\n  }\n});\n```\n### Set cookie value\n```javascript\nwindow.cookieEmperor.setCookie('http://<some host>:<some port>', '<cookie name>', '<cookie value>',\n    function() {\n        console.log('A cookie has been set');\n    },\n    function(error) {\n        console.log('Error setting cookie: '+error);\n    });\n```\nThe cookie value should be formatted just like a regular <code>document.cookie</code> value.\n\n### Clear all cookies\n```javascript\nwindow.cookieEmperor.clearAll(\n    function() {\n    console.log('Cookies have been cleared');\n    },\n    function() {\n        console.log('Cookies could not be cleared');\n    });\n```\n\n## License\nThis plugin is distributed under the MIT License.\n\n## Thanks to\nThis plugin is forked from https://github.com/kristianhristov/cordova-cookie-master",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/RTK/cordova-cookie-emperor/issues"
+  },
+  "homepage": "https://github.com/RTK/cordova-cookie-emperor#readme",
+  "_id": "cordova-plugin-cookieemperor@1.0.0",
+  "scripts": {},
+  "_shasum": "3da3cb6968b11b8bb30fbea5d405ba950a3586c1",
+  "_from": "..\\cordova-plugin-cookieemperor2",
+  "_resolved": "file:..\\cordova-plugin-cookieemperor2"
+}

@@ -1,0 +1,93 @@
+.mceContentBody.exeditor{
+	background : #fff;
+	font-family : "proximaNova";
+	font-size : 16px;
+	color : #56544D;
+	padding : 13px 5px 5px !important;
+	margin : 0 0 8px;
+	/*margin : 0px;*/
+	/*box-sizing : border-box;*/
+}
+
+.mceContentBody.exeditor p {
+	margin : 0;
+}
+
+.mceContentBody.exeditor img {
+	vertical-align : middle;
+}
+
+.variable-highlight{
+	background-color: #f5f5f5;
+	border: 1px solid #d9d9d9;
+	cursor: default;
+	color : #56544d;
+	display: inline;
+	width : auto;
+	white-space: nowrap;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	border-radius: 3px;
+	font-size : 14px;
+}
+
+.mceContentBody.background-grey {
+	background-color : #f5f5f5;
+}
+
+.defaultSkin table.mceLayout,
+.defaultSkin table.mceLayout tr.mceLast td,
+.defaultSkin table.mceLayout tr.mceFirst td {
+	border : 0px !important;
+}
+
+.mceIcon.mce_matheditor:after {
+    content: "ME";
+    vertical-align: middle;
+    padding-top:5px;
+}
+
+.defaultSkin .mceExternalClose {
+	-webkit-transform : scale(1.5);
+	-moz-transform : scale(1.5);
+	-ms-transform : scale(1.5);
+		transform : scale(1.5);
+}
+
+.tinymce-selection {
+	background-color : yellow;
+	text-decoration : underline;
+	position : relative;
+	display : inline-block;
+	margin : 0 3px;
+	pointer-events : none;
+}
+
+.tinymce-selection:after {
+	content : attr(data-index);
+	font-size : 0.75em;
+	font-weight : bold;
+	position : absolute;
+	top : -5px;
+	right : -5px;
+}
+#selectMath {
+  background: #F0F0EE;
+  width: 30px;
+  padding-left: 4px;
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  height: 17px;
+  border: 1px solid #DFDEDB;
+  font-size: 10px;
+  margin-top: 2px;
+}
+.icon-menu span {
+  padding-right: 8px;
+  font-size: 12px;
+  color: 56544D;
+  cursor : pointer;
+}
+

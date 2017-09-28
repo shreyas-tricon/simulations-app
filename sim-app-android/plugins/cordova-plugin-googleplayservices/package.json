@@ -1,0 +1,56 @@
+{
+  "name": "cordova-plugin-googleplayservices",
+  "version": "19.0.3",
+  "description": "Cordova Plugin to add google-play-services.jar",
+  "cordova": {
+    "id": "cordova-plugin-googleplayservices",
+    "platforms": [
+      "android",
+      "amazon-fireos"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/floatinghotpot/google-play-services.git"
+  },
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "google",
+    "play",
+    "services",
+    "googleplay",
+    "playservices"
+  ],
+  "author": {
+    "name": "Google"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/floatinghotpot/google-play-services/issues"
+  },
+  "homepage": "https://github.com/floatinghotpot/google-play-services#readme",
+  "maintainers": [
+    {
+      "name": "floatinghotpot",
+      "email": "rjfun.mobile@gmail.com"
+    }
+  ],
+  "gitHead": "dac4b94b7dcbefbf30bb5d02a9d462276f291bd2",
+  "_id": "cordova-plugin-googleplayservices@19.0.3",
+  "scripts": {},
+  "_shasum": "2047e8f432db4c1b16e8b4e3e2bf8d2aaf044a8c",
+  "_from": "cordova-plugin-googleplayservices@>=19.0.3 <19.1.0",
+  "_npmVersion": "2.14.4",
+  "_nodeVersion": "4.1.1",
+  "_npmUser": {
+    "name": "floatinghotpot",
+    "email": "rjfun.mobile@gmail.com"
+  },
+  "dist": {
+    "shasum": "2047e8f432db4c1b16e8b4e3e2bf8d2aaf044a8c",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-googleplayservices/-/cordova-plugin-googleplayservices-19.0.3.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-googleplayservices/-/cordova-plugin-googleplayservices-19.0.3.tgz"
+}

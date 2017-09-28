@@ -1,0 +1,5 @@
+storeFile=..\\..\\simulations.keystore
+storeType=jks
+keyAlias=simulations
+keyPassword=sim123
+storePassword=sim123

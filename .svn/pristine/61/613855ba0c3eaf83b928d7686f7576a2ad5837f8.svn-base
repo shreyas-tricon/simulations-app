@@ -1,0 +1,752 @@
+@font-face {
+	font-family: 'ck12';
+	src: url('../font/ck12/ck12.eot?-5t51w8');
+	src: url('../font/ck12/ck12.eot?#iefix-5t51w8')
+		format('embedded-opentype'), url('../font/ck12/ck12.woff?-5t51w8')
+		format('woff'), url('../font/ck12/ck12.ttf?-5t51w8')
+		format('truetype'), url('../font/ck12/ck12.svg?-5t51w8#ck12')
+		format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"],[class*=" icon-"] {
+	font-family: 'ck12';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-about:before {
+	content: "\e600";
+}
+
+.icon-activity:before {
+	content: "\e601";
+}
+
+.icon-add:before {
+	content: "\e602";
+}
+
+.icon-algebra:before {
+	content: "\e603";
+}
+
+.icon-analysis:before {
+	content: "\e604";
+}
+
+.icon-answer:before {
+	content: "\e605";
+}
+
+.icon-arithmetic:before {
+	content: "\e624";
+}
+
+.icon-arrow_down:before {
+	content: "\e606";
+}
+
+.icon-arrow_drag:before {
+	content: "\e607";
+}
+
+.icon-arrow_left:before {
+	content: "\e608";
+}
+
+.icon-arrow_right:before {
+	content: "\e609";
+}
+
+.icon-arrow_up:before {
+	content: "\e60a";
+}
+
+.icon-arrow-down-2:before {
+	content: "\e60b";
+}
+
+.icon-arrow-left:before {
+	content: "\e60c";
+}
+
+.icon-arrow-up-2:before {
+	content: "\e60d";
+}
+
+.icon-arrow-up:before {
+	content: "\e60e";
+}
+
+.icon-arrow:before {
+	content: "\e60f";
+}
+
+.icon-arrow2_left:before {
+	content: "\e610";
+}
+
+.icon-arrow2_right:before {
+	content: "\e611";
+}
+
+.icon-arrow3_left:before {
+	content: "\e612";
+}
+
+.icon-arrow3_right:before {
+	content: "\e613";
+}
+
+.icon-arrow3-down:before {
+	content: "\e614";
+}
+
+.icon-arrow3-up:before {
+	content: "\e615";
+}
+
+.icon-astronomy:before {
+	content: "\e616";
+}
+
+.icon-backpack:before {
+	content: "\e617";
+}
+
+.icon-bell:before {
+	content: "\e618";
+}
+
+.icon-biology:before {
+	content: "\e619";
+}
+
+.icon-blog:before {
+	content: "\e61a";
+}
+
+.icon-book:before {
+	content: "\e61b";
+}
+
+.icon-bookmark:before {
+	content: "\e61c";
+}
+
+.icon-calculus:before {
+	content: "\e61d";
+}
+
+.icon-calendar:before {
+	content: "\e61e";
+}
+
+.icon-camera:before {
+	content: "\e61f";
+}
+
+.icon-checkmark:before {
+	content: "\e620";
+}
+
+.icon-chemistry:before {
+	content: "\e621";
+}
+
+.icon-clock:before {
+	content: "\e622";
+}
+
+.icon-close:before {
+	content: "\e623";
+}
+
+.icon-close2:before {
+	content: "\e62a";
+}
+
+.icon-comments:before {
+	content: "\e625";
+}
+
+.icon-contract-2:before {
+	content: "\e626";
+}
+
+.icon-contract:before {
+	content: "\e627";
+}
+
+.icon-copy:before {
+	content: "\e628";
+}
+
+.icon-dashboard:before {
+	content: "\e629";
+}
+
+.icon-dashboard2:before {
+	content: "\e64c";
+}
+
+.icon-dice:before {
+	content: "\e62b";
+}
+
+.icon-down_quiz:before {
+	content: "\e62c";
+}
+
+.icon-earth-science:before {
+	content: "\e62d";
+}
+
+.icon-economics:before {
+	content: "\e62e";
+}
+
+.icon-edit:before {
+	content: "\e62f";
+}
+
+.icon-elementary-math-grade-1:before {
+	content: "\e630";
+}
+
+.icon-elementary-math-grade-2:before {
+	content: "\e631";
+}
+
+.icon-elementary-math-grade-3:before {
+	content: "\e632";
+}
+
+.icon-elementary-math-grade-4:before {
+	content: "\e633";
+}
+
+.icon-elementary-math-grade-5:before {
+	content: "\e634";
+}
+
+.icon-elementary-math:before {
+	content: "\e635";
+}
+
+.icon-ellipsis:before {
+	content: "\e636";
+}
+
+.icon-email_phone:before {
+	content: "\e637";
+}
+
+.icon-email:before {
+	content: "\e638";
+}
+
+.icon-engineering:before {
+	content: "\e639";
+}
+
+.icon-english:before {
+	content: "\e63a";
+}
+
+.icon-eraser:before {
+	content: "\e63b";
+}
+
+.icon-exercise:before {
+	content: "\e63c";
+}
+
+.icon-expand-2:before {
+	content: "\e63d";
+}
+
+.icon-expand:before {
+	content: "\e63e";
+}
+
+.icon-facebook-2:before {
+	content: "\e63f";
+}
+
+.icon-facebook-3:before {
+	content: "\e640";
+}
+
+.icon-facebook:before {
+	content: "\e641";
+}
+
+.icon-fire:before {
+	content: "\e642";
+}
+
+.icon-flag:before {
+	content: "\e643";
+}
+
+.icon-geometry:before {
+	content: "\e644";
+}
+
+.icon-google:before {
+	content: "\e645";
+}
+
+.icon-google2:before {
+	content: "\e646";
+}
+
+.icon-googleplus:before {
+	content: "\e647";
+}
+
+.icon-googleplus2:before {
+	content: "\e648";
+}
+
+.icon-googleplus3:before {
+	content: "\e649";
+}
+
+.icon-grid:before {
+	content: "\e64a";
+}
+
+.icon-groups_home:before {
+	content: "\e64b";
+}
+
+.icon-groups:before {
+	content: "\e660";
+}
+
+.icon-grps_assgnmts:before {
+	content: "\e64d";
+}
+
+.icon-grps_report:before {
+	content: "\e64e";
+}
+
+.icon-grps_share:before {
+	content: "\e64f";
+}
+
+.icon-grps_timeline:before {
+	content: "\e650";
+}
+
+.icon-heart:before {
+	content: "\e651";
+}
+
+.icon-help2:before {
+	content: "\e652";
+}
+
+.icon-history:before {
+	content: "\e653";
+}
+
+.icon-icn_scratchpad:before {
+	content: "\e654";
+}
+
+.icon-icn_solution:before {
+	content: "\e655";
+}
+
+.icon-ilo:before {
+	content: "\e656";
+}
+
+.icon-image2:before {
+	content: "\e657";
+}
+
+.icon-images:before {
+	content: "\e658";
+}
+
+.icon-infinity:before {
+	content: "\e659";
+}
+
+.icon-Info:before {
+	content: "\e65a";
+}
+
+.icon-interactive_group:before {
+	content: "\e65b";
+}
+
+.icon-interactive_practice:before {
+	content: "\e65c";
+}
+
+.icon-lessonplans:before {
+	content: "\e65d";
+}
+
+.icon-life-science:before {
+	content: "\e65e";
+}
+
+.icon-lightbulb:before {
+	content: "\e65f";
+}
+
+.icon-lightbulb2:before {
+	content: "\e67f";
+}
+
+.icon-links:before {
+	content: "\e661";
+}
+
+.icon-list:before {
+	content: "\e662";
+}
+
+.icon-lock:before {
+	content: "\e663";
+}
+
+.icon-loop:before {
+	content: "\e664";
+}
+
+.icon-loop2:before {
+	content: "\e665";
+}
+
+.icon-map:before {
+	content: "\e666";
+}
+
+.icon-measurement:before {
+	content: "\e6a0";
+}
+
+.icon-members:before {
+	content: "\e667";
+}
+
+.icon-menu:before {
+	content: "\e668";
+}
+
+.icon-microsoftlive:before {
+	content: "\e669";
+}
+
+.icon-mindmap:before {
+	content: "\e66a";
+}
+
+.icon-minus:before {
+	content: "\e66b";
+}
+
+.icon-more:before {
+	content: "\e66c";
+}
+
+.icon-network:before {
+	content: "\e66d";
+}
+
+.icon-notice:before {
+	content: "\e66e";
+}
+
+.icon-notification:before {
+	content: "\e66f";
+}
+
+.icon-open_new_window:before {
+	content: "\e670";
+}
+
+.icon-other_file:before {
+	content: "\e671";
+}
+
+.icon-paintcan:before {
+	content: "\e672";
+}
+
+.icon-paperplane:before {
+	content: "\e673";
+}
+
+.icon-pause:before {
+	content: "\e674";
+}
+
+.icon-physical-science:before {
+	content: "\e675";
+}
+
+.icon-physics:before {
+	content: "\e676";
+}
+
+.icon-pinterest-2:before {
+	content: "\e677";
+}
+
+.icon-pinterest-3:before {
+	content: "\e678";
+}
+
+.icon-pinterest:before {
+	content: "\e679";
+}
+
+.icon-play:before {
+	content: "\e67a";
+}
+
+.icon-plus:before {
+	content: "\e67b";
+}
+
+.icon-polygon:before {
+	content: "\e67c";
+}
+
+.icon-print:before {
+	content: "\e67d";
+}
+
+.icon-probability:before {
+	content: "\e67e";
+}
+
+.icon-progress:before {
+	content: "\e69d";
+}
+
+.icon-puzzle_locked:before {
+	content: "\e680";
+}
+
+.icon-puzzle:before {
+	content: "\e681";
+}
+
+.icon-quiz:before {
+	content: "\e682";
+}
+
+.icon-read:before {
+	content: "\e683";
+}
+
+.icon-reminder:before {
+	content: "\e684";
+}
+
+.icon-remove:before {
+	content: "\e685";
+}
+
+.icon-retry:before {
+	content: "\e686";
+}
+
+.icon-running:before {
+	content: "\e687";
+}
+
+.icon-rwa:before {
+	content: "\e688";
+}
+
+.icon-sat:before {
+	content: "\e689";
+}
+
+.icon-scratchpad_medium:before {
+	content: "\e68a";
+}
+
+.icon-scratchpad_thick:before {
+	content: "\e68b";
+}
+
+.icon-scratchpad_thin:before {
+	content: "\e68c";
+}
+
+.icon-search:before {
+	content: "\e68d";
+}
+
+.icon-settings_single:before {
+	content: "\e68e";
+}
+
+.icon-settings:before {
+	content: "\e68f";
+}
+
+.icon-share:before {
+	content: "\e690";
+}
+
+.icon-shared_res:before {
+	content: "\e691";
+}
+
+.icon-shuffle:before {
+	content: "\e692";
+}
+
+.icon-signin:before {
+	content: "\e693";
+}
+
+.icon-signout:before {
+	content: "\e694";
+}
+
+.icon-simulations:before {
+	content: "\e695";
+}
+
+.icon-skipped:before {
+	content: "\e696";
+}
+
+.icon-standards:before {
+	content: "\e697";
+}
+
+.icon-star-2:before {
+	content: "\e698";
+}
+
+.icon-star:before {
+	content: "\e699";
+}
+
+.icon-statistics:before {
+	content: "\e69a";
+}
+
+.icon-stopwatch:before {
+	content: "\e69b";
+}
+
+.icon-streak:before {
+	content: "\e69c";
+}
+
+.icon-student-version:before {
+	content: "\e6b4";
+}
+
+.icon-student:before {
+	content: "\e69e";
+}
+
+.icon-studyaid:before {
+	content: "\e69f";
+}
+
+.icon-teacher-version:before {
+	content: "\e6b5";
+}
+
+.icon-teacher:before {
+	content: "\e6a1";
+}
+
+.icon-technology:before {
+	content: "\e6a2";
+}
+
+.icon-tries:before {
+	content: "\e6a3";
+}
+
+.icon-trigonometry:before {
+	content: "\e6a4";
+}
+
+.icon-trophy:before {
+	content: "\e6a5";
+}
+
+.icon-trophyCircle:before {
+	content: "\e6a6";
+}
+
+.icon-try:before {
+	content: "\e6a7";
+}
+
+.icon-tutorial:before {
+	content: "\e6a8";
+}
+
+.icon-twitter-2:before {
+	content: "\e6a9";
+}
+
+.icon-twitter-3:before {
+	content: "\e6aa";
+}
+
+.icon-twitter:before {
+	content: "\e6ab";
+}
+
+.icon-unlocked:before {
+	content: "\e6ac";
+}
+
+.icon-untitled:before {
+	content: "\e6ad";
+}
+
+.icon-user_join:before {
+	content: "\e6ae";
+}
+
+.icon-user:before {
+	content: "\e6af";
+}
+
+.icon-validated:before {
+	content: "\e6b0";
+}
+
+.icon-video:before {
+	content: "\e6b1";
+}
+
+.icon-you:before {
+	content: "\e6b2";
+}
+
+.icon-zoom-in:before {
+	content: "\e6b3";
+}

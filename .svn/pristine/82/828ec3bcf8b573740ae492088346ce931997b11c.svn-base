@@ -1,0 +1,2182 @@
+{
+    "concepts": [
+        {
+            "encodedID": "SCI.PHY.100",
+            "handle": "Motion-and-Force",
+            "name": "Motion and Force",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.110",
+            "handle": "Vector-and-Scalar-Quantities",
+            "name": "Vector and Scalar Quantities",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.111",
+            "handle": "Metric-Units",
+            "name": "Metric Units",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.111.1",
+            "handle": "Unit-Conversions",
+            "name": "Unit Conversions",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.112",
+            "handle": "Vectors",
+            "name": "Vectors",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.112.1",
+            "handle": "Resolving-Vectors-into-Axial-Components",
+            "name": "Resolving Vectors into Axial Components",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.113",
+            "handle": "Vector-Addition-in-Physics",
+            "name": "Vector Addition in Physics",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.114",
+            "handle": "Graphical-Methods-of-Vector-Addition",
+            "name": "Graphical Methods of Vector Addition",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.116",
+            "handle": "Vector-Dot-Products",
+            "name": "Vector Dot Products",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.118",
+            "handle": "Vector-Cross-Products",
+            "name": "Vector Cross Products",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.120",
+            "handle": "Motion",
+            "name": "Motion",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.121",
+            "handle": "Position-and-Displacement",
+            "name": "Position and Displacement",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.121.1",
+            "handle": "Distance",
+            "name": "Distance",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.121.2",
+            "handle": "Direction",
+            "name": "Direction",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.122",
+            "handle": "Velocity",
+            "name": "Velocity",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.122.1",
+            "handle": "Speed",
+            "name": "Speed",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.122.2",
+            "handle": "Relative-Velocity",
+            "name": "Relative Velocity",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.123",
+            "handle": "Average-Velocity",
+            "name": "Average Velocity",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.123.1",
+            "handle": "Instantaneous-Velocity",
+            "name": "Instantaneous Velocity",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.124",
+            "handle": "Velocity-and-Acceleration",
+            "name": "Velocity and Acceleration",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.125",
+            "handle": "Acceleration",
+            "name": "Acceleration",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.125.1",
+            "handle": "Average-Acceleration",
+            "name": "Average Acceleration",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.125.2",
+            "handle": "Uniform-Acceleration",
+            "name": "Uniform Acceleration",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.126",
+            "handle": "Calculating-Acceleration-from-Velocity-and-Time",
+            "name": "Calculating Acceleration from Velocity and Time",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.127",
+            "handle": "Final-Velocity-After-Uniform-Acceleration",
+            "name": "Final Velocity After Uniform Acceleration",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.128",
+            "handle": "Displacement-During-Uniform-Acceleration",
+            "name": "Displacement During Uniform Acceleration",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.129",
+            "handle": "Acceleration-Due-to-Gravity",
+            "name": "Acceleration Due to Gravity",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.130",
+            "handle": "Graphing-Motion",
+            "name": "Graphing Motion",
+			"category": "Motion and Force"
+        },
+		{
+            "encodedID": "SCI.PHY.132",
+            "handle": "Position-Time-Graphs",
+            "name": "Position-Time Graphs",
+			"category": "Motion and Force"
+        },
+		{
+            "encodedID": "SCI.PHY.132.1",
+            "handle": "Position-Time-Graph-for-Constant-Velocity",
+            "name": "Position-Time Graph for Constant Velocity",
+			"category": "Motion and Force"
+        },
+		{
+            "encodedID": "SCI.PHY.132.2",
+            "handle": "Velocity-from-a-Position-Time-Graph",
+            "name": "Velocity from a Position-Time Graph",
+			"category": "Motion and Force"
+        },
+		{
+            "encodedID": "SCI.PHY.132.3",
+            "handle": "Position-Time-Graph-for-Uniform-Acceleration",
+            "name": "Position-Time Graph for Uniform Acceleration",
+			"category": "Motion and Force"
+        },
+		{
+            "encodedID": "SCI.PHY.134",
+            "handle": "Velocity-Time-Graphs",
+            "name": "Velocity-Time Graphs",
+			"category": "Motion and Force"
+        },
+		{
+            "encodedID": "SCI.PHY.134.1",
+            "handle": "Velocity-Time-Graph-for-Constant-Velocity",
+            "name": "Velocity-Time Graph for Constant Velocity",
+			"category": "Motion and Force"
+		},
+		{
+            "encodedID": "SCI.PHY.134.2",
+            "handle": "Velocity-Time-Graph-for-Uniform-Accleration",
+            "name": "Velocity-Time Graph for Uniform Accleration",
+			"category": "Motion and Force"
+		},
+		{
+            "encodedID": "SCI.PHY.136",
+            "handle": "Acceleration-Time-Graphs",
+            "name": "Acceleration-Time Graphs",
+			"category": "Motion and Force"
+		},
+		{
+            "encodedID": "SCI.PHY.136.1",
+            "handle": "Acceleration-Time-Graph-for-Uniform-Acceleration",
+            "name": "Acceleration-Time Graph for Uniform Acceleration",
+			"category": "Motion and Force"
+		},
+		{
+            "encodedID": "SCI.PHY.136.1",
+            "handle": "Acceleration-Time-Graph-for-Uniform-Acceleration",
+            "name": "Acceleration-Time Graph for Uniform Acceleration",
+			"category": "Motion and Force"
+		},
+		{
+            "encodedID": "SCI.PHY.140",
+            "handle": "Pressure-and-Force",
+            "name": "Pressure and Force",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.141",
+            "handle": "Types-of-Forces",
+            "name": "Types of Forces",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.141.1",
+            "handle": "Force",
+            "name": "Force",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.141.2",
+            "handle": "Combining-Forces",
+            "name": "Combining Forces",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.141.3",
+            "handle": "Elastic-Force",
+            "name": "Elastic Force",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.142",
+            "handle": "Newtons-First-Law",
+            "name": "Newton's First Law",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.142.1",
+            "handle": "Inertia",
+            "name": "Inertia",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.143",
+            "handle": "Newtons-Second-Law",
+            "name": "Newton's Second Law",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.143.1",
+            "handle": "Calculating-Acceleration-from-Force-and-Mass",
+            "name": "Calculating Acceleration from Force and Mass",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.144",
+            "handle": "Newtons-First-and-Second-Laws",
+            "name": "Newton's First and Second Laws",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.145",
+            "handle": "Mass-vs-Weight",
+            "name": "Mass vs Weight",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.146",
+            "handle": "Friction",
+            "name": "Friction",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.146.1",
+            "handle": "Types-of-Friction",
+            "name": "Types of Friction",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.147",
+            "handle": "Free-Body-Diagrams",
+            "name": "Free Body Diagrams",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.147.1",
+            "handle": "Problem-Solving-1",
+            "name": "Problem Solving 1",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.148",
+            "handle": "Free-Fall",
+            "name": "Free Fall",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.149",
+            "handle": "Newtons-Third-Law",
+            "name": "Newton's Third Law",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.150",
+            "handle": "Vector-Forces",
+            "name": "Vector Forces",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.151",
+            "handle": "Vector-Addition-in-Two-Dimensions",
+            "name": "Vector Addition in Two Dimensions",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.152",
+            "handle": "Independence-of-Vectors-Quantities",
+            "name": "Independence of Vectors Quantities",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.153",
+            "handle": "Equilibrant",
+            "name": "Equilibrant",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.154",
+            "handle": "Perpendicular-Components-of-Vectors",
+            "name": "Perpendicular Components of Vectors",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.155",
+            "handle": "Addition-of-Non-perpendicular-Vectors",
+            "name": "Addition of Non-perpendicular Vectors",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.160",
+            "handle": "Motion-in-Two-Dimensions",
+            "name": "Motion in Two Dimensions",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.162",
+            "handle": "Projectile-Motion",
+            "name": "Projectile Motion",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.162.1",
+            "handle": "Projectile-Motion-Problem-Solving",
+            "name": "Projectile Motion Problem Solving",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.162.2",
+            "handle": "Projectile-Motion-for-an-Object-Launched-Horizontally",
+            "name": "Projectile Motion for an Object Launched Horizontally",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.162.3",
+            "handle": "Projectile-Motion-for-an-Object-Launched-at-an-Angle",
+            "name": "Projectile Motion for an Object Launched at an Angle",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.163",
+            "handle": "Circular-Motion",
+            "name": "Circular Motion",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.163.1",
+            "handle": "Angular-Speed",
+            "name": "Angular Speed",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.163.2",
+            "handle": "Centripetal-Acceleration",
+            "name": "Centripetal Acceleration",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.163.3",
+            "handle": "Centripetal-Force-Problems",
+            "name": "Centripetal Force Problems",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.165",
+            "handle": "Universal-Law-of-Gravity",
+            "name": "Universal Law of Gravity",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.165.1",
+            "handle": "Gravity-and-Space-Problems",
+            "name": "Gravity and Space Problems",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.165.2",
+            "handle": "Gravity",
+            "name": "Gravity",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.165.3",
+            "handle": "Newtons-Law-of-Gravity",
+            "name": "Newton's Law of Gravity",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.166",
+            "handle": "Orbital-Motion",
+            "name": "Orbital Motion",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.166.1",
+            "handle": "Keplers-Laws-of-Planetary-Motion",
+            "name": "Kepler's Laws of Planetary Motion",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.167",
+            "handle": "Einsteins-Concept-of-Gravity",
+            "name": "Einstein's Concept of Gravity",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.170",
+            "handle": "Simple Harmonic Motion",
+            "name": "Simple Harmonic Motion",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.171",
+            "handle": "Harmonic-Period-and-Frequency",
+            "name": "Harmonic Period and Frequency",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.171.1",
+            "handle": "Springs",
+            "name": "Springs",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.171.2",
+            "handle": "Pendulum",
+            "name": "Pendulum",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.172",
+            "handle": "Energy-in-Simple-Harmonic-Motion",
+            "name": "Energy in Simple Harmonic Motion",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.173",
+            "handle": "Driven-Oscillations",
+            "name": "Driven Oscillations",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.174",
+            "handle": "Damped-Oscillations",
+            "name": "Damped Oscillations",
+			"category": "Motion and Force"
+        },
+        {
+            "encodedID": "SCI.PHY.200",
+            "handle": "Momentum-Work-Power-and-Energy",
+            "name": "Momentum, Work, Power, and Energy",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.210",
+            "handle": "Momentum",
+            "name": "Momentum",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.212",
+            "handle": "Impulse",
+            "name": "Impulse",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.213",
+            "handle": "Momentum-and-Impulse",
+            "name": "Momentum and Impulse",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.214",
+            "handle": "Newtons-Third-Law-and-Momentum",
+            "name": "Newton's Third Law and Momentum",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.216",
+            "handle": "Law-of-Conservation-of-Momentum",
+            "name": "Law of Conservation of Momentum",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.216.1",
+            "handle": "Conservation-of-Momentum-in-One-Dimension",
+            "name": "Conservation of Momentum in One Dimension",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.216.2",
+            "handle": "Conservation-of-Momentum-in-Two-Dimensions",
+            "name": "Conservation of Momentum in Two Dimensions",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.218",
+            "handle": "Internal-vs-External-Forces",
+            "name": "Internal vs External Forces",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.219",
+            "handle": "Elastic-and-Inelastic-Collisions",
+            "name": "Elastic and Inelastic Collisions",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.220",
+            "handle": "Work-Power-and-Simple-Machines",
+            "name": "Work, Power, and Simple Machines",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.221",
+            "handle": "Definition-of-Work",
+            "name": "Definition of Work",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.222",
+            "handle": "Work-and-Direction-of-Force",
+            "name": "Work and Direction of Force",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.223",
+            "handle": "Power-and-Efficiency",
+            "name": "Power and Efficiency",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.224",
+            "handle": "Power",
+            "name": "Power",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.225",
+            "handle": "Mechanical-Advantage",
+            "name": "Mechanical Advantage",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.226",
+            "handle": "Simple-Machines",
+            "name": "Simple Machines",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.226.1",
+            "handle": "Inclined-Plane",
+            "name": "Inclined Plane",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.226.2",
+            "handle": "Wedge",
+            "name": "Wedge",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.226.3",
+            "handle": "Screw",
+            "name": "Screw",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.226.4",
+            "handle": "Lever",
+            "name": "Lever",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.226.5",
+            "handle": "Wheel-and-Axle",
+            "name": "Wheel and Axle",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.226.6",
+            "handle": "Pulley",
+            "name": "Pulley",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.226.7",
+            "handle": "Compound-Machine",
+            "name": "Compound Machine",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.230",
+            "handle": "Energy",
+            "name": "Energy",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.230.1",
+            "handle": "Energy-Problem-Solving",
+            "name": "Energy Problem Solving",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.230.2",
+            "handle": "Energy-and-Momentum-Problems",
+            "name": "Energy and Momentum Problems",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.230.3",
+            "handle": "Forms-of-Energy",
+            "name": "Forms of Energy",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.231",
+            "handle": "Potential-Energy",
+            "name": "Potential Energy",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.232",
+            "handle": "Work",
+            "name": "Work",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.232.1",
+            "handle": "Calculating-Work",
+            "name": "Calculating Work",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.233",
+            "handle": "Kinetic-Energy",
+            "name": "Kinetic Energy",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.234",
+            "handle": "Conservation-of-Energy",
+            "name": "Conservation of Energy",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.234.1",
+            "handle": "Energy-Conversion",
+            "name": "Energy Conversion",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.235",
+            "handle": "Energy-Lost-in-Collisions",
+            "name": "Energy Lost in Collisions",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.236",
+            "handle": "Elastic-Collisions",
+            "name": "Elastic Collisions",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.237",
+            "handle": "Inelastic-Collisions",
+            "name": "Inelastic Collisions",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.240",
+            "handle": "Heat-Engine",
+            "name": "Heat Engine",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.240.1",
+            "handle": "Heat-Temperature-and-Thermal-Energy-Transfer",
+            "name": "Heat, Temperature and Thermal Energy Transfer",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.241",
+            "handle": "Thermal-Energy",
+            "name": "Thermal Energy",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.241.1",
+            "handle": "Heat",
+            "name": "Heat",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.241.2",
+            "handle": "Kinetic-Theory-of-Temperature",
+            "name": "Kinetic Theory of Temperature",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.242",
+            "handle": "Heat-Transfer",
+            "name": "Heat Transfer",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.242.1",
+            "handle": "Heat-Conduction",
+            "name": "Heat Conduction",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.242.2",
+            "handle": "Convection",
+            "name": "Convection",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.242.3",
+            "handle": "Thermal-Radiation",
+            "name": "Thermal Radiation",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.242.4",
+            "handle": "Thermal-Conductors-and-Insulators",
+            "name": "Thermal Conductors and Insulators",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.243",
+            "handle": "Thermometry",
+            "name": "Thermometry",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.244",
+            "handle": "Temperature",
+            "name": "Temperature",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.245",
+            "handle": "First-Law-of-Thermodynamics",
+            "name": "First Law of Thermodynamics",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.246",
+            "handle": "Second-Law-of-Thermodynamics",
+            "name": "Second Law of Thermodynamics",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.247",
+            "handle": " Specific-Heat-and-Phase-Change",
+            "name": "Specific Heat and Phase Change",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.247.1",
+            "handle": "Specific-Heat",
+            "name": "Specific Heat",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.247.2",
+            "handle": "Calorimetry",
+            "name": "Calorimetry",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.248",
+            "handle": "Types-of-Heat-Engines",
+            "name": "Types of Heat Engines",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.248.1",
+            "handle": "Heating-Systems",
+            "name": "Heating Systems",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.248.2",
+            "handle": "Cooling-Systems",
+            "name": "Cooling Systems",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.248.3",
+            "handle": "External-Combustion-Engines",
+            "name": "External Combustion Engines",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.248.4",
+            "handle": "Internal-Combustion-Engines",
+            "name": "Internal Combustion Engines",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.249",
+            "handle": "Change of State",
+            "name": "Change of State",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.250",
+            "handle": "Physics-of-Liquids-Solids-and-Gases",
+            "name": "Physics of Liquids, Solids, and Gases",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.251",
+            "handle": "Physical-Properties-of-Liquids",
+            "name": "Physical Properties of Liquids",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.252",
+            "handle": "Surface-Tension",
+            "name": "Surface Tension",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.253",
+            "handle": "Pressure-in-Fluids",
+            "name": "Pressure in Fluids",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.253.1",
+            "handle": "Buoyancy",
+            "name": "Buoyancy",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.253.2",
+            "handle": "Oceanic-Pressure",
+            "name": "Oceanic Pressure",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.253.3",
+            "handle": "Pascals-Law",
+            "name": "Pascal's Law",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.253.4",
+            "handle": "Bernoullis-Law",
+            "name": "Bernoulli's Law",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.253.5",
+            "handle": "Archimedes-Law",
+            "name": "Archimedes' Law",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.254",
+            "handle": "Evaporation-and-Condensation",
+            "name": "Evaporation and Condensation",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.255",
+            "handle": "Physical-Properties-of-Solids",
+            "name": "Physical Properties of Solids",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.256",
+            "handle": "Gas-Pressure-and-Force",
+            "name": "Gas Pressure and Force",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.256.1",
+            "handle": "Air-Pressure-and-Altitude",
+            "name": "Air Pressure and Altitude",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.256.2",
+            "handle": "Combined-Gas-Law",
+            "name": "Combined Gas Law",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.256.3",
+            "handle": "Universal-Gas-Law",
+            "name": "Universal Gas Law",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.260",
+            "handle": "Rotational-Mechanics",
+            "name": "Rotational Mechanics",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.260.1",
+            "handle": "Kinematics-of-Rotation",
+            "name": "Kinematics of Rotation",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.261",
+            "handle": "Center-of-Mass",
+            "name": "Center of Mass",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.262",
+            "handle": "Moment-of-Inertia",
+            "name": "Moment of Inertia",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.263",
+            "handle": "Rolling-Energy-Problems",
+            "name": "Rolling Energy Problems",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.264",
+            "handle": "Torque",
+            "name": "Torque",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.264.1",
+            "handle": "Newtons-Second-Law-for-Rotation",
+            "name": "Newton's Second Law for Rotation",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.265",
+            "handle": "Angular-Momentum",
+            "name": "Angular Momentum",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.266",
+            "handle": "Yo-Yo-Type-Problems",
+            "name": "Yo-Yo Type Problems",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.267",
+            "handle": "Rolling-Objects",
+            "name": "Rolling Objects",
+			"category": "Momentum, Work, Power, and Energy"
+        },
+        {
+            "encodedID": "SCI.PHY.300",
+            "handle": "Waves",
+            "name": "Waves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.310",
+            "handle": "Wave-Equation",
+            "name": "Wave Equation",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.311",
+            "handle": "Types-of-Waves",
+            "name": "Types of Waves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.311.1",
+            "handle": "Mechanical-Wave",
+            "name": "Mechanical Wave",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.311.2",
+            "handle": "Transverse-Wave",
+            "name": "Transverse Wave",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.311.3",
+            "handle": "Longitudinal-Wave",
+            "name": "Longitudinal Wave",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.311.4",
+            "handle": "Surface-Wave",
+            "name": "Surface Wave",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.312",
+            "handle": "Waves-and-Wave-Properties",
+            "name": "Waves and Wave Properties",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.312.1",
+            "handle": "Wavelength",
+            "name": "Wavelength",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.312.2",
+            "handle": "Wave-Frequency",
+            "name": "Wave Frequency",
+			"category": "Waves"
+		},
+        {
+            "encodedID": "SCI.PHY.312.3",
+            "handle": "Wave-Speed",
+            "name": "Wave Speed",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.313",
+            "handle": "Wave-Amplitude",
+            "name": "Wave Amplitude",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.314",
+            "handle": "Wave-Speed-in-a-Medium",
+            "name": "Wave Speed in a Medium",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.315",
+            "handle": "Behavior-of-Waves-at-a-Boundary",
+            "name": "Behavior of Waves at a Boundary",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.316",
+            "handle": "Wave-Interactions",
+            "name": "Wave Interactions",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.316.1",
+            "handle": "Transmitted-Waves",
+            "name": "Transmitted Waves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.316.2",
+            "handle": "Wave-Interference",
+            "name": "Wave Interference",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.317",
+            "handle": "Beat-Frequencies",
+            "name": "Beat Frequencies",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.318",
+            "handle": "Standing-Waves",
+            "name": "Standing Waves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.319",
+            "handle": "Reflection-and-Refraction-of-Waves",
+            "name": "Reflection and Refraction of Waves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.319.1",
+            "handle": "Reflection-of-Mechanical-Waves",
+            "name": "Reflection of Mechanical Waves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.319.2",
+            "handle": "Refraction-of-Mechanical-Waves",
+            "name": "Refraction of Mechanical Waves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.320",
+            "handle": "Sound",
+            "name": "Sound",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.321",
+            "handle": "Sound-Waves",
+            "name": "Sound Waves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.321.1",
+            "handle": "Speed-of-Sound",
+            "name": "Speed of Sound",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.322",
+            "handle": "Sound-in-a-Tube",
+            "name": "Sound in a Tube",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.324",
+            "handle": "Pitch-and-Loudness-of-Sound-Waves",
+            "name": "Pitch and Loudness of Sound Waves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.324.1",
+            "handle": "Intensity-and-Loudness-of-Sound",
+            "name": "Intensity and Loudness of Sound",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.324.2",
+            "handle": "Frequency-and-Pitch-of-Sound",
+            "name": "Frequency and Pitch of Sound",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.325",
+            "handle": "Doppler-Effect",
+            "name": "Doppler Effect",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.326",
+            "handle": "Resonance-with-Sound-Waves",
+            "name": "Resonance with Sound Waves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.327",
+            "handle": "Applications-of-Sound",
+            "name": "Applications of Sound",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.327.1",
+            "handle": "Hearing-and-the-Ear",
+            "name": "Hearing and the Ear",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.327.2",
+            "handle": "Hearing-Loss",
+            "name": "Hearing Loss",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.327.3",
+            "handle": "Musical-Instruments",
+            "name": "Musical Instruments",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.327.4",
+            "handle": "Ultrasound",
+            "name": "Ultrasound",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.330",
+            "handle": "Speed-of-Light",
+            "name": "Speed of Light",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.331",
+            "handle": "Wave-form-Energy",
+            "name": "Wave form Energy",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.332",
+            "handle": "Electromagnetic-Waves",
+            "name": "Electromagnetic Waves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.332.1",
+            "handle": "Properties-of-Electromagnetic-Waves",
+            "name": "Properties of Electromagnetic Waves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.333",
+            "handle": "Electromagnetic-Spectrum",
+            "name": "Electromagnetic Spectrum",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.333.1",
+            "handle": "Radio-Waves",
+            "name": "Radio Waves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.333.2",
+            "handle": "Microwaves",
+            "name": "Microwaves",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.333.3",
+            "handle": "Light",
+            "name": "Light",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.333.4",
+            "handle": "X-rays",
+            "name": "X rays",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.333.5",
+            "handle": "Gamma-rays",
+            "name": "Gamma rays",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.335",
+            "handle": "Color",
+            "name": "Color",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.336",
+            "handle": "Properties-of-Visible-Light",
+            "name": "Properties of Visible Light",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.336.1",
+            "handle": "Sources-of-Visible-Light",
+            "name": "Sources of Visible Light",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.336.2",
+            "handle": "Artificial-Light",
+            "name": "Artificial Light",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.337",
+            "handle": "Visible-Light-and-Matter",
+            "name": "Visible Light and Matter",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.340",
+            "handle": "Reflection-and-Refraction",
+            "name": "Reflection and Refraction",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.341",
+            "handle": "Diffuse-and-Regular-Reflection",
+            "name": "Diffuse and Regular Reflection",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.342",
+            "handle": "Law-of-Reflection",
+            "name": "Law of Reflection",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.343",
+            "handle": "Refraction",
+            "name": "Refraction",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.344",
+            "handle": "Snell's-Law",
+            "name": "Snell's Law",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.345",
+            "handle": "Index-of-Refraction-and-the-Speed-of-Light",
+            "name": "Index of Refraction and the Speed of Light",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.346",
+            "handle": "Total-Internal-Reflection",
+            "name": "Total Internal Reflection",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.347",
+            "handle": "Optical-Instruments",
+            "name": "Optical Instruments",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.347.1",
+            "handle": "Vision-and-the-Eye",
+            "name": "Vision and the Eye",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.347.2",
+            "handle": "Vision-Problems-and-Corrective-Lenses",
+            "name": "Vision Problems and Corrective Lenses",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.350",
+            "handle": "Mirrors",
+            "name": "Mirrors",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.351",
+            "handle": "Plane-Mirrors",
+            "name": "Plane Mirrors",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.352",
+            "handle": "Concave-Mirrors",
+            "name": "Concave Mirrors",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.352.1",
+            "handle": "Convex-Mirrors",
+            "name": "Convex Mirrors",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.353",
+            "handle": "Spherical-Mirrors-and-Aberration",
+            "name": "Spherical Mirrors and Aberration",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.354",
+            "handle": "Real-and-Virtual-Images",
+            "name": "Real and Virtual Images",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.355",
+            "handle": "Lens",
+            "name": "Lens",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.356",
+            "handle": "Convex-Lenses",
+            "name": "Convex Lenses",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.356.1",
+            "handle": "Double-Convex-Lenses",
+            "name": "Double Convex Lenses",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.357",
+            "handle": "Concave-Lenses",
+            "name": "Concave Lenses",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.357.1",
+            "handle": "Double-Concave-Lenses",
+            "name": "Double Concave Lenses",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.358",
+            "handle": "Lens-Equation",
+            "name": "Lens Equation",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.360",
+            "handle": "Diffraction-and-Interference-of-Light",
+            "name": "Diffraction and Interference of Light",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.361",
+            "handle": "Diffraction",
+            "name": "Diffraction",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.362",
+            "handle": "Interference-Patterns",
+            "name": "Interference Patterns",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.363",
+            "handle": "Single-Slit-Diffraction",
+            "name": "Single Slit Diffraction",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.364",
+            "handle": "Double-Slit-Diffraction",
+            "name": "Double Slit Diffraction",
+			"category": "Waves"
+        },
+        {
+            "encodedID": "SCI.PHY.365",
+            "handle": "Diffraction-Gratings",
+            "name": "Diffraction Gratings",
+			"category": "Waves"
+        },
+		{
+            "encodedID": "SCI.PHY.400",
+            "handle": "Electricity-and-Magnetism",
+            "name": "Electricity and Magnetism",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.410",
+            "handle": "Electrostatics",
+            "name": "Electrostatics",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.411",
+            "handle": "Electric-Charge-and-Electric-Force",
+            "name": "Electric Charge and Electric Force",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.412",
+            "handle": "Transfer-of-Electric-Charge",
+            "name": "Transfer of Electric Charge",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.414",
+            "handle": "Conductors-Insulators-Semiconductors",
+            "name": "Conductors, Insulators, Semiconductors",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.415",
+            "handle": "Static-Electricity-and-Static-Discharge",
+            "name": "Static Electricity and Static Discharge",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.416",
+            "handle": "Coulombs-Law",
+            "name": "Coulomb's Law",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.418",
+            "handle": "Charging-by-Induction",
+            "name": "Charging by Induction",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.420",
+            "handle": "Electric-Field",
+            "name": "Electric Field",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.421",
+            "handle": "Electric-Fields",
+            "name": "Electric Fields",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.422",
+            "handle": "Electric-Field-Intensity",
+            "name": "Electric Field Intensity",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.423",
+            "handle": "Voltage",
+            "name": "Voltage",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.424",
+            "handle": "Electric-Field-Between-Parallel-Plates",
+            "name": "Electric Field Between Parallel Plates",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.425",
+            "handle": "Millikans-Oil-Drop-Experiment-in-Physics",
+            "name": "Millikan's Oil Drop Experiment in Physics",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.426",
+            "handle": "Sharing-of-Charge",
+            "name": "Sharing of Charge",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.427",
+            "handle": "Capacitors",
+            "name": "Capacitors",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.427.1",
+            "handle": "Capacitor-Energy",
+            "name": "Capacitor Energy",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.430",
+            "handle": "Voltage-and-Current",
+            "name": "Voltage and Current",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.431",
+            "handle": "Electric-Current",
+            "name": "Electric Current",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.431.1",
+            "handle": "Direct-and-Alternating-Current",
+            "name": "Direct and Alternating Current",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.431.2",
+            "handle": "Chemical-and-Solar-Cells",
+            "name": "Chemical and Solar Cells",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.432",
+            "handle": "Electric-Resistance",
+            "name": "Electric Resistance",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.432.1",
+            "handle": "Electric-Conductors-and-Insulators",
+            "name": "Electric Conductors and Insulators",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.433",
+            "handle": "Ampere",
+            "name": "Ampere",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.434",
+            "handle": "Ohms-Law",
+            "name": "Ohm's Law",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.435",
+            "handle": "Electric-Circuits",
+            "name": "Electric Circuits",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.435.1",
+            "handle": "Diagramming-Electric-Circuits",
+            "name": "Diagramming Electric Circuits",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.435.2",
+            "handle": "Electric-Power-and-Electrical-Energy-Use",
+            "name": "Electric Power and Electrical Energy Use",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.435.3",
+            "handle": "Electric-Safety",
+            "name": "Electric Safety",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.435.4",
+            "handle": "Electronic-Signal",
+            "name": "Electronic Signal",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.435.5",
+            "handle": "Electronic-Component",
+            "name": "Electronic Component",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.435.6",
+            "handle": "Electronic-Device",
+            "name": "Electronic Device",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.435.7",
+            "handle": "Energy-Transfer-in-Electric-Circuits",
+            "name": "Energy Transfer in Electric Circuits",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.435.8",
+            "handle": "Controlling-Current-in-Electric-Circuits",
+            "name": "Controlling Current in Electric Circuits",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.436",
+            "handle": "Kilowatt-Hour",
+            "name": "Kilowatt-Hour",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.437",
+            "handle": "Capacitors-Circuits",
+            "name": "Capacitors Circuits",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.438",
+            "handle": "RC-Time-Constant",
+            "name": "RC Time Constant",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.440",
+            "handle": "Series-and-Parallel-Circuits",
+            "name": "Series and Parallel Circuits",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.441",
+            "handle": "Series-Circuits",
+            "name": "Series Circuits",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.442",
+            "handle": "Resistors-in-Series",
+            "name": "Resistors in Series",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.443",
+            "handle": "Parallel-Circuits",
+            "name": "Parallel Circuits",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.444",
+            "handle": "Resistors-in-Parallel",
+            "name": "Resistors in Parallel",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.445",
+            "handle": "Resistor-Circuits",
+            "name": "Resistor Circuits",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.445.1",
+            "handle": "Combined-Series-Parallel-Circuits",
+            "name": "Combined Series-Parallel Circuits",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.446",
+            "handle": "Internal-Resistance",
+            "name": "Internal Resistance",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.447",
+            "handle": "Energy-Efficiency",
+            "name": "Energy Efficiency",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.448",
+            "handle": "Capacitors-in-Series-and-Parallel",
+            "name": "Capacitors in Series and Parallel",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.449",
+            "handle": "Ammeters-and-Voltmeters",
+            "name": "Ammeters and Voltmeters",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.450",
+            "handle": "Magnetic-Fields",
+            "name": "Magnetic Fields",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.451",
+            "handle": "Magnets",
+            "name": "Magnets",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.451.1",
+            "handle": "Ferromagnetic-Material",
+            "name": "Ferromagnetic Material",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.451.2",
+            "handle": "Earth-as-a-Magnet",
+            "name": "Earth as a Magnet",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.451.3",
+            "handle": "Magnetic-Field-Reversal",
+            "name": "Magnetic Field Reversal",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.451.4",
+            "handle": "Why-Earth-Is-a-Magnet",
+            "name": "Why Earth Is a Magnet",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.451.5",
+            "handle": "Using-Earths-Magnetic-Field",
+            "name": "Using Earth's Magnetic Field",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.452",
+            "handle": "Magnetic-Fields-Around-Permanent-Magnets",
+            "name": "Magnetic Fields Around Permanent Magnets",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.453",
+            "handle": "Electromagnetism",
+            "name": "Electromagnetism",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.453.1",
+            "handle": "Discovery-of-Electromagnetism",
+            "name": "Discovery of Electromagnetism",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.454",
+            "handle": "Magnetic-Field-Around-a-Coil",
+            "name": "Magnetic Field Around a Coil",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.454.1",
+            "handle": "Solenoid",
+            "name": "Solenoid",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.454.2",
+            "handle": "Electromagnet",
+            "name": "Electromagnet",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.454.3",
+            "handle": "Electromagnetic-Devices",
+            "name": "Electromagnetic Devices",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.455",
+            "handle": "Lorentz-Force",
+            "name": "Lorentz Force",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.456",
+            "handle": "Current-and-Magnetism",
+            "name": "Current and Magnetism",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.457",
+            "handle": "Electric-Motors",
+            "name": "Electric Motors",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.460",
+            "handle": "Electromagnetic-Induction",
+            "name": "Electromagnetic Induction",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.461",
+            "handle": "Electromotive-Force",
+            "name": "Electromotive Force",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.462",
+            "handle": "Generators-and-Motors",
+            "name": "Generators and Motors",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.463",
+            "handle": "Alternating-Current",
+            "name": "Alternating Current",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.464",
+            "handle": "Lenzs-Law",
+            "name": "Lenz's Law",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.465",
+            "handle": "Self-Inductance",
+            "name": "Self-Inductance",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.466",
+            "handle": "Electric-Transformers",
+            "name": "Electric Transformers",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.466.1",
+            "handle": "Electrical-Grid",
+            "name": "Electrical Grid",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.467",
+            "handle": "Production-of-Electromagnetic-Waves",
+            "name": "Production of Electromagnetic Waves",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.468",
+            "handle": "Reception-of-Electomagnetic-Waves",
+            "name": "Reception of Electomagnetic Waves",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.470",
+            "handle": "Quantum-Theory",
+            "name": "Quantum Theory",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.471",
+            "handle": "Radiation-from-Incandescent-Bodies",
+            "name": "Radiation from Incandescent Bodies",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.472",
+            "handle": "Plancks-Constant",
+            "name": "Planck's Constant",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.473",
+            "handle": "Matter-Waves",
+            "name": "Matter Waves",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.474",
+            "handle": "Wave-Particle-Theory",
+            "name": "Wave-Particle Theory",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.475",
+            "handle": "Lasers",
+            "name": "Lasers",
+			"category": "Electricity and Magnetism"
+        },
+		{
+            "encodedID": "SCI.PHY.500",
+            "handle": "Atom",
+            "name": "Atom",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.510",
+            "handle": "Introduction-to-the-Atom",
+            "name": "Introduction to the Atom",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.511",
+            "handle": "Sub-Atomic-Particles",
+            "name": "Sub-Atomic Particles",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.512",
+            "handle": "Evolution-of-the-Model-of-the-Atom",
+            "name": "Evolution of the Model of the Atom",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.512.1",
+            "handle": "Bohr-Model-of-the-Atom",
+            "name": "Bohr Model of the Atom",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.512.2",
+            "handle": "Quantum-Mechanical-Model-of-the-Atom",
+            "name": "Quantum Mechanical Model of the Atom",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.513",
+            "handle": "Fundamental-Particles",
+            "name": "Fundamental Particles",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.514",
+            "handle": "Atomic-Forces",
+            "name": "Atomic Forces",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.520",
+            "handle": "Nuclear-Physics",
+            "name": "Nuclear Physics",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.521",
+            "handle": "Nuclear-Particles",
+            "name": "Nuclear Particles",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.522",
+            "handle": "Quarks",
+            "name": "Quarks",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.523",
+            "handle": "Isotopes-and-Nuclear-Stability",
+            "name": "Isotopes and Nuclear Stability",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.524",
+            "handle": "Radiation",
+            "name": "Radiation",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.525",
+            "handle": "Nuclear-Equations",
+            "name": "Nuclear Equations",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.526",
+            "handle": "Half-Life",
+            "name": "Half Life",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.526.1",
+            "handle": "Carbon-Dating",
+            "name": "Carbon Dating",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.527",
+            "handle": "Binding-Energy",
+            "name": "Binding Energy",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.528",
+            "handle": "Fission-and-Fusion-Reactions",
+            "name": "Fission and Fusion Reactions",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.529",
+            "handle": "Nuclear-Reactors",
+            "name": "Nuclear Reactors",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.530",
+            "handle": "Relativity",
+            "name": "Relativity",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.530.1",
+            "handle": "Galilean-Relativity",
+            "name": "Galilean Relativity",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.530.2",
+            "handle": "Michaelson-Morley-Experiment",
+            "name": "Michaelson-Morley Experiment",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.530.3",
+            "handle": "Special-Theory-of-Relativity",
+            "name": "Special Theory of Relativity",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.531",
+            "handle": "Time-Dilation",
+            "name": "Time Dilation",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.532",
+            "handle": "Length-Contraction",
+            "name": "Length Contraction",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.533",
+            "handle": "General-Theory-of-Relativity",
+            "name": "General Theory of Relativity",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.540",
+            "handle": "Particle-Physics",
+            "name": "Particle Physics",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.541",
+            "handle": "Standard-Model-of-Particle-Physics",
+            "name": "Standard Model of Particle Physics",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.542",
+            "handle": "Feynmans-Diagrams",
+            "name": "Feynman's Diagrams",
+			"category": "Atom"
+        },
+		{
+            "encodedID": "SCI.PHY.900",
+            "handle": "Introduction-to-Physics",
+            "name": "Introduction to Physics",
+			"category": "Introduction to Physics"
+        },
+		{
+            "encodedID": "SCI.PHY.910",
+            "handle": "Definition-of-Physics",
+            "name": "Definition of Physics",
+			"category": "Introduction to Physics"
+        },
+		{
+            "encodedID": "SCI.PHY.920",
+            "handle": "Scientific-Methodology",
+            "name": "Scientific Methodology",
+			"category": "Introduction to Physics"
+        },
+		{
+            "encodedID": "SCI.PHY.921",
+            "handle": "Scientific-Measurement",
+            "name": "Scientific Measurement",
+			"category": "Introduction to Physics"
+        },
+		{
+            "encodedID": "SCI.PHY.922",
+            "handle": "Mathematics-Tools-for-Physics",
+            "name": "Mathematics Tools for Physics",
+			"category": "Introduction to Physics"
+        }
+    ]
+}

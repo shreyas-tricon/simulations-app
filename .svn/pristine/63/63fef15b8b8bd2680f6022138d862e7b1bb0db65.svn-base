@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\workspace\oCanvas-demo\launcher\platforms\android\build\intermediates\exploded-aar\android.com.google.playservices\google-play-services_lib\unspecified\debug\libs\google-play-services.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0f6d5c1ef2e982c3b7858408e3df389cf5d202da">
+        <dex dex="D:\workspace\oCanvas-demo\launcher\platforms\android\build\intermediates\pre-dexed\debug\google-play-services-d641471bb8a9c48ab4e1d85d47959b06b17ee7f3.jar" />
+    </item>
+    <item
+        jar="D:\workspace\oCanvas-demo\launcher\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\debug\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="38e28d599152d3f16191744ebd4c0af3155fdba0">
+        <dex dex="D:\workspace\oCanvas-demo\launcher\platforms\android\build\intermediates\pre-dexed\debug\classes-a1c19dd66ab629116b65645fcfa23a14b70fc966.jar" />
+    </item>
+    <item
+        jar="D:\workspace\oCanvas-demo\launcher\platforms\android\build\intermediates\exploded-aar\android.com.google.playservices\google-play-services_lib\unspecified\release\libs\google-play-services.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0f6d5c1ef2e982c3b7858408e3df389cf5d202da">
+        <dex dex="D:\workspace\oCanvas-demo\launcher\platforms\android\build\intermediates\pre-dexed\release\google-play-services-81d710d96b4fa715fe6dac054eb70a561d026425.jar" />
+    </item>
+    <item
+        jar="D:\workspace\oCanvas-demo\launcher\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\release\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa826f31fb641400438df6b51be1d85903bba328">
+        <dex dex="D:\workspace\oCanvas-demo\launcher\platforms\android\build\intermediates\pre-dexed\release\classes-ae54722fba1a1b5f488e064c9267cc12391c567d.jar" />
+    </item>
+    <item
+        jar="D:\workspace\oCanvas-demo\launcher\platforms\android\build\intermediates\exploded-aar\android.com.google.playservices\google-play-services_lib\unspecified\debug\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d48d3a362e6dd4c78678daef5b0e9a8d39830a42">
+        <dex dex="D:\workspace\oCanvas-demo\launcher\platforms\android\build\intermediates\pre-dexed\debug\classes-52076472c2e82843f3b2d1c2851d9c7bbfd4c645.jar" />
+    </item>
+    <item
+        jar="D:\workspace\oCanvas-demo\launcher\platforms\android\build\intermediates\exploded-aar\android.com.google.playservices\google-play-services_lib\unspecified\release\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3cc687e1157d5c018bd698b3f35439c042b7838b">
+        <dex dex="D:\workspace\oCanvas-demo\launcher\platforms\android\build\intermediates\pre-dexed\release\classes-842d1f120751603aabcf98fd2d4653a148848c9b.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,122 @@
+.standard-list {
+    padding: 21px 25px 19px 25px;
+    background-color: #ffffff;
+}
+.learning-objective-header, .standard-header {
+    font-size: 14px;
+    font-weight: bold;
+}
+.standards-wrapper {
+    margin-bottom: 30px;
+}
+.standard-list-container {
+    padding-top: 12px;
+    line-height: 27px;
+}
+.concept-standards {
+    padding-left: 30px;
+}
+.standard-title {
+    color: #00aba4;
+    cursor: pointer;
+}
+.standard-description {
+    margin-top: 17px;
+    line-height: 27px;
+}
+.standard-description-modal {
+    padding: 0;
+    width: 50%;
+    margin-left: -25%;
+    z-index: 101;
+}
+.standard-description-header {
+    font-size: 18px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+.standard-description-wrapper {
+    font-size: 14px;
+    margin: 0px 10px 15px 0px;
+}
+.standard-heading-text {
+    font-weight: bold;
+}
+.standards-details-container .standard-row-header.collapse {
+    padding: 10px;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    background-color: #00aba4;
+    color: #eee;
+    margin: 10px 0;
+}
+.standard-description-list {
+    overflow-y: auto;
+    height: 400px;
+}
+.standard-row-header div {
+    color: #eee;
+    font-weight: bold;
+}
+.standard-details-text {
+    padding: 10px;
+}
+
+#coversheetHeader .test-title{
+	font-size: 24px;
+	border-bottom: 1px solid #cec9be;
+	color: #8e8774;
+	margin-bottom: 40px;	
+	padding-left : 10px;
+}
+
+#coversheetHeader .close-button-container {
+	margin : 0 0 30px;
+	padding : 0;
+}
+
+.modality-types-wrapper{
+    margin:20px 0;
+}
+.modality-types-wrapper li{
+    border-bottom:1px dashed #d3cfc5;
+    padding:8px 0 8px 2px;
+    color:#00aba4;
+    list-style: none;
+}
+.modality-types-wrapper li:last-child{
+    border-bottom:0 none;
+}
+.modality-types-wrapper li a{
+    color:#00aba4;
+	cursor : pointer;
+	display:inline-block;
+    min-width:150px;
+    margin-right:12px;
+}
+.modality-types-wrapper li a > i{
+    color:#b5b1a8;
+    margin:2px 10px 0 0;
+}
+.see-all-link {
+	border : 1px solid #d3d3d3;
+	height : 0;
+	position : relative;
+	margin: 30px 0;
+}
+.see-all-link span {
+	position : absolute;
+	top: -11px;
+	left: 50%;
+	background-color : #E3E2DC;
+	padding: 2px;
+	border-radius: 20px;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: -100px;
+	display: block;
+	width: 200px;
+	cursor : pointer;
+}

@@ -1,0 +1,1 @@
+define(["text!templates/profile.builder.html","text!templates/thankyou-for-signup.html"],function(a,b){return{PROFILE_INFO:a,THANKYOU_SIGNUP:b}});

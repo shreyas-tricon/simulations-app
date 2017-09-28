@@ -1,0 +1,52 @@
+define(['jquery'], function ($) {
+    'use strict';
+
+    function profileBuilderService() {
+        var profileBuilderURL = {
+            'profileURL': '/profile/update/profileInformation/' // flxweb api call, do not add /api at beginning
+        };
+
+        function getProfileInformation(callback, container) {
+            $.ajax({
+                url:window.API_SERVER_URL +profileBuilderURL.profileURL,
+                success: function (result) {
+                    if (callback) {
+                    	result=$.parseJSON(result)
+                    	//var result={"response": {"result": {"allRoles": [{"id": "5", "name": "teacher"}, {"id": "7", "name": "student"}], "grades": [{"id": 1, "name": "k"}, {"id": 2, "longname": "1st Grade", "name": "1"}, {"id": 3, "longname": "2nd Grade", "name": "2"}, {"id": 4, "longname": "3rd Grade", "name": "3"}, {"id": 5, "longname": "4th Grade", "name": "4"}, {"id": 6, "longname": "5th Grade", "name": "5"}, {"id": 7, "longname": "6th Grade", "name": "6"}, {"id": 8, "longname": "7th Grade", "name": "7"}, {"id": 9, "longname": "8th Grade", "name": "8"}, {"id": 10, "longname": "9th Grade", "name": "9"}, {"id": 11, "longname": "10th Grade", "name": "10"}, {"id": 12, "longname": "11th Grade", "name": "11"}, {"id": 13, "longname": "12th Grade", "name": "12"}], "member": {"authType": "ck-12", "authTypes": {"ck-12": {"authTypeID": 1, "externalID": "adsf@gmail.com", "loginCount": 1, "verified": 1}}, "defaultLogin": "YWRzZkBnbWFpbC5jb20.", "email": "adsf@gmail.com", "emailVerified": 1, "fax": null, "firstName": "adsf", "fullName": "Adsf ", "gradeIDs": [], "id": 672612, "isProfileUpdated": 0, "lastLogin": "2015-06-09 08:09:58", "lastName": "", "licenseAcceptedTime": "2015-06-09T08:09:50-07:00", "login": "YWRzZkBnbWFpbC5jb20.", "newMember": false, "phone": null, "registered": "2015-06-09 08:09:50", "role": {"description": "Student", "id": 7, "name": "student"}, "roles": [{"description": "Student", "id": 7, "name": "student"}], "school": {}, "state": "activated", "timezone": "US/Pacific", "userToken": null, "website": null}}}, "responseHeader": {"QTime": "0:00:00.319997", "status": 0}}
+                        callback(result.response.result, container);
+                    }
+                },
+                error: function () {
+                    if (callback) {
+                        callback('error', container);
+                    }
+                }
+            });
+        }
+
+        function saveUserProfile(callback, member) {
+            $.ajax({
+                url: window.API_SERVER_URL+profileBuilderURL.profileURL,
+                isPageDisable: true,
+                isShowLoading: true,
+                data: member,
+                type: "POST",
+                success: function (result) {
+                    if (callback) {
+                        callback(result);
+                    }
+                },
+                error: function () {
+                    if (callback) {
+                        callback('error');
+                    }
+                }
+            });
+        }
+
+        this.getProfileInformation = getProfileInformation;
+        this.saveUserProfile = saveUserProfile;
+    }
+    return new profileBuilderService();
+
+});

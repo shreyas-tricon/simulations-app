@@ -1,0 +1,14 @@
+# location of keystore
+# for linux build  use the below paths
+#storeFile= D:\CK-12 Simulation App\sim-app-android\simulations.keystore
+# for windows build use the below paths
+storeFile=..\\..\\simulations.keystore
+
+# Key alias
+keyAlias=simulations
+
+# Store password
+storePassword=sim123
+
+# Key password
+keyPassword=sim123

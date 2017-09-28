@@ -1,0 +1,160 @@
+/* .left-label {
+	width : 50px;
+	height : -webkit-calc(100% - 50px);
+	height : -moz-calc(100% - 50px);
+	height : calc(100% - 50px);
+	float : left;
+	text-align : center;
+	position : relative;
+} */
+
+.graph-padding {
+	position : relative;
+	padding : 0 0 30px 30px;	
+	height : 100%;
+	width : 100%;
+}
+
+.left-label-value {
+	position : absolute;
+	left : -30px;
+	width : 30px;
+	text-align : center;
+	height : 20px;
+	line-height : 20px;
+	margin-top : -10px;
+	font-size : 0.8em;
+	font-style : italic;
+	color : #8e8774;
+}
+
+.graph {
+	/* float : right; */
+	width : 100%;
+	height : 100%;
+	/* width : -moz-calc(100% - 55px);
+	width : calc(100% - 55px); */
+	/* height : -webkit-calc(100% - 50px);
+	height : -moz-calc(100% - 50px);
+	height : calc(100% - 50px); */
+	text-align : center;
+	position : relative;		
+	color : #8e8774;
+	z-index : 10;
+}
+
+.graph .try-inner-circle {
+	background-color: transparent;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    height: 15px;
+    width: 15px;
+    position : absolute;
+    top : 15px;
+    left : 15px;
+    margin-top : -7.5px;
+    margin-left : -7.5px;
+}
+
+.graph .try-outer-circle {
+	background-color: transparent;
+    border: 10px solid #cec9be;
+    border-radius: 20px;
+    height: 30px;
+    width: 30px;
+    position : absolute;
+    top : 0px;
+    left : 0px;
+    display : none;
+}
+
+.graph .try-container {
+	width : 30px;
+	height : 30px;
+	position: absolute;
+	text-align : center;
+    margin-left: -15px;
+    margin-top: -15px;
+    cursor : pointer;
+    z-index : 10;
+}
+
+.graph .divider {
+	position : absolute;
+	left : 0px;
+	display : block;
+	border-bottom : 1px solid #9d9788;
+	top : 25%;
+	width : 100%;
+}
+
+.graph .divider:first-child {
+	top : 75%;
+}
+
+.graph .try-container:hover .try-inner-circle,.graph .try-container.active .try-inner-circle {
+	background-color : #00aba4;
+}
+
+.graph .try-container:hover .try-outer-circle, .graph .try-container.active .try-outer-circle {
+	display : block;
+}
+
+.bottom-label {
+	position : absolute;
+	color : #8e8774;
+	font-size : 0.8em;
+	font-style : italic;
+	right : 0;
+	top : 100%;
+	height : 30px;
+	line-height : 30px;	
+}
+
+.with-best-score {
+	padding-right : 55px;
+}
+
+.with-best-score .best-score-indicator {
+	position : absolute;
+	height : 20px;
+	margin-top : -10px;
+	left : 0;
+	width  : 100%;
+	z-index : 1;
+}
+
+.best-score-indicator .best-score-line {
+	border-bottom : 1px dashed #ffcf2a;
+	vertical-align : middle;
+	position : absolute;
+	width : 100%;
+	height : 1px;
+	top : 10px;
+	left : 0;
+}
+
+.best-score-indicator .best-score-pointer {
+	background : #ffcf2a;
+	color : #fff;
+	position : absolute;
+	right : -50px;
+	width : 40px;
+	height  : 20px;
+	line-height : 20px;
+	top : 0;
+	font-style : italic;
+	font-size : 14px;
+	text-align : center;
+}
+
+.best-score-indicator .best-score-pointer:after{
+	border-bottom: 10px solid transparent;
+    border-right: 10px solid #ffcf2a;
+    border-top: 10px solid transparent;
+    position : absolute;
+    display : block;
+    left : -10px;
+    top : 0;
+    content : "";	
+}

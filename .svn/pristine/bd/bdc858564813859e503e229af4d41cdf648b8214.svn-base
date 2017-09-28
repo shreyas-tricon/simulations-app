@@ -1,0 +1,14 @@
+dependencies: \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CK12-Simulations/Plugins/cordova-plugin-zip/ZipPlugin.m \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CK12-Simulations/Plugins/cordova-plugin-zip/ZipPlugin.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVPlugin.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVPluginResult.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVAvailability.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVAvailabilityDeprecated.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/NSMutableArray+QueueAdditions.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVCommandDelegate.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVInvokedUrlCommand.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CK12-Simulations/Plugins/cordova-plugin-zip/Plugins/minizip/SSZipArchive.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CK12-Simulations/Plugins/cordova-plugin-zip/Plugins/minizip/unzip.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CK12-Simulations/Plugins/cordova-plugin-zip/Plugins/minizip/ioapi.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CK12-Simulations/Plugins/cordova-plugin-file/CDVFile.h

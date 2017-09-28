@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline';
+                          script-src 'self' http://maps.googleapis.com http://maps.gstatic.com 'unsafe-inline' 'unsafe-eval'">
+
+ <!--       <link rel="stylesheet" href="auth/foundation/4.1.2/normalize.css" />
+        <link rel="stylesheet" href="auth/foundation/4.1.2/foundation.min.css" /> -->
+        <link rel="stylesheet" href="auth/themes/honeydew/css/webfont.css" />
+        <link rel="stylesheet" href="auth/themes/honeydew/external-css/fontck12.css" />
+        <link rel="stylesheet" href="auth/themes/honeydew/external-css/ui-kit.css" />
+    <!--     <link rel="stylesheet" href="auth/themes/honeydew/font/font-roboto/font-roboto.css" /> -->
+        <link rel="stylesheet" href="auth/css/index.css" />
+		<!-- <link rel="stylesheet" href="auth/css/login.css" /> -->
+        <title>Ck-12</title>
+        <script type="text/javascript" src="auth/components/jquery/jquery.js"></script>
+          <script type="text/javascript" src="auth/components/dexter/dexterjs.js"></script>
+        <script type="text/javascript" src="auth/utils/properties.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="auth/js/app.js"></script>
+        <script data-main="" src="auth/components/require/require.js"></script>
+        <script type="text/javascript">
+		requirejs([], function(){
+			window.reader = {};
+			/* reader.configManager = new configManager(); */
+			window.console.log=function(){}
+
+			var db;
+            var app = window.readerAppHelper;
+
+            function onDeviceReady(platform){
+      			
+            	/* var platform = device.platform.toLocaleLowerCase(); */
+            	window.mode = platform;
+            	
+            	if(platform === "device"){
+                    //  window.plugins.mfilechooser.open([], function (uri) {
+
+                    //         alert(uri);
+
+                    // }, function (error) {
+
+                    //         alert(error);
+
+                    // });
+			        if((/(iPad|iPhone|iPod|iOS)/i).test(platform)){
+			        	$("body").addClass("ios");
+	                    if (window.orientation && Math.abs(window.orientation) === 90) {
+	                        window.scrollBy(0, 150);
+	                    }
+			        }else{
+			        	$("body").addClass("android");
+			        }
+            	}
+            	else{
+            		$("body").addClass("browser");
+            	}
+				setTimeout(function(){
+					if(readerAppHelper){
+						readerAppHelper.init();
+						readerAppHelper.initRootPath(".");
+						//if(readerAppHelper.checkForNetwork()){
+							//readerAppHelper.checkLogin();
+                           readerAppHelper.checkAppVersion(readerAppHelper.zipUnzipAllspark);
+                           //readerAppHelper.zipUnzipAllspark();
+                           readerAppHelper.logScreenViewEventForApp("Application launch");
+                           //readerAppHelper.downloadAllspark()
+						//	}
+						readerAppHelper.initAjaxSetup();
+					}
+				},10);
+
+
+            }
+
+            function checkDeviceConnectivity(){
+            if(navigator.connection.type != "none"){
+              return true;
+            }else{
+              return false;
+            }
+        };
+
+        function readFromFile(url, cb, errorFunc) {
+            //var pathToFile = cordova.file.dataDirectory + fileName;
+            window.resolveLocalFileSystemURL(url, function (fileEntry) {
+                fileEntry.file(function (file) {
+                    var reader = new FileReader();
+
+                    reader.onloadend = function (e) {
+                        //cb(JSON.parse(this.result));
+                        cb(this.result);
+                    };
+
+                    reader.readAsText(file);
+                }, function(){console.log('Error Reading file ' + url);});
+            }, function(){console.log('Error Reading file ' + url);});
+        };
+
+        function writeToFile(fileName, data) {
+            data = JSON.stringify(data, null, '\t');
+            window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (directoryEntry) {
+                directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
+                    fileEntry.createWriter(function (fileWriter) {
+                        fileWriter.onwriteend = function (e) {
+                            // for real-world usage, you might consider passing a success callback
+                            console.log('Write of file "' + fileName + '"" completed.');
+                        };
+
+                        fileWriter.onerror = function (e) {
+                            // you could hook this up with our global error handler, or pass in an error callback
+                            console.log('Write failed: ' + e.toString());
+                        };
+
+                        var blob = new Blob([data], { type: 'text/plain' });
+                        fileWriter.write(blob);
+                    }, function(){console.log('Error writing file ' + fileName);});
+                }, function(){console.log('Error writing file ' + fileName);});
+            }, function(){console.log('Error writing file ' + fileName);});
+        };
+
+        function loadFileURL(url,options) {
+            var callback = options,
+            xhr = new XMLHttpRequest();
+            
+            if(options instanceof Object && !(options instanceof Function)){
+               callback = options.callback;
+                for(var x in options){
+                    if(options.hasOwnProperty(x)){
+                        xhr[x] = options[x];    
+                    }
+                }
+            }
+            
+            xhr.onreadystatechange = function() {
+                if(this.readyState === 4) {
+                    if(callback) callback(this.responseText);
+                }
+            };
+            xhr.open('GET', url);
+            xhr.send();
+        };
+
+        function fetchJsonsFromApplicationDirectory(){
+          loadFileURL('www/json/eids.json', {
+            "callback": function(responseText){
+                  writeToFile('eids.json', JSON.parse(responseText));
+            }
+          });
+          loadFileURL('www/json/simulationsData.json', {
+            "callback": function(responseText){
+                  writeToFile('simulationsData.json', JSON.parse(responseText));
+            }
+          });
+          loadFileURL('www/json/standardsData.json', {
+            "callback": function(responseText){
+                  writeToFile('standardsData.json', JSON.parse(responseText));
+            }
+          });
+        };
+
+        function fetchJsonsFromApis()
+        {
+            //var api_server_url = 'https://interactivescdn.ck12.org';
+            var api_server_url = 'https://simtest.ck12.org';
+            // if(window.API_SERVER_URL)
+            //     api_server_url = window.API_SERVER_URL
+          $.ajax({
+              "url" : api_server_url + '/simulations/json/physics/eids.json',
+              "success" : function(response){
+                  writeToFile('eids.json', response);
+                  $.ajax({
+                      "url" : api_server_url + '/simulations/json/physics/simulationsData.json',
+                      "success" : function(response1){
+                          writeToFile('simulationsData.json', response1);
+                          $.ajax({
+                              "url" : api_server_url + '/simulations/json/physics/standardsData.json',
+                              "success" : function(response2){
+                                  writeToFile('standardsData.json', response2);
+                                  window.localStorage.setItem('jsonsLastUpdated',new Date().getTime())
+                              },
+                              "error" : function(response){
+                                  console.log('error fetching standardsData.json from api');
+                                  console.log('Something went wrong setting jsons from applicationDirectory');
+                                  fetchJsonsFromApplicationDirectory();
+                              }
+                          });
+                      },
+                      "error" : function(response){
+                          console.log('error fetching simulationsData.json from api');
+                          console.log('Something went wrong setting jsons from applicationDirectory');
+                          fetchJsonsFromApplicationDirectory();
+                      }
+                  });
+              },
+              "error" : function(response){
+                  console.log('error fetching eids.json from api');
+                  console.log('Something went wrong setting jsons from applicationDirectory');
+                  fetchJsonsFromApplicationDirectory();
+              }
+          });
+        };
+            if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+                document.addEventListener("deviceready", function(){
+                    console.log("!!!!");
+                   // window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, success, error);
+                  onDeviceReady("device");
+
+                  //check if jsons stored in data directory else add jsons in data directory
+                    //if jsons exist update the jsons
+                    console.log("Device Ready = "+cordova.file.dataDirectory);
+                    console.log("jsonsLastUpdated = "+window.localStorage.getItem('jsonsLastUpdated'));
+                    if(window.localStorage.getItem('jsonsLastUpdated'))
+                    {
+                        console.log('data directory already set');
+                        //check if last updated is not today day, if yes update jsons
+                        if(new Date(parseInt(window.localStorage.getItem('jsonsLastUpdated'))).toDateString() != new Date().toDateString()
+                          && checkDeviceConnectivity())
+                        {
+                          console.log('updating jsons');
+                            fetchJsonsFromApis();
+                        }
+                    }
+                    else
+                    {
+                      console.log('setting data directory for first time');
+                        if(checkDeviceConnectivity())
+                        {
+                          console.log('setting data directory from apis');
+                            fetchJsonsFromApis();
+                        }
+                        else
+                        {
+                          console.log('setting data directory from application directory');
+                            fetchJsonsFromApplicationDirectory();
+                        }
+                    }
+                }, false);
+            } else {
+                onDeviceReady("web");
+            }
+		});
+
+
+		</script>
+    </head>
+    <body id="appIndexPage">
+    	<div class="row collapse app-loading">
+	    	<div class="logo-image display-block">
+	           <!-- <img width="185" height="96" class="logo-img large" src="www/assets/images/logo.png" alt="CK-12 "> -->
+	        </div>
+	<!--     	<div class="loader-container">
+	            <div class="new-loader">
+	            	 <img width="50" height="50" class="loading-img" src="ck12-components/common/images/icon_loading.gif" alt="CK-12 ">
+	            </div>
+	    	</div> -->
+	    	<div class="landing-text"> EXPLORATION SERIES</div>
+	    </div>
+	    	    <div id="loadingOverlay" class="loading-overlay hide">
+		<div class="text">Downloading Required Data...</div>
+		<div id="loaderScreen" class="loader loader-down-lo"><div class="loader-container"><div class="loader-icon"></div></div></div>
+
+</div>
+	    
+	</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; 
+                        script-src 'self' https://maps.googleapis.com https://maps.gstatic.com 'unsafe-inline' 'unsafe-eval'">  
+      <title>Sign In</title>
+      <link rel="stylesheet" href="../ck12-components/common/vendor/foundation/css/normalize.css" />
+      <link rel="stylesheet" href="../ck12-components/common/vendor/foundation/css/foundation.min.css" />
+      <link rel="stylesheet" href="themes/honeydew/css/webfont.css" />
+      <link rel="stylesheet" href="themes/honeydew/external-css/fontck12.css" />
+      <link rel="stylesheet" href="themes/honeydew/external-css/ui-kit.css" />
+      <link rel="stylesheet" href="themes/honeydew/font/font-roboto/font-roboto.css" />
+      <link rel="stylesheet" href="css/index.css" />
+      <link rel="stylesheet" href="css/login.css" />
+  	  <script type="text/javascript" src="components/jquery/jquery.js"></script>
+  	   <script type="text/javascript" src="components/dexter/dexterjs.js"></script>
+       <script type="text/javascript" src="components/jquery/jquery.js"></script>
+      <script type="text/javascript" src="components/dexter/dexterjs.js"></script>
+       <script type="text/javascript" src="components/cryptojs/rollups/aes.js"></script>
+       <script type="text/javascript" src="components/cryptojs/rollups/sha224.js"></script>
+       <script type="text/javascript" src="components/cryptojs/components/mode-cfb.js"></script>
+  	  <!-- <script type="text/javascript" src="../ck12-components/dexterjs/dexterjs.min.js"></script> -->
+      <script type="text/javascript" src="utils/properties.js"></script>
+      <script type="text/javascript" src="../cordova.js"></script>
+   </head>
+   <body>
+      <section class="landing-page" id="landing-screen">
+       <!-- moved to indvidual pages for animation
+         <div class="signin-header hide">
+            <i class="icon-arrow3_left back-arrow"></i>
+            <span class="header-msg"></span>
+         </div> --> 
+          <div class="row collapse app-land-cont">
+        	<div class="app-landing-page active-login-view">
+           <!--  <div class="logo-image">
+               
+            </div> -->
+            
+	         	<div class = "background-animation">
+		         	<div class = "background-app-1 common-class"></div>
+		         	<div class = "background-app-2 common-class"></div>
+		         	<div class = "background-app-3 common-class"></div>
+		         	<div class = "background-app-4 common-class"></div>
+		         	<div class = "background-app-5 common-class"></div>
+	         	</div>
+	         	
+	
+	         	<div class="background-app ">
+	         	
+	         	
+	         	
+	            	  <div class="firstPage-msg">
+              
+                <div class="firstPage-msg-2">
+                  <!-- <div class="logo-image"></div> -->
+                  <div class="logo-text">SIMULATIONS</div> 
+                </div>
+                <div class="firstPage-msg-3">
+                  Discover a new way of learning<br>Physics using real world simulations.
+              </div>
+                </div>
+	           		<div class="landing-button-cont">
+	            				<!--   <span class="sigin-btn-cnt">
+		               <a class="sign-btn">Sign In </a>
+		              				</span> -->
+	       				<span class="sigin-btn-cnt sign-btn" id = "signInButton">
+	       					<input type="button" value="SIGN IN" class="sign-btn tangerine button  button-width sign-btn-switch btn-clr">
+		               </span>
+		               <span class="sigin-btn-cnt join-btn signin-bottom" id="signUpButton">
+	       					<input type="button" value="JOIN" class="sign-btn tangerine button button-width join-btn-switch btn-clr">
+		               </span>
+		             	<!-- <span class="join-btn-cont">
+		               	<input type="button" value="Join" class="join-btn turquoise button large">
+		             	</span> --> 
+	            
+	            	</div>
+	           	</div>
+			
+
+			</div>
+	        <div class="signin-form-parent slideAnimation-signin-form-parent-0  hide ">
+		         <!-- <div class="signin-header ">
+		         		<i class="close-icon close-signin"></i>
+		           		
+         		</div> -->
+		         <div class="signin-form ">
+		         <div class = "welcome-text">Welcome!</div>
+		         <!-- removed hide and added parent to this -->
+            <div class="login-container">
+               <!--<div class="google-signin text-center">
+                  <a  class="button dark-tangerine signin-google">
+                  	<i class="icon-google"></i><span>Sign in with Google</span>
+                  </a>
+                  </div>-->
+               <div class="google-signin text-center googleplay-signin" id="googleplay-signin-wrap">
+     		      <a  class="button dark-tangerine signin-googleplay large google-button-custom" data-mode="signin">
+                      <i class="icon-google"></i><span>SIGN IN WITH GOOGLE</span>
+                  </a>
+               	  <div id="message-googleplay" class="message-googleplaySignin error-msg hide"></div>
+               </div>
+               <div class="separator"><span class="sep-line"></span class="sep-text"><span>or</span><span class="sep-line"></span></div>
+               <form id="login-form">
+                  <div id="message" class="error-msg hide"></div>
+                  <div class="cmpny-name">Sign In with CK-12</div>
+		                  <input name="usrname" placeholder="Username or email" type="text" class= "validate-input input-custom" autocorrect="off" autocapitalize="off" spellcheck="false" size="15" />
+		                  <input name="password" placeholder="Password" type="password" size="15" class= "validate-input input-custom"/>
+                  <div class="submit-container">
+                     <a class="forgot-pswd" href="/auth/forgot/password">Forgot Password?</a>
+		                    
+		                     <span class="submit-right">
+		                        <input id="loginButton" type="submit" value="SIGN IN" class="signin-submit turquoise button disabled grey  my-btn">
+		                     </span>
+		                     
+		                     <!--  <div class="login-content row collapse text-center">
+		                         <span class="signin-bottom-text">Don't have an account yet?</span>
+		                         <span target="_blank"  class="signin-bottom">Sign Up.</span> 
+		                        <br/>
+		                     </div> -->
+		                     <div class="signin-terms-content row text-center">
+                       			 <span>By signing up, I confirm that I have read and agree to the</span>
+                        		<a target="_blank" href="http://gamma.ck12.org/about/terms-of-use/" class="terms">Terms of use</a>
+                        		<span>and</span>
+                        		<a href="https://gamma.ck12info.org/about/technology-2/privacy-policy/?_ga=1.195256228.923100768.1464343151" class="terms" target="_blank">Privacy Policy</a>.
+                       			 <br/>
+                     		 </div>
+                     <span id="app_version"></span>
+                  </div>
+               </form>
+            </div>
+         </div>
+	        </div>
+	        <div class="signin-screen-parent  slideAnimation-signin-screen-parent-0 hide ">
+	         	<!--  <div class="signin-header ">
+		         		   <i class="close-icon close-signup"></i>
+		           		<span class="header-msg">Create an account</span>
+		        	 </div> -->
+		         <div class="signin-form ">
+		         <div class="signin-screen">
+            <div class="sign-up" id="signUpForm">
+               <div class="google-signin text-center googleplay-signin" id="googleplay-signin-wrap">
+		                  <a  class="button dark-tangerine signin-googleplay large google-button-custom"  data-mode="signup">
+                  <i class="icon-google"></i><span>SIGN UP WITH GOOGLE</span>
+                  </a>
+                  <div id="message-googleplay" class=" message-googleplaySignup error-msg hide"></div>
+               </div>
+               <div class="separator"><span class="sep-line"></span class="sep-text"><span>or</span><span class="sep-line"></span></div>
+               <form id="sign-up-user">
+                  <div id="message-signup" class="error-msg"></div>
+                  <div class="name-wrap po-relative">
+                     <div class="error-msg hide">Enter your full name.</div>
+		                     <input name="fullname" placeholder="Full Name" type="text" class="f-name validated-input input-custom width-inc margin-change" maxlength="63" autocorrect="off" autocapitalize="on" spellcheck="false" required/>
+                     <div class="error-msg hide">Enter your full name.</div>
+                  </div>
+                  <!-- <div class="birthday-wrap po-relative">
+                     <input name="dob"  type="date" class="dob  po-relative validated-input" placeholder="Date of birth" required>
+                     <span class="date-format">Date of birth</span>
+                     <div  class="error-msg hide">Enter your date of birth.</div>
+                     <div class="under-13 hide"> 
+                     </div>
+                  </div> -->
+                  <div class ="email-wrap po-relative">
+                     <div  class="error-msg hide">Enter valid email address (e.g. name@address.com)</div>
+		                     <input name="email" type="email" class="forminput email validated-input input-custom width-inc margin-change" placeholder="Email" required>
+                     <div  class="error-msg hide">Enter valid email address (e.g. name@address.com)</div>
+                  </div>
+                  <div class="password-wrap po-relative">
+                  	 <div  class="error-msg hide">Enter at least 6 characters.</div>
+		                     <input name="password" placeholder="Password" type="password" class="password validated-input input-custom width-inc margin-change" id="pswd-change" required/>
+                     <div  class="error-msg hide">Enter at least 6 characters.</div>
+                  </div>
+                  <div class="custom-box pwd-toggle-container text-left">
+                     <input type="checkbox" id="password_display_toggle" value="">
+                     <label for="password_display_toggle" class="checkbox lbl_show_password"><span><i class="icon-validated"></i></span>&nbsp;&nbsp;Show password</label>
+                  </div>
+                  <div class="text-center submit-wrap">
+		                     <input type="submit" value="SIGN UP" id="createUser" class="signup-submit button btn turquoise disabled grey  my-btn"/>
+                     <br/>
+                     <span id="app_version"></span>
+                  </div>
+                  <div class="login-content row collapse text-center">
+                  <!--  <span class="signup-bottom-text">Already have an account?</span>
+                   <span target="_blank"  class="signup-bottom">Sign In.</span> --> 
+                  <br/>
+                 </div>
+                 <div class="signup-terms-content row text-center">
+                    <span>By signing up, I confirm that I have read and agree to the</span>
+                    <a target="_blank" href="http://gamma.ck12.org/about/terms-of-use/" class="terms">Terms of use</a>
+                    <span>and</span>
+                    <a href="https://www.ck12info.org/about/technology-2/privacy-policy/?_ga=1.195256228.923100768.1464343151" class="terms" target="_blank">Privacy Policy</a>.
+                    <br/>
+                 </div>
+		                  
+               </form>
+            </div>
+         </div>
+	         </div>
+	        </div>
+         <!--    <div class="forgot-pwd hide">
+            <div class="row">
+            	<div class="large-12 columns">
+            		<h2 class="text-center">Forgot password</h2>
+            			<form id="forgot-pwd-form" class=" po-relative">
+            				<div id="msg-pswd" class="error-msg hide"></div>
+            				<div>Please enter your email</div>
+            				<input type="email" placeholder="email" name="f-pswd" class="forminput email">
+            				  <div class="error-msg hide">Please enter valid email</div>
+            				<div class="btn-cont">
+            					<input type="button" class="button turquoise submit-email" value="Send password reset">
+            				<input type="button" class="button turquoise exit-pswd-page" value="cancel">
+            				</div>
+            				
+            			</form>
+            	</div>
+            </div>
+            </div> -->
+         <div class="reset-msg hide">
+            Your password reset was successful. Please check the mail for reset intructions.
+            <input type="button" class="button turquoise" name="ok">
+         </div>
+        </div>
+     	  
+      </section>
+      <div class="app-container hide">
+      	<!-- <header class="reader-app-header table" id="reader-app-header">
+		    <div class="table-row">
+				<div class="table-cell" id="headerText">
+					<img class="logo-img large" src="../ck12-components/common/images/ck12.svg" alt="CK-12">
+				</div>
+			</div>
+		</header>  -->
+      	<div id="profileBuilder"class="app-page">
+      		<!-- Removed Some items from profile builder modal -->
+      	</div>
+      </div>
+        
+      <script type="text/javascript" src="js/app.js"></script>
+      <!-- stopped loading of other scripts -->
+      <!-- <script type="text/javascript" src="ui/utils/utils.js"></script>
+      <script type="text/javascript" src="ui/services/aas.member.js"></script>
+      <script type="text/javascript" src="lmspractice/ui/media/dexterjs/dexterjs.min.js"></script> 
+      <script type="text/javascript" src="ui/public/lib/dexterjs/dexterjs.js"></script>
+      <script type="text/javascript" src="ui/services/analytics.js"></script>
+      <script type="text/javascript" src="ui/controllers/analytics.js"></script> -->
+      <script type="text/javascript" src="js/config.js"></script>
+      <script data-main="" src="components/require/require.js"></script>
+      <script type="text/javascript" src="js/login.js"></script>
+      
+     
+    
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+      <script>
+		      document.addEventListener("deviceready", function(){
+		          if (readerAppHelper){
+		        	 // readerAppHelper.checkAppVersion();
+						readerAppHelper.init();
+		          	readerAppHelper.initRootPath(".");
+		          	//readerAppHelper.logGAEventForApp("SignIn_SignUp");   /* commnented event logging */
+		          } 
+				}, false);
+      </script>
+   </body>
+</html>

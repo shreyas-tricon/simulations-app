@@ -1,0 +1,163 @@
+.edmodo-turn-in-container {
+	background : #E9ECEF;
+	width : 100%;
+	max-width : 100%;
+}
+
+.edmodo-turn-in-container .edmodo-turn-in-section {
+	padding : 30px 0;
+}
+
+.edmodo-turn-in-container .edmodo-turn-in-section.compact-view {
+	padding : 10px 0;
+}
+
+.edmodo-turn-in-container .edmodo-turn-in-section.compact-view:after {
+	display : table;
+	content : "";
+	clear : both;
+}
+
+.edmodo-turn-in-section.compact-view .edmodo-turn-in-detail {
+	float : left;
+	width : -webkit-calc(100% - 150px);
+	width : -moz-calc(100% - 150px);
+	width : -ms-calc(100% - 150px);
+	width : calc(100% - 150px);
+}
+
+.edmodo-turn-in-section.compact-view .edmodo-turn-in-controller {
+	float : left;
+	width : 150px;
+}
+
+.edmodo-turn-in-container .compact-view #renderButton {
+	margin-top : 10px;
+}
+
+.edmodo-turn-in-container .hide{
+	display : none !important;
+}
+
+.edmodo-logo{
+	width : 50px;
+	height : 50px;
+}
+
+.edmodo-modal {
+	border-width : 1px;
+	border-radius : 2px;
+	padding : 0;
+	box-shadow : none;
+	-webkit-box-shadow : none;
+	-moz-box-shadow : none;
+	-ms-box-shadow : none;	
+	width : 400px !important;
+	margin-left : -200px !important;
+	position : absolute;
+}
+
+.edmodo-modal .close {
+	right : -15px;
+}
+
+.edmodo-turn-in-container p, .edmodo-modal p {
+	line-height : 1;
+	margin : 0;
+}
+
+.edmodo-turn-in-container .icon-checkmark {
+	margin-right : 10px;
+	font-size : 18px;
+}
+
+.edmodo-turn-in-container p {
+	font-size : 14px;
+	padding : 10px 10px 5px;
+}
+
+/* .edmodo-turn-in-container #turnedAttempt, .edmodo-turn-in-container #dueAttempt {
+	padding : 10px 0;
+} */
+
+.edmodo-turn-in-container #renderButton {
+	text-align : center;
+	margin-top : 20px;	
+}
+
+.edmodo-turn-in-container #renderButton .button {
+	width : 120px;
+}
+
+.edmodo-turn-in-container .text-small, .edmodo-modal .text-small {
+	font-size : 14px;
+}
+
+.edmodo-modal header {
+	padding : 10px 10px 20px 10px;
+}
+
+.edmodo-modal header:after {
+	display : table;
+	clear : both;
+	content : "";
+}
+
+.edmodo-modal .edmodo-logo-container, .edmodo-modal .header-title {
+	float : left;
+}
+
+.edmodo-modal .header-title {
+	line-height : 50px;
+	height  : 50px;
+}
+
+.edmodo-modal .text {
+	padding : 10px 20px;
+}
+
+.edmodo-modal .group-selector {
+	padding : 20px 20px 0;	
+}
+
+.edmodo-modal .edmodoGroups p{
+	padding: 15px 20px;
+	border-bottom: 1px solid #d3d3d3;
+}
+
+.edmodo-modal .edmodoGroups p:first-child {
+	border-top: 1px solid #d3d3d3;
+}
+
+.edmodo-modal .edmodoGroups input[type=checkbox] {
+	margin-right : 10px;
+}
+
+.edmodo-modal .edmodo-button-container {
+	margin : 20px 0;
+	text-align : center;
+}
+
+.edmodo-link {
+	color : #00aba4;
+	cursor : pointer;
+	margin-left : 10px;
+}
+
+.edmodo-link:hover {
+	color : #00aba4;
+}
+
+.edmodo-logo-circle{
+	position: absolute;
+	top: 0;
+	border-radius: 50%;
+	background: #E9ECEF;
+	width: 75px;
+	height: 75px;
+	text-align: center;
+	padding-top: 15px;
+	margin-top: -35px;	
+}
+
+

@@ -1,0 +1,25 @@
+dependencies: \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CK12-Simulations/Plugins/cordova-plugin-file/CDVAssetLibraryFilesystem.m \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CK12-Simulations/Plugins/cordova-plugin-file/CDVFile.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVPlugin.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVPluginResult.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVAvailability.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVAvailabilityDeprecated.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/NSMutableArray+QueueAdditions.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVCommandDelegate.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVInvokedUrlCommand.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/CK12-Simulations/Plugins/cordova-plugin-file/CDVAssetLibraryFilesystem.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDV.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVViewController.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVCommandQueue.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVWhitelist.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVScreenOrientationDelegate.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVURLProtocol.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVDebug.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVLocalStorage.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVTimer.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/NSArray+Comparisons.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/NSData+Base64.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/NSDictionary+Extensions.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/UIDevice+Extensions.h \
+  /Users/kamaksh/Desktop/old_Code_launcher/launcherOffline/platforms/ios/build/emulator/include/Cordova/CDVJSON.h
